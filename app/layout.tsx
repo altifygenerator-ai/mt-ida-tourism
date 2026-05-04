@@ -4,10 +4,10 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import "./globals.css"
 
-
+const siteUrl = "https://glenwoodarkansas.org";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mt-ida-tourism.vercel.app/"),
+  metadataBase: new URL(siteUrl),
 
   verification: {
     google: "5y-62wLg0SUv41YcFBP_4MEIRwruudOrbLLSYE9dcPM",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         alt: "Mount Ida Arkansas tourism guide",
       },
     ],
-    locale: "en_US",
+   locale: "en_US",
     type: "website",
   },
 
@@ -64,15 +64,22 @@ export const metadata: Metadata = {
     images: ["/images/mt-ida-hero.jpg"],
   },
 
-  alternates: {
-    canonical: "https://mt-ida-tourism.vercel.app/",
+   alternates: {
+    canonical: siteUrl,
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-}
+};
 
 export default function RootLayout({
   children,
