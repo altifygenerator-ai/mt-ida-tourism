@@ -4,7 +4,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import "./globals.css"
 
-import type { Metadata } from "next"
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mt-ida-tourism.vercel.app/"),
