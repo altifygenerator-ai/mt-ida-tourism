@@ -1,26 +1,272 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Playfair Display", serif;
+
+  --color-bg: #f7f0e3;
+  --color-text: #2d2a26;
+  --color-muted: #6b665f;
+  --color-accent: #3f5c4a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+/* Layout */
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(45, 42, 38, 0.08);
+}
+
+.site-header-inner {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.logo::before {
+  content: "🌿";
+  margin-right: 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.nav a {
+  color: var(--color-text);
+}
+
+.nav a:last-child {
+  background: var(--color-accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--color-accent);
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  background: rgba(0, 0, 0, 0.78);
+  padding: 48px;
+  border-radius: 18px;
+
+  /* ADD THIS */
+  margin-top: 60px;
+}
+
+.hero-content h1 {
+  color: white;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin: 0 0 24px;
+}
+
+.hero-content p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.15rem;
+  margin: 0 0 28px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: white;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.btn-light {
+  background: white;
+  color: var(--color-text);
+}
+.feature-content .btn {
+  margin-top: 18px;
+}
+/* Intro */
+.intro {
+  max-width: 850px;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin: 0 0 20px;
+}
+
+.intro p {
+  font-size: 1.08rem;
+}
+
+/* Cards */
+.card {
+  border: 1px solid rgba(45, 42, 38, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.image-card {
+  height: 260px;
+  overflow: hidden;
+  background: var(--color-accent);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 22px;
+}
+
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+}
+
+.card-content p {
+  margin: 0;
+}
+
+/* Dark image sections */
+.dark-section {
+  color: white;
+  background: var(--color-accent);
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4,
+.dark-section p {
+  color: white;
+}
+
+/* Footer */
+.footer {
+  background: #2d2a26;
+  color: white;
+  padding: 50px 0;
+}
+
+.footer h3,
+.footer p,
+.footer a {
+  color: white;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 34px;
+  }
 }
