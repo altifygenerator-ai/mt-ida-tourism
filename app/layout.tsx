@@ -4,15 +4,24 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import "./globals.css"
 
+import type { Metadata } from "next"
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mountidaarkansas.org"),
+  metadataBase: new URL("https://mt-ida-tourism.vercel.app/"),
+
+  verification: {
+    google: "5y-62wLg0SUv41YcFBP_4MEIRwruudOrbLLSYE9dcPM",
+  },
+
   title: {
     default:
       "Mount Ida Arkansas Tourism | Crystal Mines, Lake Ouachita, Cabins & Things To Do",
     template: "%s | Mount Ida Arkansas",
   },
+
   description:
     "Explore Mount Ida, Arkansas with local guides to crystal mines, Lake Ouachita, cabins, restaurants, local businesses, history, and things to do in the Ouachita Mountains.",
+
   keywords: [
     "Mount Ida Arkansas",
     "Mount Ida AR",
@@ -26,12 +35,13 @@ export const metadata: Metadata = {
     "Mount Ida restaurants",
     "Ouachita Mountains",
   ],
+
   openGraph: {
     title:
       "Mount Ida Arkansas Tourism | Crystal Mines, Lake Ouachita, Cabins & Things To Do",
     description:
       "Plan a Mount Ida trip with guides to crystal mines, Lake Ouachita, cabins, restaurants, history, and local businesses.",
-    url: "https://mountidaarkansas.org",
+    url: "https://mt-ida-tourism.vercel.app/",
     siteName: "Mount Ida Arkansas Tourism",
     images: [
       {
@@ -44,6 +54,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title:
@@ -52,9 +63,11 @@ export const metadata: Metadata = {
       "Explore Mount Ida, Arkansas with crystal mines, Lake Ouachita, cabins, restaurants, and things to do.",
     images: ["/images/mt-ida-hero.jpg"],
   },
+
   alternates: {
-    canonical: "https://mountidaarkansas.org",
+    canonical: "https://mt-ida-tourism.vercel.app/",
   },
+
   robots: {
     index: true,
     follow: true,
