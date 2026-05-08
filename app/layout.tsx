@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   verification: {
-    google: "5y-62wLg0SUv41YcFBP_4MEIRwruudOrbLLSYE9dcPM",
-  },
+  google: "0O3VtREtJQpBnzTLrrDN5Vzh3yk4M3bPIMnRVQobAMg",
+},
 
   title: {
     default:
