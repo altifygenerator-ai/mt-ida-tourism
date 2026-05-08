@@ -1,0 +1,70 @@
+import type { MetadataRoute } from "next";
+
+const siteUrl = "https://mountidaarkansas.org";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: `${siteUrl}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+
+    {
+      url: `${siteUrl}/things-to-do`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/crystal-mines`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/lake-ouachita`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/cabins`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/restaurants`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/local-business`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+
+    {
+      url: `${siteUrl}/history`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+
+    {
+      url: `${siteUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+  ];
+}
