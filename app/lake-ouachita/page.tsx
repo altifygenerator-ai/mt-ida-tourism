@@ -38,7 +38,7 @@ const lakeSections = [
     title: "Clear Water and Mountain Views",
     text: "Lake Ouachita is one of the biggest reasons people visit the Mount Ida area. The lake is known for clear water, forested shoreline, islands, and quiet coves that feel different from busier lake towns. Mount Ida gives visitors a calmer base while still keeping them close to the water.",
     images: [
-      "/images/lake-ouachita.jpg",
+      "/images/lake-ouachita.webp",
       "/images/lake-ouachita-boating.jpg",
       "/images/ouachita-national-forest.jpg",
     ],
@@ -56,8 +56,8 @@ const lakeSections = [
     title: "Cabins and Resorts Near the Water",
     text: "The Mount Ida area has cabins, resorts, and lake stays that make it easy to build a full weekend around Lake Ouachita. Visitors can stay close to the water, drive into town for food or supplies, and still be near crystal mines, scenic drives, and local stops.",
     images: [
-      "/images/mt-ida-cabins.jpg",
-      "/images/mountain-harbor-resort.jpg",
+      "/images/mt-ida-cabins.webp",
+      "/images/mountain-harbor-resort.webp",
       "/images/shangri-la-resort.jpg",
     ],
   },
@@ -95,7 +95,7 @@ export default function LakeOuachitaPage() {
       {/* HERO */}
       <section className="relative h-[60vh] flex items-center justify-center text-center dark-section">
         <Image
-          src="/images/lake-ouachita.jpg"
+          src="/images/lake-ouachita.webp"
           alt="Lake Ouachita near Mount Ida Arkansas"
           fill
           className="object-cover"
