@@ -1,14 +1,14 @@
 export default function Footer() {
   return (
     <footer className="bg-[#2d2a26] text-white mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3">
-        
+      <div className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-4">
         {/* About */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Mount Ida Tourism</h3>
+          <h3 className="text-lg font-semibold mb-3">Mount Ida Arkansas</h3>
           <p className="text-sm text-white/80">
             Discover Mount Ida, Arkansas — from crystal mines and Lake Ouachita
-            to quiet cabins, scenic drives, and the Ouachita Mountains.
+            to quiet cabins, local restaurants, scenic drives, and the Ouachita
+            Mountains.
           </p>
         </div>
 
@@ -16,11 +16,89 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Explore</h3>
           <ul className="space-y-2 text-sm text-white/80">
-            <li><a href="/" className="hover:underline">Home</a></li>
-            <li><a href="/things-to-do" className="hover:underline">Things To Do</a></li>
-            <li><a href="/local-business" className="hover:underline">Local Businesses</a></li>
-            <li><a href="/contact" className="hover:underline">Contact</a></li>
+            <li>
+              <a href="/" className="hover:underline">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/things-to-do" className="hover:underline">
+                Things To Do
+              </a>
+            </li>
+            <li>
+              <a href="/crystal-mines" className="hover:underline">
+                Crystal Mines
+              </a>
+            </li>
+            <li>
+              <a href="/lake-ouachita" className="hover:underline">
+                Lake Ouachita
+              </a>
+            </li>
+            <li>
+              <a href="/restaurants" className="hover:underline">
+                Restaurants
+              </a>
+            </li>
+            <li>
+              <a href="/cabins" className="hover:underline">
+                Cabins & Places to Stay
+              </a>
+            </li>
+            <li>
+              <a href="/history" className="hover:underline">
+                Mount Ida History
+              </a>
+            </li>
+            <li>
+              <a href="/local-business" className="hover:underline">
+                Local Businesses
+              </a>
+            </li>
           </ul>
+        </div>
+
+        {/* Sister Sites */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Sister Sites</h3>
+          <ul className="space-y-2 text-sm text-white/80">
+            <li>
+              <a
+                href="https://glenwoodarkansas.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Visit Glenwood
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://amityarkansas.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Visit Amity
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://hotspringsarkansas.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Visit Hot Springs
+              </a>
+            </li>
+          </ul>
+
+          <p className="mt-5 text-xs leading-relaxed text-white/50">
+            Part of the <strong>Natural State Tourism Project</strong>, an
+            independent local tourism guide network.
+          </p>
         </div>
 
         {/* Contact CTA */}
@@ -30,6 +108,7 @@ export default function Footer() {
             Own a local business in Mount Ida? Get featured and connect with
             visitors planning trips to the area.
           </p>
+
           <a
             href="/contact"
             className="inline-block bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
@@ -40,34 +119,37 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 text-center text-sm text-white/70 py-6 space-y-4">
+      <div className="border-t border-white/10 text-sm text-white/70 py-6">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            © {new Date().getFullYear()} Mount Ida Arkansas. Built as a local
+            tourism and business guide.
+          </div>
 
-        <a
-          href="https://buy.stripe.com/aFa4gz7By3qv67T8BX7N602"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-[color:var(--color-accent)] text-white px-5 py-2 rounded-md font-medium shadow hover:opacity-90 transition"
-        >
-          ❤️ Support Local Visibility
-        </a>
+          <div className="flex flex-col gap-3 md:items-end">
+            <a
+              href="https://buy.stripe.com/aFa4gz7By3qv67T8BX7N602"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[color:var(--color-accent)] text-white px-5 py-2 rounded-md font-medium shadow hover:opacity-90 transition"
+            >
+              ❤️ Support Local Visibility
+            </a>
 
-        <div>
-          © {new Date().getFullYear()} Mount Ida Tourism. All rights reserved.
+            <div className="text-white/50">
+              Site by{" "}
+              <a
+                href="https://hometownwebservicesar.cc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition underline"
+              >
+                Hometown Web Services AR
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div className="text-white/50">
-          Site by{" "}
-          <a
-            href="https://hometownwebservicesar.cc"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition underline"
-          >
-            Hometown Web Services AR
-          </a>
-        </div>
-
       </div>
     </footer>
-  )
+  );
 }
