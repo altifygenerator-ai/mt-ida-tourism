@@ -4,12 +4,12 @@ import CTASection from "@/components/CTASection";
 import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
 import { homeCategories } from "@/data/categories";
 import Link from "next/link";
-
+import RecentUpdates from "@/components/RecentUpdates";
 export default function HomePage() {
   return (
     <main>
       <Hero />
-
+<RecentUpdates/>
       <section className="section">
         <div className="container intro">
           <h2>Explore Mount Ida, Arkansas</h2>
