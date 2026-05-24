@@ -16,6 +16,13 @@ export const homeCategories: Category[] = [
     image: "/images/mt-ida-crystal-mines.jpg",
   },
   {
+  title: "Crystal Mining Guide",
+  description:
+    "A practical guide to quartz digging around Mount Ida, with mine stops, local tips, what to bring, and weekend trip ideas.",
+  href: "/crystal-mining",
+  image: "/images/mt-ida-crystal-mines.jpg",
+},
+  {
     title: "Lake Ouachita",
     description:
       "Find swimming, boating, fishing, kayaking, island exploring, and peaceful lake views just outside Mount Ida.",

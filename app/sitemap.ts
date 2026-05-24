@@ -19,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      url: `${siteUrl}/crystal-mining`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+
+    {
       url: `${siteUrl}/crystal-mines`,
       lastModified: new Date(),
       changeFrequency: "weekly",

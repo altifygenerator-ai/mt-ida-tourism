@@ -27,7 +27,14 @@ export default function Header() {
           <div className="relative group">
             <button className="hover:opacity-70">Plan Your Trip ▾</button>
 
-            <div className="absolute left-0 top-full hidden group-hover:block bg-white text-black rounded-md shadow-lg border min-w-[230px] py-2">
+            <div className="absolute left-0 top-full hidden group-hover:block bg-white text-black rounded-md shadow-lg border min-w-[250px] py-2">
+              <Link
+                href="/crystal-mining"
+                className="block px-4 py-2 hover:bg-black/5"
+              >
+                Crystal Mining Guide
+              </Link>
+
               <Link
                 href="/crystal-mines"
                 className="block px-4 py-2 hover:bg-black/5"

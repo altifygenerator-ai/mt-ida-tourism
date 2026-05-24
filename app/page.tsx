@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import CategoryCard from "@/components/CategoryCard";
 import CTASection from "@/components/CTASection";
+import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
 import { homeCategories } from "@/data/categories";
 import Link from "next/link";
 
@@ -12,30 +13,27 @@ export default function HomePage() {
       <section className="section">
         <div className="container intro">
           <h2>Explore Mount Ida, Arkansas</h2>
+
           <p>
-            Mount Ida is known as the Quartz Capital of the World, surrounded by
-            the Ouachita Mountains and just minutes from{" "}
+            Mount Ida is known as the Quartz Capital of the World, tucked into
+            the Ouachita Mountains and close to{" "}
             <Link href="/lake-ouachita" className="underline hover:opacity-70">
               Lake Ouachita
             </Link>
             . Visitors come for{" "}
-            <Link href="/crystal-mines" className="underline hover:opacity-70">
+            <Link href="/crystal-mining" className="underline hover:opacity-70">
               crystal mining
             </Link>
-            , lake days,{" "}
-            <Link href="/cabins" className="underline hover:opacity-70">
-              cabins
-            </Link>
-            , fishing, hiking, restaurants, scenic drives, and a quieter side of
-            Arkansas.
+            , lake days, quiet cabins, fishing, local food, scenic drives, and a
+            slower side of Arkansas.
           </p>
         </div>
       </section>
 
       <section className="section pt-0">
         <div className="container flex flex-wrap justify-center gap-4">
-          <Link href="/things-to-do" className="btn">
-            Things To Do
+          <Link href="/crystal-mining" className="btn">
+            Crystal Mining Guide
           </Link>
 
           <Link href="/crystal-mines" className="btn">
@@ -56,14 +54,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <HomeCrystalGuideFeature />
+
+      <section className="section pt-0">
         <div className="container">
           <div className="section-heading">
             <h2>Plan Your Mount Ida Trip</h2>
             <p>
-              Start with crystal mines, Lake Ouachita, cabins, restaurants,
-              history, local businesses, scenic drives, and quiet mountain stops
-              around town.
+              Start with crystal digging, Lake Ouachita, cabins, restaurants,
+              local businesses, scenic drives, and quiet mountain stops around
+              town.
             </p>
           </div>
 
@@ -82,38 +82,46 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
 
         <div className="relative z-10 container pb-16">
-          <div className="max-w-3xl rounded-2xl bg-black/55 p-8 text-white shadow-2xl backdrop-blur-md md:p-10">
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-white/75">
+          <div className="max-w-3xl rounded-[2rem] border border-white/10 bg-black/58 p-8 text-white shadow-2xl backdrop-blur-md md:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] !text-white/70">
               Quartz Capital of the World
             </p>
 
-            <h2 className="text-4xl font-semibold leading-tight md:text-6xl">
-              Dig for quartz in the Ouachita Mountains
+            <h2 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
+              Dig for quartz in the Ouachita Mountains.
             </h2>
 
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
-              Mount Ida is one of the best-known places in Arkansas for quartz
-              crystal digging. Visitors can explore nearby mines, hunt for
-              crystals, shop local, and turn a simple mountain trip into
-              something memorable.
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed !text-white/82">
+              Crystal digging is one of the biggest reasons people visit Mount
+              Ida. Some stops are great for families and first-timers, while
+              others are better for folks who want a more hands-on day outside.
             </p>
 
-            <Link
-              href="/crystal-mines"
-              className="mt-7 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
-            >
-              Explore Crystal Mines
-            </Link>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                href="/crystal-mining"
+                className="rounded-full bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-white/90"
+              >
+                Read the Crystal Mining Guide
+              </Link>
+
+              <Link
+                href="/crystal-mines"
+                className="rounded-full border border-white/35 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+              >
+                View Crystal Mines
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide mb-3 text-[color:var(--color-accent)]">
                 Stay, Eat & Explore
@@ -134,7 +142,7 @@ export default function HomePage() {
             <div className="grid gap-5 md:grid-cols-2">
               <Link
                 href="/cabins"
-                className="card overflow-hidden hover:shadow-lg transition"
+                className="card overflow-hidden bg-white/35 hover:shadow-lg transition"
               >
                 <div className="image-card">
                   <img
@@ -157,7 +165,7 @@ export default function HomePage() {
 
               <Link
                 href="/restaurants"
-                className="card overflow-hidden hover:shadow-lg transition"
+                className="card overflow-hidden bg-white/35 hover:shadow-lg transition"
               >
                 <div className="image-card">
                   <img
@@ -180,7 +188,7 @@ export default function HomePage() {
 
               <Link
                 href="/things-to-do"
-                className="card overflow-hidden hover:shadow-lg transition md:col-span-2"
+                className="card overflow-hidden bg-white/35 hover:shadow-lg transition md:col-span-2"
               >
                 <div className="image-card">
                   <img
@@ -213,19 +221,19 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/20" />
 
         <div className="relative z-10 container pb-16">
-          <div className="max-w-3xl rounded-2xl bg-black/55 p-8 text-white shadow-2xl backdrop-blur-md md:p-10">
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-white/75">
+          <div className="max-w-3xl rounded-[2rem] border border-white/10 bg-black/58 p-8 text-white shadow-2xl backdrop-blur-md md:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] !text-white/70">
               Lake Ouachita
             </p>
 
-            <h2 className="text-4xl font-semibold leading-tight md:text-6xl">
+            <h2 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
               Spend the day on one of Arkansas’ clearest lakes.
             </h2>
 
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed !text-white/82">
               Lake Ouachita is one of the biggest reasons people stay near Mount
               Ida, with boating, fishing, kayaking, swimming, camping, marina
               stops, and quiet shoreline views.
@@ -233,7 +241,7 @@ export default function HomePage() {
 
             <Link
               href="/lake-ouachita"
-              className="mt-7 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+              className="mt-7 inline-flex rounded-full bg-white px-5 py-3 text-sm font-bold text-black transition hover:bg-white/90"
             >
               Explore Lake Ouachita
             </Link>
@@ -252,7 +260,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-3">
-            <div className="card p-6">
+            <div className="card bg-white/35 p-6">
               <h3>Find a Place to Stay</h3>
               <p>
                 Look for cabins, lake resorts, inns, and quiet stays near Lake
@@ -263,7 +271,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="card p-6">
+            <div className="card bg-white/35 p-6">
               <h3>Plan Your Day</h3>
               <p>
                 Mix crystal digging, lake time, scenic drives, local history,
@@ -274,7 +282,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="card p-6">
+            <div className="card bg-white/35 p-6">
               <h3>Eat Local</h3>
               <p>
                 Find local cafes, lake dining, pizza, Mexican food, burgers, and
