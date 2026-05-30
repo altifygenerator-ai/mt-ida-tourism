@@ -54,6 +54,24 @@ export default function Footer() {
             </li>
 
             <li>
+              <Link href="/events" className="hover:underline">
+                Events
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/this-weekend" className="hover:underline">
+                This Weekend
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/submit-event" className="hover:underline">
+                Submit an Event
+              </Link>
+            </li>
+
+            <li>
               <Link href="/cabins" className="hover:underline">
                 Cabins & Places to Stay
               </Link>

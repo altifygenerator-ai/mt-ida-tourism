@@ -50,6 +50,20 @@ export default function Header() {
               </Link>
 
               <Link
+                href="/events"
+                className="block px-4 py-2 hover:bg-black/5"
+              >
+                Events
+              </Link>
+
+              <Link
+                href="/this-weekend"
+                className="block px-4 py-2 hover:bg-black/5"
+              >
+                This Weekend
+              </Link>
+
+              <Link
                 href="/lake-ouachita"
                 className="block px-4 py-2 hover:bg-black/5"
               >
@@ -78,6 +92,10 @@ export default function Header() {
               </Link>
             </div>
           </div>
+
+          <Link href="/events" className="hover:opacity-70">
+            Events
+          </Link>
 
           <Link href="/local-business" className="hover:opacity-70">
             Local Businesses

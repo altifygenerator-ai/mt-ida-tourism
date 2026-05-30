@@ -8,10 +8,10 @@ const updates = [
     href: "/crystal-mining",
   },
   {
-    label: "Trip planning",
-    title: "Crystal Mines Directory Updated",
-    text: "The crystal mines page now works as a quicker directory for visitors looking for quartz digging stops near Mount Ida.",
-    href: "/crystal-mines",
+    label: "Events",
+    title: "Mount Ida Events Added",
+    text: "A new events system is ready for Mount Ida happenings, weekend plans, community submissions, and approved local events.",
+    href: "/events",
   },
   {
     label: "Local guide",
@@ -38,10 +38,10 @@ export default function RecentUpdates() {
             </div>
 
             <Link
-              href="/things-to-do"
+              href="/events"
               className="text-sm font-bold text-[color:var(--color-accent)] underline"
             >
-              Explore more guides
+              View events
             </Link>
           </div>
 

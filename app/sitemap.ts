@@ -53,6 +53,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
+
+    {
+      url: `${siteUrl}/events`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.95,
+    },
+
+    {
+      url: `${siteUrl}/this-weekend`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+
+    {
+      url: `${siteUrl}/submit-event`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+
     {
       url: `${siteUrl}/local-business`,
       lastModified: new Date(),
