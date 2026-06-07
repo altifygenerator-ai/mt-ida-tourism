@@ -8,6 +8,7 @@
   --color-text: #2d2a26;
   --color-muted: #6b665f;
   --color-accent: #3f5c4a;
+  --bg-card: rgba(255, 255, 255, 0.58);
 }
 
 html,

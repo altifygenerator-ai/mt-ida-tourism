@@ -2,22 +2,22 @@ import Link from "next/link";
 
 const updates = [
   {
+    label: "Seasonal guide",
+    title: "Fourth of July Around Mount Ida",
+    text: "A new July 4 guide has been added with the verified Mountain Harbor holiday celebration, Lake Ouachita trip tips, cabins, crystal mines, and simple holiday planning ideas.",
+    href: "/mount-ida-fourth-of-july",
+  },
+  {
+    label: "Family guide",
+    title: "Things To Do With Kids",
+    text: "A new family-friendly guide helps visitors plan Mount Ida trips around crystal digging, Lake Ouachita, cabins, food stops, local history, and simple outdoor time.",
+    href: "/things-to-do-with-kids",
+  },
+  {
     label: "New guide",
     title: "Crystal Mining in Mount Ida",
     text: "A practical guide to quartz digging, what to bring, lesser-known stops, and how to build a Mount Ida weekend around crystal hunting.",
     href: "/crystal-mining",
-  },
-  {
-    label: "Events",
-    title: "Mount Ida Events Added",
-    text: "A new events system is ready for Mount Ida happenings, weekend plans, community submissions, and approved local events.",
-    href: "/events",
-  },
-  {
-    label: "Local guide",
-    title: "Lake, cabins, food, and things to do",
-    text: "Browse Mount Ida trip planning pages for Lake Ouachita, local restaurants, cabins, scenic drives, and outdoor stops.",
-    href: "/things-to-do",
   },
 ];
 
@@ -38,10 +38,10 @@ export default function RecentUpdates() {
             </div>
 
             <Link
-              href="/events"
+              href="/mount-ida-fourth-of-july"
               className="text-sm font-bold text-[color:var(--color-accent)] underline"
             >
-              View events
+              July 4 guide
             </Link>
           </div>
 

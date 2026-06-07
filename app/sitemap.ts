@@ -19,6 +19,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      url: `${siteUrl}/things-to-do-with-kids`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.88,
+    },
+
+    {
+      url: `${siteUrl}/mount-ida-fourth-of-july`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.86,
+    },
+
+    {
       url: `${siteUrl}/crystal-mining`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -52,7 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-
 
     {
       url: `${siteUrl}/events`,

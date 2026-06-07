@@ -90,6 +90,13 @@ export default function ThingsToDoPage() {
               >
                 Cabins & Stays
               </Link>
+
+              <Link
+                href="/things-to-do-with-kids"
+                className="rounded-full border border-white/70 px-6 py-3 font-medium text-white transition hover:bg-white hover:text-black"
+              >
+                With Kids
+              </Link>
             </div>
           </div>
         </div>
@@ -145,6 +152,10 @@ export default function ThingsToDoPage() {
             <Link href="/restaurants" className="btn">
               Restaurants
             </Link>
+
+            <Link href="/things-to-do-with-kids" className="btn">
+              Things To Do With Kids
+            </Link>
           </div>
         </div>
       </section>
@@ -174,6 +185,46 @@ export default function ThingsToDoPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      <section className="section pt-0">
+        <div className="container">
+          <Link
+            href="/things-to-do-with-kids"
+            className="block overflow-hidden rounded-[2rem] border border-black/10 bg-white/55 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="grid lg:grid-cols-[0.75fr_1.25fr]">
+              <div className="relative min-h-[280px] bg-[#2d2a26]">
+                <img
+                  src="/images/crystal-family.webp"
+                  alt="Family friendly things to do in Mount Ida Arkansas"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="p-7 md:p-9">
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
+                  Family Trip Planning
+                </p>
+
+                <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
+                  Visiting Mount Ida with kids?
+                </h2>
+
+                <p className="mt-4 text-lg leading-8">
+                  Start with the family guide for crystal mines, Lake Ouachita,
+                  cabins, easy food stops, local history, and simple outdoor
+                  ideas that work better with kids.
+                </p>
+
+                <span className="mt-5 inline-block font-black text-[color:var(--color-accent)]">
+                  Open the family guide →
+                </span>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

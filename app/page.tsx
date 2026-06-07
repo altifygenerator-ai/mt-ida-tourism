@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import CategoryCard from "@/components/CategoryCard";
 import CTASection from "@/components/CTASection";
 import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
+import MountIdaFourthOfJulyFeature from "@/components/MountIdaFourthOfJulyFeature";
 import RecentUpdates from "@/components/RecentUpdates";
 import { homeCategories } from "@/data/categories";
 import Link from "next/link";
@@ -12,6 +13,8 @@ export default function HomePage() {
       <Hero />
 
       <RecentUpdates />
+
+      <MountIdaFourthOfJulyFeature />
 
       <section className="section mount-ida-intro-section">
         <div className="container intro-grid">
