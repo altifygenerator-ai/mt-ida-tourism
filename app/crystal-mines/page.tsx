@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
-import { attractions } from "@/data/attractions";
+import { crystalMiningGuide } from "@/data/crystalMining";
 
 export const metadata = {
   title:
     "Crystal Mines Near Mount Ida Arkansas | Quartz Digging Stops & Rockhounding",
   description:
-    "Find crystal mines, quartz digging stops, rock shops, and outdoor crystal hunting areas near Mount Ida, Arkansas.",
+    "Find crystal mines, quartz digging stops, hours, prices, phone numbers, rockhounding tips, and outdoor crystal hunting areas near Mount Ida, Arkansas.",
   keywords: [
     "Mount Ida crystal mines",
     "crystal mining Mount Ida Arkansas",
@@ -22,44 +22,17 @@ export const metadata = {
   ],
 };
 
-const featuredMines = [
-  {
-    title: "Wegner Quartz Crystal Mines",
-    category: "Featured Crystal Mine",
-    description:
-      "One of the best-known crystal mining stops near Mount Ida, with quartz digging experiences, mine trips, and crystal hunting for families, collectors, and visitors.",
-    image: "/images/wegner-quartz.jpg",
-  },
-  {
-    title: "Twin Creek Crystal Mine",
-    category: "Featured Crystal Mine",
-    description:
-      "A Mount Ida area crystal digging stop where visitors can search for quartz and enjoy a hands-on rockhounding experience in the Ouachita Mountains.",
-    image: "/images/twin-creek-crystal.jpg",
-  },
-  {
-    title: "Avant Mining / Fisher Mountain",
-    category: "Featured Crystal Mine",
-    description:
-      "A Mount Ida area quartz crystal destination for visitors looking for a more serious public digging and rockhounding experience.",
-    image: "/images/avatar-crystal-mine.jpg",
-  },
+const allStops = [
+  ...crystalMiningGuide.mines,
+  ...crystalMiningGuide.lesserKnownStops,
 ];
 
-const featuredMineTitles = featuredMines.map((mine) => mine.title);
-
-const crystalMines = attractions.filter(
-  (item) =>
-    item.category === "Crystal Mining" &&
-    !featuredMineTitles.includes(item.title)
-);
-
 const quickTips = [
-  "Check current hours, fees, and weather before driving out.",
-  "Bring shoes and clothes that can get dirty.",
-  "Ask each mine what tools are allowed before bringing your own.",
-  "Bring water, gloves, sunscreen, and something to carry your crystals in.",
-  "For a fuller trip plan, use the crystal mining guide before you go.",
+  "Call the mine directly before driving out. Hours, prices, road conditions, and digging access can change.",
+  "Bring shoes and clothes that can get dirty, plus gloves, water, sunscreen, and something to carry crystals in.",
+  "Ask each mine what tools are allowed before bringing your own. Some sell or rent tools, and some do not allow power tools.",
+  "Bring cash. Rural cell service and card payment can be unreliable around some mine roads.",
+  "Use the full crystal mining guide if you need help choosing between family-friendly, serious, rugged, and public forest options.",
 ];
 
 export default function CrystalMinesPage() {
@@ -70,21 +43,23 @@ export default function CrystalMinesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "TouristAttraction",
+            "@type": "ItemList",
             name: "Crystal Mines Near Mount Ida, Arkansas",
             description:
-              "Quartz crystal mines, crystal digging, rockhounding, Crystal Vista, and outdoor crystal hunting attractions near Mount Ida, Arkansas.",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Mount Ida",
-              addressRegion: "AR",
-              addressCountry: "US",
-            },
+              "Quartz crystal mines, public crystal digging, rockhounding, Crystal Vista, and outdoor crystal hunting attractions near Mount Ida, Arkansas.",
+            itemListElement: allStops.map((mine, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: mine.name,
+              url: `https://mountidaarkansas.org/crystal-mines#${mine.name
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")}`,
+            })),
           }),
         }}
       />
 
-      <section className="relative min-h-[72vh] flex items-center justify-center overflow-hidden text-center dark-section">
+      <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden text-center dark-section">
         <Image
           src="/images/mt-ida-crystals.jpg"
           alt="Mount Ida Arkansas quartz crystals"
@@ -105,8 +80,9 @@ export default function CrystalMinesPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed !text-white/85">
-            A quick directory-style look at quartz digging stops, rockhounding
-            areas, and crystal mine options around Mount Ida, Arkansas.
+            A cleaner directory of quartz digging stops, phone numbers, general
+            hours, costs, and what to know before you go crystal hunting around
+            Mount Ida, Arkansas.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -142,15 +118,15 @@ export default function CrystalMinesPage() {
 
             <div className="space-y-5">
               <p className="text-lg leading-relaxed text-[color:var(--color-muted)]">
-                This page is the simpler crystal mine directory. Use it to find
-                Mount Ida area crystal digging stops, quartz mine options, and
-                rockhounding areas without digging through a long trip article.
+                This page is the quick directory version of the Mount Ida crystal
+                guide. It gives visitors the basics: what each stop is, who it
+                fits, general hours, known costs, and what to confirm before the
+                drive.
               </p>
 
               <p className="leading-relaxed text-[color:var(--color-muted)]">
-                If you want help choosing the right stop, packing for the day,
-                bringing kids, or turning crystal digging into a full weekend,
-                use the{" "}
+                For help choosing the right mine, packing for the day, bringing
+                kids, or turning crystal digging into a full weekend, use the{" "}
                 <Link
                   href="/crystal-mining"
                   className="font-bold text-[color:var(--color-accent)] underline"
@@ -160,6 +136,15 @@ export default function CrystalMinesPage() {
                 .
               </p>
             </div>
+          </div>
+
+          <div className="mt-10 rounded-[1.75rem] border border-black/10 bg-[color:var(--color-accent)] p-7 shadow-sm md:p-9">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] !text-white/65">
+              {crystalMiningGuide.notice.title}
+            </p>
+            <p className="max-w-4xl text-lg leading-8 !text-white/90">
+              {crystalMiningGuide.notice.text}
+            </p>
           </div>
         </div>
       </section>
@@ -181,17 +166,18 @@ export default function CrystalMinesPage() {
 
               <div className="flex flex-col justify-center p-8 md:p-10">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] !text-white/55">
-                  New full guide
+                  Full planning guide
                 </p>
 
                 <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
                   Not sure which crystal mine to pick?
                 </h2>
 
-                <p className="mt-5 max-w-2xl text-lg leading-8 !text-white/75">
-                  The full guide breaks down the main mine stops, what each one
-                  is best for, what to bring, tips for kids, and how to build a
-                  simple Mount Ida weekend around crystal digging.
+                <p className="mt-5 max-w-2xl text-lg leading-8 !text-white/80">
+                  The full guide breaks down family-friendly mines, serious
+                  public digs, primitive stops, Crystal Vista, what to bring,
+                  and how to build a simple Mount Ida weekend around crystal
+                  digging.
                 </p>
 
                 <Link
@@ -210,45 +196,115 @@ export default function CrystalMinesPage() {
         <div className="container">
           <div className="mb-8 max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-              Featured Crystal Mines
+              Crystal mine stops
             </p>
 
             <h2 className="mb-4 text-3xl font-semibold md:text-4xl">
-              Mount Ida area crystal digging stops.
+              Mount Ida area crystal digging directory.
             </h2>
 
             <p className="leading-relaxed text-[color:var(--color-muted)]">
-              These are useful starting points for visitors planning a Mount Ida
-              trip around quartz digging, rockhounding, cabins, Lake Ouachita,
-              and the Ouachita Mountains.
+              Use these cards as a starting point, then call or check each mine’s
+              current updates before driving out. Details are written carefully
+              so visitors know the difference between a staffed mine, a rugged
+              call-ahead dig, and a public forest rockhounding area.
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {featuredMines.map((mine) => (
+          <div className="grid gap-6 lg:grid-cols-2">
+            {allStops.map((mine) => (
               <article
-                key={mine.title}
-                className="overflow-hidden rounded-[1.6rem] border border-black/10 bg-white/45 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                id={mine.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+                key={mine.name}
+                className="overflow-hidden rounded-[1.6rem] border border-black/10 bg-white/55 shadow-sm"
               >
                 <div className="relative h-64">
                   <Image
                     src={mine.image}
-                    alt={mine.title}
+                    alt={mine.name}
                     fill
                     className="object-cover"
                   />
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 md:p-7">
                   <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    {mine.category}
+                    {mine.label}
                   </p>
 
-                  <h3 className="text-2xl font-semibold">{mine.title}</h3>
+                  <h3 className="text-2xl font-semibold md:text-3xl">
+                    {mine.name}
+                  </h3>
+
+                  <div className="mt-3 space-y-1 text-sm font-bold text-[color:var(--color-text)]">
+                    <div>{mine.location}</div>
+                    {mine.address && <div>{mine.address}</div>}
+                    {mine.phone && <div>Phone: {mine.phone}</div>}
+                    {mine.email && <div>Email: {mine.email}</div>}
+                  </div>
 
                   <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
-                    {mine.description}
+                    {mine.summary}
                   </p>
+
+                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                    <div className="rounded-2xl border border-black/10 bg-[color:var(--color-bg)] p-4">
+                      <h4 className="mb-2 text-lg">Hours</h4>
+                      <ul className="space-y-2">
+                        {mine.hours.slice(0, 3).map((item) => (
+                          <li
+                            key={item}
+                            className="text-sm leading-6 text-[color:var(--color-muted)]"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl border border-black/10 bg-[color:var(--color-bg)] p-4">
+                      <h4 className="mb-2 text-lg">Cost</h4>
+                      <ul className="space-y-2">
+                        {mine.costs.slice(0, 3).map((item) => (
+                          <li
+                            key={item}
+                            className="text-sm leading-6 text-[color:var(--color-muted)]"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {mine.phone && (
+                      <a
+                        href={`tel:${mine.phone.split("/")[0].replace(/[^0-9]/g, "")}`}
+                        className="btn"
+                      >
+                        Call {mine.phone.split("/")[0].trim()}
+                      </a>
+                    )}
+
+                    {mine.website && (
+                      <a
+                        href={mine.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-[color:var(--color-text)] transition hover:bg-white/80"
+                      >
+                        Website / updates
+                      </a>
+                    )}
+
+                    <Link
+                      href="/crystal-mining#where-to-dig"
+                      className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-[color:var(--color-text)] transition hover:bg-white/80"
+                    >
+                      Full details
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
@@ -256,61 +312,9 @@ export default function CrystalMinesPage() {
         </div>
       </section>
 
-      {crystalMines.length > 0 && (
-        <section className="section pt-0">
-          <div className="container">
-            <div className="mb-8 max-w-3xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                More Crystal Stops
-              </p>
-
-              <h2 className="mb-4 text-3xl font-semibold md:text-4xl">
-                More crystal digging and rockhounding near Mount Ida.
-              </h2>
-
-              <p className="leading-relaxed text-[color:var(--color-muted)]">
-                These additional crystal digging areas, quartz mines, rock
-                shops, and outdoor stops help make Mount Ida one of Arkansas’
-                best-known destinations for quartz hunting and rockhounding.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {crystalMines.map((mine) => (
-                <article
-                  key={mine.title}
-                  className="overflow-hidden rounded-[1.6rem] border border-black/10 bg-white/45 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="relative h-56">
-                    <Image
-                      src={mine.image}
-                      alt={mine.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div className="p-6">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                      {mine.category}
-                    </p>
-
-                    <h3 className="text-2xl font-semibold">{mine.title}</h3>
-
-                    <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">
-                      {mine.description}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="section pt-0">
         <div className="container">
-          <div className="rounded-[2rem] border border-black/10 bg-white/45 p-8 md:p-10">
+          <div className="rounded-[2rem] border border-black/10 bg-white/55 p-8 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">

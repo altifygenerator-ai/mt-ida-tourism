@@ -1,32 +1,46 @@
-import type { Attraction } from "@/types"
+import type { Attraction } from "@/types";
 
 export const attractions: Attraction[] = [
   {
     title: "Wegner Quartz Crystal Mines",
     category: "Crystal Mining",
     description:
-      "One of the best-known crystal mining stops near Mount Ida, offering visitors a chance to dig for quartz and learn about the area’s geology.",
+      "A well-known Mount Ida crystal mining stop with posted mine trips, tailings digging, family-friendly options, and a good setup for first-time quartz hunters.",
     image: "/images/wegner-quartz.jpg",
+  },
+  {
+    title: "Avant Mining / Fisher Mountain",
+    category: "Crystal Mining",
+    description:
+      "A serious quartz crystal destination near Mount Ida with public digging at Fisher Mountain and private pocket dig options for collectors.",
+    image: "/images/avant-fisher-mountain.jpg",
   },
   {
     title: "Twin Creek Crystal Mine",
     category: "Crystal Mining",
     description:
-      "A popular digging spot close to Mount Ida where visitors can search for quartz crystals in the Ouachita Mountains.",
+      "A hands-on Mount Ida area crystal digging stop with more of a working-mine feel. Visitors should call ahead to confirm current hours, fees, and access.",
     image: "/images/twin-creek-crystal.jpg",
   },
   {
-    title: "Crystal Vista",
+    title: "Sweet Surrender Crystal Mine",
+    category: "Crystal Mining",
+    description:
+      "A primitive crystal digging area near Story for rugged, come-prepared visitors who want a less polished mining experience and know to call before going.",
+    image: "/images/sweet-surrender.jpg",
+  },
+  {
+    title: "Crystal Vista Recreation Area",
     category: "Scenic Outdoor Stop",
     description:
-      "A scenic Ouachita National Forest area known for quartz hunting, mountain views, and a more natural outdoor crystal experience.",
+      "A Ouachita National Forest rockhounding and hiking stop on Gardner Mountain where visitors can surface collect quartz from a former commercial mine area.",
     image: "/images/crystal-vista.jpg",
   },
   {
     title: "Avatar Crystal Mine",
     category: "Crystal Mining",
     description:
-      "A local quartz mine near Mount Ida where rockhounds and families can look for crystals and enjoy the area’s mining culture.",
+      "A smaller primitive crystal mine near Mount Ida that online listings describe as seasonal and weather-dependent. Best for visitors who check current updates first.",
     image: "/images/avatar-crystal-mine.jpg",
   },
   {
@@ -57,4 +71,4 @@ export const attractions: Attraction[] = [
       "A small local stop for handmade art, regional creativity, gifts, and a slower look at Mount Ida’s community side.",
     image: "/images/ouachita-artists-gallery.jpg",
   },
-]
+];

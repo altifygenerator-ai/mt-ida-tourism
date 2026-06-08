@@ -8,7 +8,7 @@ export default function CrystalMiningGuide() {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <article className="max-w-3xl">
             <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-              A local-style guide
+              A practical local-style guide
             </div>
 
             <h2 className="mb-6 text-4xl leading-tight md:text-5xl">
@@ -16,31 +16,12 @@ export default function CrystalMiningGuide() {
             </h2>
 
             <div className="space-y-5 text-lg leading-8 text-[color:var(--color-muted)]">
-              <p>
-                Mount Ida is one of those places that does not need to act
-                flashy. It has the Ouachita Mountains,{" "}
-                <Link
-                  href="/lake-ouachita"
-                  className="font-bold text-[color:var(--color-accent)] underline"
-                >
-                  Lake Ouachita
-                </Link>
-                , quiet roads, cabins, small-town stops, and quartz crystals.
-                For a lot of visitors, crystal digging is the thing that puts
-                Mount Ida on the map.
-              </p>
+              {crystalMiningGuide.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
 
               <p>
-                If you have never been crystal mining before, it helps to know
-                what kind of place you are heading to. Some mines are set up
-                well for families and first-timers. Some feel more serious.
-                Some are more primitive and expect you to show up ready.
-              </p>
-
-              <p>
-                This guide keeps it practical: where to go, what each stop is
-                best for, what to bring, and a few things to know before you
-                drive out. After that, you can build the rest of the trip around{" "}
+                After you pick a mine, you can build the rest of the trip around{" "}
                 <Link
                   href="/cabins"
                   className="font-bold text-[color:var(--color-accent)] underline"
@@ -54,6 +35,13 @@ export default function CrystalMiningGuide() {
                 >
                   local restaurants
                 </Link>
+                ,{" "}
+                <Link
+                  href="/lake-ouachita"
+                  className="font-bold text-[color:var(--color-accent)] underline"
+                >
+                  Lake Ouachita
+                </Link>
                 , or other{" "}
                 <Link
                   href="/things-to-do"
@@ -66,7 +54,7 @@ export default function CrystalMiningGuide() {
             </div>
           </article>
 
-          <div className="overflow-hidden rounded-[22px] border border-black/10 bg-white/55 shadow-sm">
+          <div className="overflow-hidden rounded-[22px] border border-black/10 bg-white/60 shadow-sm">
             <img
               src="/images/quartz-closeup.jpg"
               alt="Close up of quartz crystals"
@@ -90,12 +78,13 @@ export default function CrystalMiningGuide() {
           </div>
         </div>
 
-        <div className="mt-14 rounded-[24px] bg-[color:var(--color-accent)] p-7 md:p-10">
-          <div className="max-w-4xl text-xl leading-9 !text-white/85">
-            Crystal digging is not really a clean-shoes kind of activity. Even
-            the easy places can be dusty, muddy, hot, or rough depending on the
-            day. Pick the right mine for your group, pack like you will be
-            outside for a while, and check before you make the drive.
+        <div className="mt-14 rounded-[24px] border border-black/10 bg-[color:var(--color-accent)] p-7 shadow-sm md:p-10">
+          <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] !text-white/65">
+            {crystalMiningGuide.notice.title}
+          </div>
+
+          <div className="max-w-4xl text-xl leading-9 !text-white/90">
+            {crystalMiningGuide.notice.text}
           </div>
         </div>
       </div>

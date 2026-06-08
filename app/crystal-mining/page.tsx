@@ -8,7 +8,7 @@ import CrystalWeekendSection from "@/components/CrystalWeekendSection";
 export const metadata: Metadata = {
   title: "Crystal Mining in Mount Ida, Arkansas | Quartz Digging Guide",
   description:
-    "A practical Mount Ida crystal mining guide with quartz digging stops, local tips, what to bring, family advice, lesser-known crystal hunting areas, and weekend trip ideas.",
+    "A practical Mount Ida crystal mining guide with quartz mine details, hours, costs, phone numbers, what to bring, family advice, Crystal Vista, and weekend trip ideas.",
   alternates: {
     canonical: "/crystal-mining",
   },

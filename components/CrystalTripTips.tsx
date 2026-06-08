@@ -15,10 +15,16 @@ export default function CrystalTripTips() {
               What to bring crystal mining.
             </h2>
 
-            <p className="mb-6 text-lg leading-8">
+            <p className="mb-5 text-lg leading-8 text-[color:var(--color-muted)]">
               Do not show up like you are walking through a gift shop. Even a
               beginner-friendly mine can be hot, dusty, muddy, or rough under
               your feet. Bring the basics and check with the mine before you go.
+            </p>
+
+            <p className="text-base leading-8 text-[color:var(--color-muted)]">
+              The two things visitors forget most are water and something to
+              carry crystals home in. Rural cell service can also be spotty, so
+              bring cash and save directions before you leave town.
             </p>
 
             <img
@@ -28,7 +34,7 @@ export default function CrystalTripTips() {
             />
           </div>
 
-          <div className="rounded-[24px] border border-black/10 bg-white/55 p-7 md:p-9">
+          <div className="rounded-[24px] border border-black/10 bg-white/60 p-7 shadow-sm md:p-9">
             <h3 className="mb-5 text-3xl">Simple packing list</h3>
 
             <div className="grid gap-3 sm:grid-cols-2">
@@ -42,17 +48,17 @@ export default function CrystalTripTips() {
               ))}
             </div>
 
-            <p className="mt-6 text-sm leading-7">
+            <p className="mt-6 text-sm leading-7 text-[color:var(--color-muted)]">
               The big thing is to check with the mine before you go. Some places
-              provide more than others, and the rules can change depending on
-              the dig area.
+              provide more than others, some allow or sell tools onsite, and
+              primitive stops may expect you to bring nearly everything.
             </p>
           </div>
         </div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="rounded-[24px] bg-[color:var(--color-accent)] p-7 md:p-10">
-            <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-white/65">
+            <div className="mb-3 text-sm font-bold uppercase tracking-[0.2em] !text-white/65">
               Bringing kids?
             </div>
 
@@ -60,7 +66,7 @@ export default function CrystalTripTips() {
               Crystal digging can feel like treasure hunting.
             </h2>
 
-            <div className="mb-6 text-lg leading-8 !text-white/80">
+            <div className="mb-6 text-lg leading-8 !text-white/85">
               Kids can have a great time crystal digging, but it is still an
               outdoor activity. They can get tired, hot, muddy, or frustrated if
               the day is too packed. Keep it simple and let the small finds
@@ -71,7 +77,7 @@ export default function CrystalTripTips() {
               {crystalMiningGuide.kidTips.map((tip) => (
                 <li
                   key={tip}
-                  className="border-b border-white/15 pb-3 text-sm leading-6 text-white/90 last:border-0 last:pb-0"
+                  className="border-b border-white/15 pb-3 text-sm leading-6 !text-white/90 last:border-0 last:pb-0"
                 >
                   {tip}
                 </li>
