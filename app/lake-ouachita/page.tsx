@@ -30,6 +30,8 @@ const quickLinks = [
   { label: "Cabins & Stays", href: "/cabins" },
   { label: "Restaurants", href: "/restaurants" },
   { label: "Crystal Mines", href: "/crystal-mines" },
+  { label: "Brady Mountain", href: "/brady-mountain-lake-ouachita" },
+  { label: "Hickory Nut Mountain", href: "/hickory-nut-mountain-mount-ida" },
   { label: "Things To Do", href: "/things-to-do" },
 ];
 
@@ -103,6 +105,16 @@ const planningTips = [
 ];
 
 const suggestedStops = [
+  {
+    title: "Brady Mountain Lake Ouachita",
+    text: "Plan around camping, swim beach access, boat ramps, Safe Harbor Brady Mountain, food checks, and a real Lake Ouachita day.",
+    href: "/brady-mountain-lake-ouachita",
+  },
+  {
+    title: "Hickory Nut Mountain Vista",
+    text: "Add a quiet overlook and scenic-drive stop when your Lake Ouachita trip has room for a slower view over the mountains and water.",
+    href: "/hickory-nut-mountain-mount-ida",
+  },
   {
     title: "Cabins Near Lake Ouachita",
     text: "Find cabins, resorts, and quiet stays near Mount Ida and Lake Ouachita.",
@@ -276,7 +288,10 @@ export default function LakeOuachitaPage() {
                   crystal mines
                 </Link>
                 ,{" "}
-                <Link href="/restaurants" className="underline hover:opacity-70">
+                <Link
+                  href="/restaurants"
+                  className="underline hover:opacity-70"
+                >
                   restaurants
                 </Link>
                 , and other nearby outdoor stops.

@@ -49,10 +49,7 @@ export default function Header() {
                 Things To Do
               </Link>
 
-              <Link
-                href="/events"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
+              <Link href="/events" className="block px-4 py-2 hover:bg-black/5">
                 Events
               </Link>
 
@@ -71,16 +68,27 @@ export default function Header() {
               </Link>
 
               <Link
+                href="/brady-mountain-lake-ouachita"
+                className="block px-4 py-2 hover:bg-black/5"
+              >
+                Brady Mountain Lake Ouachita
+              </Link>
+
+              <Link
+                href="/hickory-nut-mountain-mount-ida"
+                className="block px-4 py-2 hover:bg-black/5"
+              >
+                Hickory Nut Mountain Vista
+              </Link>
+
+              <Link
                 href="/restaurants"
                 className="block px-4 py-2 hover:bg-black/5"
               >
                 Restaurants
               </Link>
 
-              <Link
-                href="/cabins"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
+              <Link href="/cabins" className="block px-4 py-2 hover:bg-black/5">
                 Cabins & Places to Stay
               </Link>
 

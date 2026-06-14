@@ -6,7 +6,7 @@ export const metadata = {
   title:
     "Things To Do in Mount Ida Arkansas | Crystal Mines, Lake Ouachita & Outdoor Attractions",
   description:
-    "Explore things to do in Mount Ida, Arkansas including crystal mines, Lake Ouachita, hiking, scenic drives, museums, local shops, cabins, restaurants, fishing, and outdoor recreation.",
+    "Explore things to do in Mount Ida, Arkansas including crystal mines, Lake Ouachita, Brady Mountain, Hickory Nut Mountain, hiking, scenic drives, museums, local shops, cabins, restaurants, fishing, and outdoor recreation.",
 };
 
 const tripStyles = [
@@ -123,8 +123,8 @@ export default function ThingsToDoPage() {
             <div className="space-y-5">
               <p className="text-lg leading-relaxed text-[color:var(--color-muted)]">
                 Mount Ida is a quiet Arkansas mountain town with a simple but
-                strong travel identity. Visitors come for quartz crystal digging,
-                Lake Ouachita, cabins, fishing, scenic drives, outdoor
+                strong travel identity. Visitors come for quartz crystal
+                digging, Lake Ouachita, cabins, fishing, scenic drives, outdoor
                 recreation, and small-town stops in the Ouachita Mountains.
               </p>
 
@@ -187,7 +187,6 @@ export default function ThingsToDoPage() {
           </div>
         </div>
       </section>
-
 
       <section className="section pt-0">
         <div className="container">
@@ -252,35 +251,57 @@ export default function ThingsToDoPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {attractions.map((item) => (
-              <article
-                key={item.title}
-                className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover transition duration-700 hover:scale-105"
-                  />
-                </div>
+            {attractions.map((item) => {
+              const cardContent = (
+                <>
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition duration-700 hover:scale-105"
+                    />
+                  </div>
 
-                <div className="p-6">
-                  <p
-                    className="mb-2 text-sm font-semibold uppercase tracking-wide"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {item.category}
-                  </p>
+                  <div className="p-6">
+                    <p
+                      className="mb-2 text-sm font-semibold uppercase tracking-wide"
+                      style={{ color: "var(--color-accent)" }}
+                    >
+                      {item.category}
+                    </p>
 
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
+                    <h3 className="text-2xl font-semibold">{item.title}</h3>
 
-                  <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+                    <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">
+                      {item.description}
+                    </p>
+
+                    {item.href && (
+                      <span className="mt-5 inline-block font-semibold text-[color:var(--color-accent)]">
+                        View guide →
+                      </span>
+                    )}
+                  </div>
+                </>
+              );
+
+              return item.href ? (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                >
+                  {cardContent}
+                </Link>
+              ) : (
+                <article
+                  key={item.title}
+                  className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                >
+                  {cardContent}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

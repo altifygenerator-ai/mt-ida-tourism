@@ -1,8 +1,9 @@
-import Image from "next/image"
-import CTASection from "@/components/CTASection"
+import Image from "next/image";
+import CTASection from "@/components/CTASection";
 
 export const metadata = {
-  title: "History of Mount Ida Arkansas | Quartz, Montgomery County & Lake Ouachita",
+  title:
+    "History of Mount Ida Arkansas | Quartz, Montgomery County & Lake Ouachita",
   description:
     "Discover the history of Mount Ida, Arkansas — from Montgomery County roots and quartz mining to Lake Ouachita, timber, and Ouachita Mountain culture.",
   keywords: [
@@ -13,7 +14,7 @@ export const metadata = {
     "Lake Ouachita history",
     "Arkansas small towns",
   ],
-}
+};
 
 const historySections = [
   {
@@ -29,7 +30,7 @@ const historySections = [
     title: "Quartz and Mountain Geology",
     text: "Mount Ida is best known today as the Quartz Capital of the World. The surrounding Ouachita Mountains are rich with quartz crystal deposits, and that natural resource became a major part of the town’s identity. What started as a regional mineral resource grew into a tourism draw, bringing rockhounds, families, collectors, and visitors from across the country to dig, shop, and explore the local crystal mines.",
     images: [
-      "/images/mt-ida-quartz-history.jpg",
+      "/images/mt-ida-quartz-history.png",
       "/images/mt-ida-crystals.jpg",
       "/images/crystal-vista.jpg",
     ],
@@ -40,7 +41,7 @@ const historySections = [
     images: [
       "/images/ouachita-national-forest.jpg",
       "/images/mt-ida-mountains.jpg",
-      "/images/mt-ida-scenic-drive.jpg",
+      "/images/mt-ida-scenic-drive.jpeg",
     ],
   },
   {
@@ -52,7 +53,7 @@ const historySections = [
       "/images/mt-ida-cabins.webp",
     ],
   },
-]
+];
 
 export default function HistoryPage() {
   return (
@@ -151,5 +152,5 @@ export default function HistoryPage() {
         buttonHref="/things-to-do"
       />
     </main>
-  )
+  );
 }

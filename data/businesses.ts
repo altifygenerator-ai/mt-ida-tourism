@@ -1,4 +1,4 @@
-import type { Business } from "@/types"
+import type { Business } from "@/types";
 
 export const businesses: Business[] = [
   {
@@ -45,4 +45,36 @@ export const businesses: Business[] = [
       "A local gallery featuring regional art, handmade goods, and gifts connected to the Mount Ida area.",
     image: "/images/ouachita-artists-gallery.jpg",
   },
-]
+  {
+    name: "Hickory Nut Mountain Vista",
+    category: "Scenic Overlook",
+    description:
+      "A quiet Ouachita National Forest overlook with Lake Ouachita views, picnic-style stops, forest-road access, and a slower scenic-drive feel near Mount Ida.",
+    image: "/images/lake-ouachita-view.webp",
+    href: "/hickory-nut-mountain-mount-ida",
+  },
+  {
+    name: "Safe Harbor Brady Mountain",
+    category: "Lake Marina",
+    description:
+      "A Lake Ouachita marina in Royal with fuel, ship's store, boat services, lodging information, rental partners, and Brady Mountain lake-day planning details.",
+    image: "/images/lake-ouachita-boating.jpg",
+    href: "/brady-mountain-lake-ouachita",
+  },
+  {
+    name: "Brady Mountain Grill on Wheels",
+    category: "Lake Food",
+    description:
+      "A food stop listed onsite at Safe Harbor Brady Mountain. Best treated as a check-ahead lake-day option because current hours can change.",
+    image: "/images/mt-ida-restaurants.jpg",
+    href: "/restaurants",
+  },
+  {
+    name: "Sno-A-Lattes LLC",
+    category: "Coffee & Treats",
+    description:
+      "A Royal-area coffee, sno-cone, breakfast, and treat stop that can fit into a wider Lake Ouachita or Brady Mountain day when current hours line up.",
+    image: "/images/mt-ida-restaurants.jpg",
+    href: "/restaurants",
+  },
+];

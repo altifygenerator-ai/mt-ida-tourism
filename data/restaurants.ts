@@ -103,4 +103,26 @@ export const restaurants: Restaurant[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Pizza+Pro+439+US-270+Mount+Ida+AR+71957",
   },
+  {
+    name: "Brady Mountain Grill on Wheels",
+    type: "Lake Food • Food Truck • Brady Mountain",
+    description:
+      "A seasonal-style lake food stop listed onsite at Safe Harbor Brady Mountain. Good to check when planning a Lake Ouachita day, but current hours should be verified before counting on it.",
+    address: "4120 Brady Mountain Road, Royal, AR 71968",
+    image: "/images/lake-ouachita-boating.jpg",
+    website: "https://safeharbor.com/locations/safe-harbor-brady-mountain/",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Brady+Mountain+Grill+on+Wheels+Safe+Harbor+Brady+Mountain+Royal+AR",
+  },
+  {
+    name: "Sno-A-Lattes LLC",
+    type: "Coffee • SnoCones • Breakfast • Treats",
+    description:
+      "A Royal-area coffee and treat stop mentioned around Lake Ouachita travel, with lattes, sno-cones, craft sodas, breakfast, and other quick treats. Check current hours before making a special stop.",
+    address: "Royal, AR 71968",
+    image: "/images/mt-ida-restaurants.jpg",
+    website: "https://www.facebook.com/SnoALattes/",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Sno-A-Lattes+Royal+AR",
+  },
 ];

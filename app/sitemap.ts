@@ -54,6 +54,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     {
+      url: `${siteUrl}/brady-mountain-lake-ouachita`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.87,
+    },
+
+    {
+      url: `${siteUrl}/hickory-nut-mountain-mount-ida`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.86,
+    },
+
+    {
       url: `${siteUrl}/cabins`,
       lastModified: new Date(),
       changeFrequency: "weekly",

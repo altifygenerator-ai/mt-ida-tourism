@@ -48,6 +48,24 @@ export default function Footer() {
             </li>
 
             <li>
+              <Link
+                href="/brady-mountain-lake-ouachita"
+                className="hover:underline"
+              >
+                Brady Mountain Lake Ouachita
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/hickory-nut-mountain-mount-ida"
+                className="hover:underline"
+              >
+                Hickory Nut Mountain Vista
+              </Link>
+            </li>
+
+            <li>
               <Link href="/restaurants" className="hover:underline">
                 Restaurants
               </Link>

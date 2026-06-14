@@ -51,6 +51,22 @@ export const attractions: Attraction[] = [
     image: "/images/lake-ouachita.webp",
   },
   {
+    title: "Hickory Nut Mountain Vista",
+    category: "Scenic Overlook",
+    description:
+      "A quiet Ouachita National Forest overlook with Lake Ouachita views, picnic-style stops, forest-road access, and a slower scenic-drive feel near Mount Ida.",
+    image: "/images/lake-ouachita-view.webp",
+    href: "/hickory-nut-mountain-mount-ida",
+  },
+  {
+    title: "Brady Mountain Recreation Area",
+    category: "Lake Ouachita Recreation",
+    description:
+      "A Lake Ouachita camping, swim beach, boat ramp, and day-use area that works well for visitors planning a real lake day near Mount Ida.",
+    image: "/images/lake-ouachita-boating.jpg",
+    href: "/brady-mountain-lake-ouachita",
+  },
+  {
     title: "Ouachita National Forest",
     category: "Hiking & Nature",
     description:

@@ -81,4 +81,16 @@ export const cabins: Cabin[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Ouachita+Mountain+cabins+Mount+Ida+AR",
   },
+  {
+    name: "Safe Harbor Brady Mountain",
+    type: "Lake Ouachita Marina • Lodging • Boat Rentals",
+    description:
+      "A Lake Ouachita marina in Royal with onsite lodging information, boat rentals through local partners, fuel, ship's store, and lake-day services near Brady Mountain.",
+    phone: "501-767-3422",
+    address: "4120 Brady Mountain Road, Royal, AR 71968",
+    image: "/images/lake-ouachita-boating.jpg",
+    website: "https://safeharbor.com/locations/safe-harbor-brady-mountain/",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Safe+Harbor+Brady+Mountain+4120+Brady+Mountain+Road+Royal+AR+71968",
+  },
 ];

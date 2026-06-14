@@ -2,19 +2,31 @@ import Link from "next/link";
 
 const updates = [
   {
+    label: "Lake Ouachita guide",
+    title: "Brady Mountain Lake Ouachita",
+    text: "A new practical guide to Brady Mountain, with notes on camping, swim beach access, Safe Harbor Brady Mountain, boat ramps, food, and what to check before planning a lake day.",
+    href: "/brady-mountain-lake-ouachita",
+  },
+  {
+    label: "Scenic overlook guide",
+    title: "Hickory Nut Mountain Vista",
+    text: "A simple local guide to the Hickory Nut Mountain overlook near Lake Ouachita, with notes on the view, forest-road access, scenic driving, and when it fits a Mount Ida trip.",
+    href: "/hickory-nut-mountain-mount-ida",
+  },
+  {
     label: "Seasonal guide",
     title: "Fourth of July Around Mount Ida",
-    text: "A new July 4 guide has been added with the verified Mountain Harbor holiday celebration, Lake Ouachita trip tips, cabins, crystal mines, and simple holiday planning ideas.",
+    text: "A July 4 guide with the verified Mountain Harbor holiday celebration, Lake Ouachita trip tips, cabins, crystal mines, and simple holiday planning ideas.",
     href: "/mount-ida-fourth-of-july",
   },
   {
     label: "Family guide",
     title: "Things To Do With Kids",
-    text: "A new family-friendly guide helps visitors plan Mount Ida trips around crystal digging, Lake Ouachita, cabins, food stops, local history, and simple outdoor time.",
+    text: "A family-friendly guide helps visitors plan Mount Ida trips around crystal digging, Lake Ouachita, cabins, food stops, local history, and simple outdoor time.",
     href: "/things-to-do-with-kids",
   },
   {
-    label: "New guide",
+    label: "Crystal guide",
     title: "Crystal Mining in Mount Ida",
     text: "A practical guide to quartz digging, what to bring, lesser-known stops, and how to build a Mount Ida weekend around crystal hunting.",
     href: "/crystal-mining",
@@ -35,17 +47,23 @@ export default function RecentUpdates() {
               <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
                 New and updated Mount Ida guides.
               </h2>
+
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--color-muted)]">
+                New local guides are being added around Lake Ouachita, crystal
+                digging, family trips, scenic overlooks, campgrounds, marinas,
+                local food, and outdoor stops near Mount Ida.
+              </p>
             </div>
 
             <Link
-              href="/mount-ida-fourth-of-july"
+              href="/things-to-do"
               className="text-sm font-bold text-[color:var(--color-accent)] underline"
             >
-              July 4 guide
+              Explore more guides
             </Link>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {updates.map((update) => (
               <Link
                 key={update.title}
