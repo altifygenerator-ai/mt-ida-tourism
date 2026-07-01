@@ -1,17 +1,43 @@
 import SectionHeading from "@/components/SectionHeading"
 import CTASection from "@/components/CTASection"
 import BusinessCard from "@/components/BusinessCard"
+import JsonLd from "@/components/JsonLd"
 import { businesses } from "@/data/businesses"
 
 export const metadata = {
-  title: "Mount Ida Local Businesses | Promote Your Business",
+  title: "Mount Ida Local Businesses | Visitor Listings & Featured Spots",
   description:
-    "List and promote your Mount Ida business. Get found by visitors searching for cabins, restaurants, and things to do near Lake Ouachita.",
+    "Find and promote Mount Ida local businesses, including places to stay, restaurants, shops, museums, marinas, galleries, and visitor-friendly stops near Lake Ouachita.",
+  alternates: {
+    canonical: "/local-business",
+  },
 }
 
 export default function LocalBusinessPage() {
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Mount Ida Local Businesses",
+          description:
+            "Local businesses, resorts, restaurants, shops, museums, marinas, galleries, and visitor-friendly stops around Mount Ida and Lake Ouachita.",
+          url: "https://mountidaarkansas.org/local-business",
+          itemListElement: businesses.map((business, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "LocalBusiness",
+              name: business.name,
+              description: business.description,
+              url: business.href
+                ? `https://mountidaarkansas.org${business.href}`
+                : "https://mountidaarkansas.org/local-business",
+            },
+          })),
+        }}
+      />
       <section className="section">
         <div className="container">
           <SectionHeading

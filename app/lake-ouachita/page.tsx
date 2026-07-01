@@ -3,10 +3,9 @@ import CTASection from "@/components/CTASection";
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Lake Ouachita Near Mount Ida Arkansas | Boating, Fishing, Cabins & Lake Guide",
+  title: "Lake Ouachita Near Mount Ida, Arkansas | Boating, Fishing & Cabins",
   description:
-    "Plan a Lake Ouachita trip near Mount Ida, Arkansas with boating, fishing, swimming, kayaking, islands, marinas, cabins, resorts, crystal mines, restaurants, and scenic mountain views.",
+    "Plan a Lake Ouachita trip near Mount Ida with boating, fishing, swimming, kayaking, marinas, cabins, resorts, Brady Mountain, and mountain views.",
   keywords: [
     "Lake Ouachita Mount Ida",
     "Lake Ouachita Arkansas",
@@ -24,6 +23,9 @@ export const metadata = {
     "Arkansas lake vacations",
     "Lake Ouachita weekend trip",
   ],
+  alternates: {
+    canonical: "/lake-ouachita",
+  },
 };
 
 const quickLinks = [

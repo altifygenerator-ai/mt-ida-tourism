@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import EventCard from "@/components/EventCard";
-import { getApprovedEvents, hasSupabaseEnv } from "@/lib/supabase/events";
+import JsonLd from "@/components/JsonLd";
+import { getApprovedEvents, getEventDescription, hasSupabaseEnv } from "@/lib/supabase/events";
 
 export const metadata: Metadata = {
-  title: "Mount Ida Events",
+  title: "Mount Ida Events | Local Calendar & Weekend Happenings",
   description:
-    "Find upcoming Mount Ida, Arkansas events, local happenings, seasonal activities, community events, and visitor-friendly things to do around Lake Ouachita and the Ouachita Mountains.",
+    "Find Mount Ida, Arkansas events, local happenings, seasonal activities, community events, and visitor-friendly things to do around Lake Ouachita.",
+  alternates: {
+    canonical: "/events",
+  },
 };
 
 export const revalidate = 300;
@@ -17,6 +21,42 @@ export default async function EventsPage() {
 
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Mount Ida Events",
+          description:
+            "Upcoming Mount Ida, Arkansas events, local happenings, seasonal activities, community events, and visitor-friendly things to do around Lake Ouachita.",
+          url: "https://mountidaarkansas.org/events",
+          mainEntity: {
+            "@type": "ItemList",
+            name: "Upcoming Mount Ida events",
+            itemListElement: events.map((event, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Event",
+                name: event.title,
+                description: getEventDescription(event),
+                startDate: event.start_date,
+                endDate: event.end_date || undefined,
+                eventAttendanceMode:
+                  "https://schema.org/OfflineEventAttendanceMode",
+                eventStatus: "https://schema.org/EventScheduled",
+                url: `https://mountidaarkansas.org/events/${event.slug}`,
+                location: event.location_name
+                  ? {
+                      "@type": "Place",
+                      name: event.location_name,
+                      address: event.address,
+                    }
+                  : undefined,
+              },
+            })),
+          },
+        }}
+      />
       <section className="events-hero">
         <div className="container events-hero-grid">
           <div>

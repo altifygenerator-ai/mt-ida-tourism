@@ -2,10 +2,9 @@ import Image from "next/image";
 import CTASection from "@/components/CTASection";
 
 export const metadata = {
-  title:
-    "History of Mount Ida Arkansas | Quartz, Montgomery County & Lake Ouachita",
+  title: "History of Mount Ida, Arkansas | Quartz & Montgomery County",
   description:
-    "Discover the history of Mount Ida, Arkansas — from Montgomery County roots and quartz mining to Lake Ouachita, timber, and Ouachita Mountain culture.",
+    "Read about Mount Ida, Arkansas history, including Montgomery County roots, quartz mining, Lake Ouachita, timber, local museums, and Ouachita Mountain culture.",
   keywords: [
     "Mount Ida Arkansas history",
     "Montgomery County Arkansas history",
@@ -14,6 +13,9 @@ export const metadata = {
     "Lake Ouachita history",
     "Arkansas small towns",
   ],
+  alternates: {
+    canonical: "/history",
+  },
 };
 
 const historySections = [

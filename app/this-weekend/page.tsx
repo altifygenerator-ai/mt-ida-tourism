@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import EventCard from "@/components/EventCard";
-import { getApprovedEvents, getWeekendRange, hasSupabaseEnv } from "@/lib/supabase/events";
+import JsonLd from "@/components/JsonLd";
+import { getApprovedEvents, getEventDescription, getWeekendRange, hasSupabaseEnv } from "@/lib/supabase/events";
 
 export const metadata: Metadata = {
-  title: "This Weekend in Mount Ida",
+  title: "This Weekend in Mount Ida | Events, Lake Days & Local Ideas",
   description:
-    "See what is happening this weekend in Mount Ida, Arkansas, including local events, Lake Ouachita activities, crystal mining stops, and visitor-friendly ideas.",
+    "See what is happening this weekend in Mount Ida, including local events, Lake Ouachita activities, crystal mining stops, food, and visitor-friendly ideas.",
+  alternates: {
+    canonical: "/this-weekend",
+  },
 };
 
 export const revalidate = 300;
@@ -17,6 +21,35 @@ export default async function ThisWeekendPage() {
 
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "This Weekend in Mount Ida",
+          description:
+            "Weekend events and visitor-friendly ideas around Mount Ida, Lake Ouachita, crystal mines, restaurants, and scenic outdoor stops.",
+          url: "https://mountidaarkansas.org/this-weekend",
+          mainEntity: {
+            "@type": "ItemList",
+            name: "This weekend around Mount Ida",
+            itemListElement: events.map((event, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Event",
+                name: event.title,
+                description: getEventDescription(event),
+                startDate: event.start_date,
+                endDate: event.end_date || undefined,
+                eventAttendanceMode:
+                  "https://schema.org/OfflineEventAttendanceMode",
+                eventStatus: "https://schema.org/EventScheduled",
+                url: `https://mountidaarkansas.org/events/${event.slug}`,
+              },
+            })),
+          },
+        }}
+      />
       <section className="events-hero weekend-hero">
         <div className="container events-hero-grid">
           <div>

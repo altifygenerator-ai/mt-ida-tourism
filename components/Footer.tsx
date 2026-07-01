@@ -145,6 +145,17 @@ export default function Footer() {
                 Visit Hot Springs
               </a>
             </li>
+
+            <li>
+              <a
+                href="https://murfreesboroarkansas.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Visit Murfreesboro
+              </a>
+            </li>
           </ul>
 
           <p className="mt-5 text-xs leading-relaxed !text-white/50">

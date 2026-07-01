@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
 import { notFound } from "next/navigation";
 import {
   formatEventDate,
@@ -27,6 +28,9 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
   return {
     title: event.title,
     description: getEventDescription(event),
+    alternates: {
+      canonical: `/events/${event.slug}`,
+    },
     openGraph: {
       title: event.title,
       description: getEventDescription(event),
@@ -46,6 +50,32 @@ export default async function EventDetailPage({ params }: EventPageProps) {
 
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: event.title,
+          description,
+          startDate: event.start_date,
+          endDate: event.end_date || undefined,
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          image: event.image_url ? [event.image_url] : undefined,
+          url: `https://mountidaarkansas.org/events/${event.slug}`,
+          location: event.location_name
+            ? {
+                "@type": "Place",
+                name: event.location_name,
+                address: event.address,
+              }
+            : undefined,
+          organizer: {
+            "@type": "Organization",
+            name: "Mount Ida Arkansas Tourism",
+            url: "https://mountidaarkansas.org",
+          },
+        }}
+      />
       <section className="event-detail-hero">
         {event.image_url ? (
           <img src={event.image_url} alt={event.title} className="event-detail-bg" />

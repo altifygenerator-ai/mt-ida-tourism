@@ -2,9 +2,12 @@ import Link from "next/link";
 import { cabins } from "@/data/cabins";
 
 export const metadata = {
-  title: "Cabins in Mount Ida Arkansas | Lake Ouachita Cabins & Places to Stay",
+  title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Stays",
   description:
-    "Find cabins, resorts, inns, cottages, and places to stay near Mount Ida, Arkansas, Lake Ouachita, crystal mines, and the Ouachita Mountains.",
+    "Find cabins, resorts, inns, cottages, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+  alternates: {
+    canonical: "/cabins",
+  },
 };
 
 const featuredCabins = cabins.filter((stay) => stay.featured);

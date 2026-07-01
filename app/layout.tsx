@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
+import SiteSearch from "@/components/SiteSearch";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
@@ -90,6 +91,10 @@ export const metadata: Metadata = {
     images: ["/images/mt-ida-hero.webp"],
   },
 
+  alternates: {
+    canonical: "/",
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -118,6 +123,39 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <SiteSearch />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "Mount Ida Arkansas Tourism",
+                url: siteUrl,
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: `${siteUrl}/search?q={search_term_string}`,
+                  "query-input": "required name=search_term_string",
+                },
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Mount Ida Arkansas Tourism",
+                url: siteUrl,
+                description:
+                  "An independent local guide to Mount Ida, Arkansas, Lake Ouachita, crystal mining, cabins, restaurants, events, and local businesses.",
+                sameAs: [
+                  "https://glenwoodarkansas.org",
+                  "https://amityarkansas.org",
+                  "https://hotspringsarkansas.org",
+                  "https://murfreesboroarkansas.org",
+                ],
+              },
+            ]),
+          }}
+        />
         {children}
         <Footer />
         <Analytics />

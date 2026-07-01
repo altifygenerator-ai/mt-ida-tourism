@@ -4,8 +4,7 @@ import CTASection from "@/components/CTASection";
 import { crystalMiningGuide } from "@/data/crystalMining";
 
 export const metadata = {
-  title:
-    "Crystal Mines Near Mount Ida Arkansas | Quartz Digging Stops & Rockhounding",
+  title: "Crystal Mines Near Mount Ida, Arkansas | Quartz Digging Stops",
   description:
     "Find crystal mines, quartz digging stops, hours, prices, phone numbers, rockhounding tips, and outdoor crystal hunting areas near Mount Ida, Arkansas.",
   keywords: [
@@ -20,6 +19,9 @@ export const metadata = {
     "rockhounding Arkansas",
     "Crystal Vista Arkansas",
   ],
+  alternates: {
+    canonical: "/crystal-mines",
+  },
 };
 
 const allStops = [

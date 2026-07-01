@@ -2,9 +2,12 @@ import Link from "next/link";
 import { restaurants } from "@/data/restaurants";
 
 export const metadata = {
-  title: "Restaurants in Mount Ida Arkansas | Places to Eat Near Lake Ouachita",
+  title: "Restaurants in Mount Ida, Arkansas | Food Near Lake Ouachita",
   description:
-    "Find restaurants in Mount Ida, Arkansas including cafes, lake dining, Mexican food, pizza, burgers, sandwiches, quick stops, and places to eat near Lake Ouachita and crystal mines.",
+    "Find restaurants in Mount Ida, including cafes, lake dining, Mexican food, pizza, burgers, quick stops, and places to eat near Lake Ouachita and crystal mines.",
+  alternates: {
+    canonical: "/restaurants",
+  },
 };
 
 const featuredRestaurants = restaurants.filter((place) => place.featured);

@@ -1,12 +1,15 @@
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
 import { attractions } from "@/data/attractions";
 
 export const metadata = {
-  title:
-    "Things To Do in Mount Ida Arkansas | Crystal Mines, Lake Ouachita & Outdoor Attractions",
+  title: "Things To Do in Mount Ida, Arkansas | Crystal Mines & Lake Ouachita",
   description:
-    "Explore things to do in Mount Ida, Arkansas including crystal mines, Lake Ouachita, Brady Mountain, Hickory Nut Mountain, hiking, scenic drives, museums, local shops, cabins, restaurants, fishing, and outdoor recreation.",
+    "Explore things to do in Mount Ida, Arkansas, including crystal mines, Lake Ouachita, Brady Mountain, Hickory Nut Mountain, cabins, restaurants, history, and outdoor stops.",
+  alternates: {
+    canonical: "/things-to-do",
+  },
 };
 
 const tripStyles = [
@@ -42,6 +45,32 @@ const planningTips = [
 export default function ThingsToDoPage() {
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TravelGuide",
+          name: "Things To Do in Mount Ida, Arkansas",
+          description:
+            "A visitor guide to crystal mines, Lake Ouachita, Brady Mountain, Hickory Nut Mountain, cabins, restaurants, history, and outdoor things to do around Mount Ida.",
+          url: "https://mountidaarkansas.org/things-to-do",
+          mainEntity: {
+            "@type": "ItemList",
+            name: "Mount Ida attractions and things to do",
+            itemListElement: attractions.map((item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "TouristAttraction",
+                name: item.title,
+                description: item.description,
+                url: item.href
+                  ? `https://mountidaarkansas.org${item.href}`
+                  : "https://mountidaarkansas.org/things-to-do",
+              },
+            })),
+          },
+        }}
+      />
       {/* HERO */}
       <section className="relative min-h-[76vh] flex items-center overflow-hidden dark-section">
         <img

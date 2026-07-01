@@ -1,7 +1,8 @@
-import type { Business } from "@/types"
+import Link from "next/link";
+import type { Business } from "@/types";
 
 export default function BusinessCard({ business }: { business: Business }) {
-  return (
+  const card = (
     <article className="card">
       <div className="image-card">
         <img src={business.image} alt={business.name} />
@@ -13,5 +14,13 @@ export default function BusinessCard({ business }: { business: Business }) {
         <p>{business.description}</p>
       </div>
     </article>
-  )
+  );
+
+  if (!business.href) return card;
+
+  return (
+    <Link href={business.href} className="block text-inherit no-underline">
+      {card}
+    </Link>
+  );
 }

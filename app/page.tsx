@@ -4,12 +4,31 @@ import CTASection from "@/components/CTASection";
 import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
 import MountIdaFourthOfJulyFeature from "@/components/MountIdaFourthOfJulyFeature";
 import RecentUpdates from "@/components/RecentUpdates";
+import JsonLd from "@/components/JsonLd";
 import { homeCategories } from "@/data/categories";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <main>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TravelGuide",
+          name: "Mount Ida Arkansas Tourism Guide",
+          description:
+            "A local guide to Mount Ida, Arkansas, crystal mining, Lake Ouachita, cabins, restaurants, events, history, and Ouachita Mountain attractions.",
+          url: "https://mountidaarkansas.org/",
+          about: [
+            "Mount Ida Arkansas",
+            "Crystal mining",
+            "Lake Ouachita",
+            "Cabins",
+            "Restaurants",
+            "Things to do",
+          ],
+        }}
+      />
       <Hero />
 
       <RecentUpdates />
@@ -319,6 +338,16 @@ export default function HomePage() {
           >
             <span>More Area Guides</span>
             <strong>Visit Glenwood →</strong>
+          </a>
+
+          <a
+            href="https://murfreesboroarkansas.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nearby-town-card outline"
+          >
+            <span>More Area Guides</span>
+            <strong>Visit Murfreesboro →</strong>
           </a>
         </div>
       </section>
