@@ -24,5 +24,10 @@ export type Business = {
   description: string
   image: string
   href?: string
+  phone?: string
+  address?: string
+  website?: string
+  directions?: string
   featured?: boolean
+  placementType?: "paid" | "editorial"
 }

@@ -1,216 +1,168 @@
 import Link from "next/link";
 
+const footerGroups = [
+  {
+    title: "Explore",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/things-to-do", label: "Things To Do" },
+      { href: "/crystal-mining", label: "Crystal Mining Guide" },
+      { href: "/crystal-mines", label: "Crystal Mines" },
+      { href: "/lake-ouachita", label: "Lake Ouachita" },
+      {
+        href: "/brady-mountain-lake-ouachita",
+        label: "Brady Mountain",
+      },
+      {
+        href: "/hickory-nut-mountain-mount-ida",
+        label: "Hickory Nut Mountain",
+      },
+      { href: "/history", label: "Mount Ida History" },
+    ],
+  },
+  {
+    title: "Events",
+    links: [
+      { href: "/events", label: "Events" },
+      { href: "/this-weekend", label: "This Weekend" },
+      { href: "/submit-event", label: "Submit an Event" },
+    ],
+  },
+  {
+    title: "Food & Local",
+    links: [
+      { href: "/restaurants", label: "Restaurants" },
+      { href: "/shopping", label: "Shopping & Local Finds" },
+      { href: "/services", label: "Local Services" },
+      { href: "/local-business", label: "Local Businesses" },
+    ],
+  },
+  {
+    title: "Stay",
+    links: [{ href: "/cabins", label: "Cabins & Places to Stay" }],
+  },
+  {
+    title: "Business",
+    links: [
+      { href: "/contact", label: "Get Listed" },
+      { href: "/contact", label: "Promote Your Business" },
+      { href: "/submit-event", label: "Submit an Event" },
+    ],
+  },
+];
+
+const sisterSites = [
+  { href: "https://glenwoodarkansas.org", label: "Glenwood Arkansas" },
+  { href: "https://amityarkansas.org", label: "Amity Arkansas" },
+  { href: "https://hotspringsarkansas.org", label: "Hot Springs Arkansas" },
+  { href: "https://murfreesboroarkansas.org", label: "Murfreesboro Arkansas" },
+];
+
+function FooterGroup({
+  title,
+  links,
+}: {
+  title: string;
+  links: {
+    href: string;
+    label: string;
+  }[];
+}) {
+  return (
+    <div className="footer-group">
+      <h4>{title}</h4>
+
+      <div className="footer-link-list">
+        {links.map((link) => (
+          <Link key={`${title}-${link.href}-${link.label}`} href={link.href}>
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer className="bg-[#2d2a26] text-white mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-4">
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Mount Ida Arkansas</h3>
-          <p className="text-sm !text-white/80">
-            Discover Mount Ida, Arkansas — from crystal mines and Lake Ouachita
-            to quiet cabins, local restaurants, scenic drives, and the Ouachita
-            Mountains.
-          </p>
+    <footer className="site-footer">
+      <div className="container footer-main">
+        <div className="footer-brand-row">
+          <div>
+            <h3>Mount Ida Arkansas</h3>
+            <p>
+              A local guide to crystal mines, Lake Ouachita, cabins, restaurants,
+              events, scenic stops, and small businesses around Mount Ida,
+              Arkansas.
+            </p>
+          </div>
+
+          <div className="footer-brand-actions">
+            <Link href="/contact" className="footer-button footer-button-light">
+              Get Listed
+            </Link>
+
+            <Link href="/events" className="footer-button footer-button-outline">
+              View Events
+            </Link>
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Explore</h3>
-
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/things-to-do" className="hover:underline">
-                Things To Do
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/crystal-mining" className="hover:underline">
-                Crystal Mining Guide
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/crystal-mines" className="hover:underline">
-                Crystal Mines
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/lake-ouachita" className="hover:underline">
-                Lake Ouachita
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/brady-mountain-lake-ouachita"
-                className="hover:underline"
-              >
-                Brady Mountain Lake Ouachita
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/hickory-nut-mountain-mount-ida"
-                className="hover:underline"
-              >
-                Hickory Nut Mountain Vista
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/restaurants" className="hover:underline">
-                Restaurants
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/events" className="hover:underline">
-                Events
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/this-weekend" className="hover:underline">
-                This Weekend
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/submit-event" className="hover:underline">
-                Submit an Event
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/cabins" className="hover:underline">
-                Cabins & Places to Stay
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/history" className="hover:underline">
-                Mount Ida History
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/local-business" className="hover:underline">
-                Local Businesses
-              </Link>
-            </li>
-          </ul>
+        <div className="footer-link-grid">
+          {footerGroups.map((group) => (
+            <FooterGroup
+              key={group.title}
+              title={group.title}
+              links={group.links}
+            />
+          ))}
         </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Sister Sites</h3>
+        <div className="footer-sister-row">
+          <span>Nearby Arkansas guides</span>
 
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
+          <div>
+            {sisterSites.map((site) => (
               <a
-                href="https://glenwoodarkansas.org"
+                key={site.href}
+                href={site.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
               >
-                Visit Glenwood
+                {site.label}
               </a>
-            </li>
-
-            <li>
-              <a
-                href="https://amityarkansas.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Visit Amity
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://hotspringsarkansas.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Visit Hot Springs
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://murfreesboroarkansas.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Visit Murfreesboro
-              </a>
-            </li>
-          </ul>
-
-          <p className="mt-5 text-xs leading-relaxed !text-white/50">
-            Part of the <strong>Natural State Tourism Project</strong>, an
-            independent local tourism guide network.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Get Listed</h3>
-
-          <p className="text-sm !text-white/80 mb-4">
-            Own a local business in Mount Ida? Get featured and connect with
-            visitors planning trips to the area.
-          </p>
-
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
-          >
-            Contact Us
-          </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 text-sm text-white/70 py-6">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="!text-white/70">
-            © {new Date().getFullYear()} Mount Ida Arkansas. Built as a local
-            tourism and business guide.
-          </div>
+      <div className="container footer-bottom">
+        <p>
+          © {new Date().getFullYear()} Mount Ida Arkansas. Built as a local
+          tourism and business guide.
+        </p>
 
-          <div className="flex flex-col gap-3 md:items-end">
-            <a
-              href="https://buy.stripe.com/aFa4gz7By3qv67T8BX7N602"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[color:var(--color-accent)] text-white px-5 py-2 rounded-md font-medium shadow hover:opacity-90 transition"
-            >
-              ❤️ Support Local Visibility
-            </a>
+        <p>
+          Part of the{" "}
+          <a
+            href="https://naturalstatetourismproject.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Natural State Tourism Project
+          </a>
+        </p>
 
-            <div className="!text-white/50">
-              Site by{" "}
-              <a
-                href="https://hometownwebservicesar.cc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition underline"
-              >
-                Hometown Web Services AR
-              </a>
-            </div>
-          </div>
-        </div>
+        <p>
+          Website by{" "}
+          <a
+            href="https://hometownwebservicesar.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hometown Web Services
+          </a>
+        </p>
       </div>
     </footer>
   );

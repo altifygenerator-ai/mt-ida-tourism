@@ -165,7 +165,7 @@ export default function AdminEventsPage() {
           <div className="admin-note-card">
             <h2>Private route</h2>
             <p>
-              Set <code>MOUNT_IDA_ADMIN_SECRET</code> and <code>SUPABASE_SERVICE_ROLE_KEY</code> in Vercel. Do not expose the service role key in browser code.
+              This route is protected for <code>altifygenerator@gmail.com</code>. Set <code>MOUNT_IDA_ADMIN_SECRET</code> and <code>SUPABASE_SERVICE_ROLE_KEY</code> in Vercel. Every admin query stays scoped to <code>site = mount-ida</code>.
             </p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function AdminEventsPage() {
                 type="password"
                 value={secret}
                 onChange={(event) => setSecret(event.target.value)}
-                placeholder="MOUNT_IDA_ADMIN_SECRET"
+                placeholder="Same password used for the admin route"
                 required
               />
             </label>
@@ -206,6 +206,14 @@ export default function AdminEventsPage() {
             <button type="submit" className="btn" disabled={loading}>
               {loading ? "Loading..." : "Load Events"}
             </button>
+
+            <Link href="/admin/events/sources" className="btn btn-light">
+              Event Sources
+            </Link>
+
+            <Link href="/admin/events/import" className="btn btn-light">
+              Quick Import
+            </Link>
 
             <Link href="/events" className="btn btn-light">
               Public Events

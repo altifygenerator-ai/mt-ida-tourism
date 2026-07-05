@@ -37,11 +37,25 @@ export const homeCategories: Category[] = [
     image: "/images/mt-ida-cabins.webp",
   },
   {
+    title: "Shopping & Local Finds",
+    description:
+      "Browse local shops, galleries, gifts, supplies, and small-town stops around Mount Ida and Lake Ouachita.",
+    href: "/shopping",
+    image: "/images/ouachita-artists-gallery.jpg",
+  },
+  {
     title: "Restaurants",
     description:
       "Find local cafes, resort dining, Mexican food, homestyle meals, and easy places to eat while visiting Mount Ida.",
     href: "/restaurants",
     image: "/images/mt-ida-restaurants.jpg",
+  },
+  {
+    title: "Local Services",
+    description:
+      "Find useful local services for visitors, cabin owners, lake travelers, and people spending time around Mount Ida.",
+    href: "/services",
+    image: "/images/mt-ida-downtown.jpg",
   },
   {
     title: "History",

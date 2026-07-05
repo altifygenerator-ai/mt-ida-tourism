@@ -49,6 +49,7 @@ export type EventInput = {
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 export const hasSupabaseEnv = Boolean(supabaseUrl && supabaseAnonKey);
 
@@ -60,6 +61,25 @@ export const supabase = hasSupabaseEnv
       },
     })
   : null;
+
+function getEventWriteClient() {
+  if (!supabaseUrl) {
+    throw new Error("Event submissions are not connected yet.");
+  }
+
+  const key = supabaseServiceKey || supabaseAnonKey;
+
+  if (!key) {
+    throw new Error("Event submissions are not connected yet.");
+  }
+
+  return createClient(supabaseUrl, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+}
 
 export function makeEventSlug(title: string, startDate?: string) {
   const base = title
@@ -208,9 +228,7 @@ export async function getApprovedEventBySlug(slug: string) {
 }
 
 export async function submitMountIdaEvent(input: EventInput) {
-  if (!supabase) {
-    throw new Error("Event submissions are not connected yet.");
-  }
+  const writeClient = getEventWriteClient();
 
   const cleanTitle = input.title.trim();
   const cleanDescription = input.description?.trim() || null;
@@ -239,7 +257,7 @@ export async function submitMountIdaEvent(input: EventInput) {
     needs_review: true,
   };
 
-  const { error } = await supabase.from("events").insert(payload);
+  const { error } = await writeClient.from("events").insert(payload);
 
   if (error) {
     throw new Error(error.message);

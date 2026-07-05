@@ -6,6 +6,8 @@ import MountIdaFourthOfJulyFeature from "@/components/MountIdaFourthOfJulyFeatur
 import RecentUpdates from "@/components/RecentUpdates";
 import JsonLd from "@/components/JsonLd";
 import { homeCategories } from "@/data/categories";
+import { featuredBusinesses } from "@/data/businesses";
+import BusinessCard from "@/components/BusinessCard";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -107,6 +109,27 @@ export default function HomePage() {
       </section>
 
       <HomeCrystalGuideFeature />
+
+      <section className="section home-featured-businesses-section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Featured local picks</p>
+            <h2>Places to start around Mount Ida</h2>
+            <p>
+              These top guide cards highlight useful visitor stops around Lake
+              Ouachita, crystal mining, food, lodging, local shopping, and
+              outdoor recreation. If a placement is not paid, it is marked as
+              our pick.
+            </p>
+          </div>
+
+          <div className="grid grid-3">
+            {featuredBusinesses.slice(0, 6).map((business) => (
+              <BusinessCard key={business.name} business={business} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section plan-section">
         <div className="container">

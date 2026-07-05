@@ -1,17 +1,95 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { restaurants } from "@/data/restaurants";
+import { restaurants, type Restaurant } from "@/data/restaurants";
+import { businessClickTracking, getFeaturedLabel } from "@/lib/tracking";
 
-export const metadata = {
+const siteUrl = "https://mountidaarkansas.org";
+const pagePath = "/restaurants";
+
+export const metadata: Metadata = {
   title: "Restaurants in Mount Ida, Arkansas | Food Near Lake Ouachita",
   description:
     "Find restaurants in Mount Ida, including cafes, lake dining, Mexican food, pizza, burgers, quick stops, and places to eat near Lake Ouachita and crystal mines.",
+  keywords: [
+    "Mount Ida restaurants",
+    "restaurants in Mount Ida Arkansas",
+    "food near Lake Ouachita",
+    "Mount Ida cafe",
+    "Lake Ouachita restaurants",
+    "places to eat near Mount Ida AR",
+  ],
   alternates: {
-    canonical: "/restaurants",
+    canonical: pagePath,
+  },
+  openGraph: {
+    title: "Restaurants in Mount Ida, Arkansas | Food Near Lake Ouachita",
+    description:
+      "Find cafes, lake dining, Mexican food, pizza, burgers, coffee, quick stops, and local places to eat near Mount Ida and Lake Ouachita.",
+    url: `${siteUrl}${pagePath}`,
+    images: ["/images/mt-ida-restaurants.jpg"],
   },
 };
 
 const featuredRestaurants = restaurants.filter((place) => place.featured);
 const standardRestaurants = restaurants.filter((place) => !place.featured);
+
+function ActionLinks({ place, placement }: { place: Restaurant; placement: string }) {
+  const placementType = place.placementType ?? "editorial";
+
+  return (
+    <div className="flex flex-wrap gap-3">
+      {place.phone ? (
+        <a
+          href={`tel:${place.phone.replace(/[^\d]/g, "")}`}
+          className="bg-black text-white px-4 py-2 rounded-md text-sm"
+          {...businessClickTracking({
+            action: "call",
+            business: place.name,
+            page: pagePath,
+            placement,
+            placementType,
+          })}
+        >
+          Call
+        </a>
+      ) : null}
+
+      {place.website ? (
+        <a
+          href={place.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border px-4 py-2 rounded-md text-sm"
+          {...businessClickTracking({
+            action: "website",
+            business: place.name,
+            page: pagePath,
+            placement,
+            placementType,
+          })}
+        >
+          Website
+        </a>
+      ) : null}
+
+      <a
+        href={place.directions}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border px-4 py-2 rounded-md text-sm"
+        {...businessClickTracking({
+          action: "directions",
+          business: place.name,
+          page: pagePath,
+          placement,
+          placementType,
+        })}
+      >
+        Directions
+      </a>
+    </div>
+  );
+}
 
 export default function RestaurantsPage() {
   const mainRestaurant = featuredRestaurants[0];
@@ -45,6 +123,7 @@ export default function RestaurantsPage() {
         }}
       />
 
+      <p className="eyebrow">Food, coffee, and lake-day stops</p>
       <h1 className="text-4xl md:text-5xl font-semibold mb-6">
         Restaurants in Mount Ida, Arkansas
       </h1>
@@ -73,15 +152,16 @@ export default function RestaurantsPage() {
           </h2>
 
           <p className="text-[color:var(--color-muted)] leading-relaxed">
-            These featured restaurants are useful starting points for visitors
-            planning a Mount Ida trip around Lake Ouachita, crystal mines,
-            cabins, local shops, and the Ouachita Mountains.
+            These top placements are useful starting points for visitors planning
+            a Mount Ida trip around Lake Ouachita, crystal mines, cabins, local
+            shops, and the Ouachita Mountains. If a listing is not a paid
+            placement, it is marked as our pick.
           </p>
         </div>
 
         <div className="space-y-8">
-          {mainRestaurant && (
-            <div className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg">
+          {mainRestaurant ? (
+            <div className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg featured-listing-card">
               <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
                 <div
                   className="min-h-[420px] bg-cover bg-center"
@@ -91,8 +171,8 @@ export default function RestaurantsPage() {
                 />
 
                 <div className="flex flex-col justify-center p-8 lg:p-10">
-                  <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[color:var(--color-accent)]">
-                    Premium Featured Restaurant
+                  <p className="listing-badge mb-3">
+                    {getFeaturedLabel(mainRestaurant.name, mainRestaurant.placementType ?? "editorial")}
                   </p>
 
                   <h2 className="mb-4 text-4xl font-semibold">
@@ -109,52 +189,20 @@ export default function RestaurantsPage() {
 
                   <div className="mb-8 space-y-2 text-sm text-[color:var(--color-muted)]">
                     <p>📍 {mainRestaurant.address}</p>
-                    {mainRestaurant.phone && <p>📞 {mainRestaurant.phone}</p>}
+                    {mainRestaurant.phone ? <p>📞 {mainRestaurant.phone}</p> : null}
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
-                    {mainRestaurant.phone && (
-                      <a
-                        href={`tel:${mainRestaurant.phone.replace(
-                          /[^\d]/g,
-                          ""
-                        )}`}
-                        className="bg-black text-white px-6 py-3 rounded-md"
-                      >
-                        Call Now
-                      </a>
-                    )}
-
-                    {mainRestaurant.website && (
-                      <a
-                        href={mainRestaurant.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border px-6 py-3 rounded-md"
-                      >
-                        View Website
-                      </a>
-                    )}
-
-                    <a
-                      href={mainRestaurant.directions}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border px-6 py-3 rounded-md"
-                    >
-                      Get Directions
-                    </a>
-                  </div>
+                  <ActionLinks place={mainRestaurant} placement="featured-primary-restaurant" />
                 </div>
               </div>
             </div>
-          )}
+          ) : null}
 
           <div className="grid gap-6 lg:grid-cols-2">
             {sideRestaurants.map((place) => (
               <div
                 key={place.name}
-                className="overflow-hidden rounded-2xl border bg-[color:var(--bg-card)]"
+                className="overflow-hidden rounded-2xl border bg-[color:var(--bg-card)] featured-listing-card"
               >
                 <div
                   className="h-64 bg-cover bg-center"
@@ -164,8 +212,8 @@ export default function RestaurantsPage() {
                 />
 
                 <div className="p-6">
-                  <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[color:var(--color-accent)]">
-                    Featured Restaurant
+                  <p className="listing-badge mb-3">
+                    {getFeaturedLabel(place.name, place.placementType ?? "editorial")}
                   </p>
 
                   <h3 className="text-2xl font-semibold">{place.name}</h3>
@@ -182,41 +230,14 @@ export default function RestaurantsPage() {
                     📍 {place.address}
                   </p>
 
-                  {place.phone && (
+                  {place.phone ? (
                     <p className="mt-2 text-sm text-[color:var(--color-muted)]">
                       📞 {place.phone}
                     </p>
-                  )}
+                  ) : null}
 
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {place.phone && (
-                      <a
-                        href={`tel:${place.phone.replace(/[^\d]/g, "")}`}
-                        className="bg-black text-white px-4 py-2 rounded-md text-sm"
-                      >
-                        Call
-                      </a>
-                    )}
-
-                    {place.website && (
-                      <a
-                        href={place.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border px-4 py-2 rounded-md text-sm"
-                      >
-                        Website
-                      </a>
-                    )}
-
-                    <a
-                      href={place.directions}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border px-4 py-2 rounded-md text-sm"
-                    >
-                      Directions
-                    </a>
+                  <div className="mt-5">
+                    <ActionLinks place={place} placement="featured-secondary-restaurant" />
                   </div>
                 </div>
               </div>
@@ -227,9 +248,7 @@ export default function RestaurantsPage() {
 
       <section className="mb-16">
         <div className="mb-8 max-w-3xl">
-          <h2 className="text-3xl font-semibold mb-4">
-            More Places to Eat Near Mount Ida
-          </h2>
+          <h2 className="text-3xl font-semibold mb-4">More Places to Eat Near Mount Ida</h2>
 
           <p className="text-[color:var(--color-muted)] leading-relaxed">
             These additional restaurants and quick food options are helpful for
@@ -241,37 +260,30 @@ export default function RestaurantsPage() {
 
         <div className="space-y-6">
           {standardRestaurants.map((place, index) => (
-            <div
-              key={place.name}
-              className="p-6 rounded-xl bg-[color:var(--bg-card)] border"
-            >
+            <div key={place.name} className="p-6 rounded-xl bg-[color:var(--bg-card)] border">
               <h2 className="text-2xl font-semibold">
                 {index + 1}. {place.name}
               </h2>
 
-              <p className="text-sm text-[color:var(--color-muted)] mt-1">
-                {place.type}
-              </p>
+              <p className="text-sm text-[color:var(--color-muted)] mt-1">{place.type}</p>
 
               <p className="mt-4 text-[color:var(--color-muted)] leading-relaxed">
                 {place.description}
               </p>
 
-              <p className="mt-4 text-sm text-[color:var(--color-muted)]">
-                📍 {place.address}
-              </p>
+              <p className="mt-4 text-sm text-[color:var(--color-muted)]">📍 {place.address}</p>
 
               <div className="mt-4 flex flex-wrap gap-3">
-                {place.phone && (
+                {place.phone ? (
                   <a
                     href={`tel:${place.phone.replace(/[^\d]/g, "")}`}
                     className="bg-black text-white px-4 py-2 rounded-md text-sm"
                   >
                     Call {place.phone}
                   </a>
-                )}
+                ) : null}
 
-                {place.website && (
+                {place.website ? (
                   <a
                     href={place.website}
                     target="_blank"
@@ -280,7 +292,7 @@ export default function RestaurantsPage() {
                   >
                     View Website
                   </a>
-                )}
+                ) : null}
 
                 <a
                   href={place.directions}
@@ -311,9 +323,7 @@ export default function RestaurantsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-6">
-          Mount Ida Restaurant FAQs
-        </h2>
+        <h2 className="text-3xl font-semibold mb-6">Mount Ida Restaurant FAQs</h2>
 
         <div className="space-y-4">
           {[
@@ -333,14 +343,9 @@ export default function RestaurantsPage() {
                 "Yes. Most restaurants around Mount Ida are casual and family-friendly, making them useful for lake trips, cabin stays, crystal mine visits, and weekend travel.",
             },
           ].map((item) => (
-            <div
-              key={item.question}
-              className="rounded-xl border bg-[color:var(--bg-card)] p-6"
-            >
+            <div key={item.question} className="rounded-xl border bg-[color:var(--bg-card)] p-6">
               <h3 className="text-xl font-semibold">{item.question}</h3>
-              <p className="mt-3 text-[color:var(--color-muted)] leading-relaxed">
-                {item.answer}
-              </p>
+              <p className="mt-3 text-[color:var(--color-muted)] leading-relaxed">{item.answer}</p>
             </div>
           ))}
         </div>
@@ -348,23 +353,18 @@ export default function RestaurantsPage() {
 
       <section>
         <div className="rounded-3xl border bg-[color:var(--bg-card)] p-8 md:p-10">
-          <h2 className="text-3xl font-semibold mb-4">
-            Add Your Restaurant or Local Food Spot
-          </h2>
+          <h2 className="text-3xl font-semibold mb-4">Add Your Restaurant or Local Food Spot</h2>
 
           <p className="text-[color:var(--color-muted)] mb-6 max-w-3xl leading-relaxed">
             This Mount Ida restaurant guide helps visitors find local places to
             eat while exploring Lake Ouachita, crystal mines, cabins,
             campgrounds, and the Ouachita Mountains. Restaurants, cafes, food
-            trucks, bakeries, and local dining spots can request a listing or
-            ask about featured placement.
+            trucks, bakeries, and local dining spots can request a free basic
+            listing or ask about featured placement.
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="bg-black text-white px-6 py-3 rounded-md"
-            >
+            <Link href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
               Get Listed
             </Link>
 

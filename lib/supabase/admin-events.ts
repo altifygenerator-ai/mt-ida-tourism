@@ -19,8 +19,31 @@ function getAdminClient() {
   });
 }
 
+function getBasicAuthPassword(request: Request) {
+  const auth = request.headers.get("authorization");
+
+  if (!auth?.startsWith("Basic ")) return null;
+
+  try {
+    const decoded = atob(auth.slice(6));
+    const separator = decoded.indexOf(":");
+
+    if (separator === -1) return null;
+
+    const username = decoded.slice(0, separator);
+    const password = decoded.slice(separator + 1);
+
+    if (username !== "altifygenerator@gmail.com") return null;
+
+    return password;
+  } catch {
+    return null;
+  }
+}
+
 export function verifyAdminSecret(request: Request) {
-  const expectedSecret = process.env.MOUNT_IDA_ADMIN_SECRET;
+  const expectedSecret =
+    process.env.MOUNT_IDA_ADMIN_SECRET || process.env.NATURAL_STATE_ADMIN_SECRET;
 
   if (!expectedSecret) {
     return false;
@@ -28,8 +51,13 @@ export function verifyAdminSecret(request: Request) {
 
   const headerSecret = request.headers.get("x-admin-secret");
   const urlSecret = new URL(request.url).searchParams.get("secret");
+  const basicAuthPassword = getBasicAuthPassword(request);
 
-  return headerSecret === expectedSecret || urlSecret === expectedSecret;
+  return (
+    headerSecret === expectedSecret ||
+    urlSecret === expectedSecret ||
+    basicAuthPassword === expectedSecret
+  );
 }
 
 export async function getMountIdaAdminEvents(status = "pending") {

@@ -8,6 +8,8 @@ export const navigation: NavItem[] = [
   { label: "Hickory Nut Mountain", href: "/hickory-nut-mountain-mount-ida" },
   { label: "Cabins", href: "/cabins" },
   { label: "Restaurants", href: "/restaurants" },
+  { label: "Shopping", href: "/shopping" },
+  { label: "Services", href: "/services" },
   { label: "History", href: "/history" },
   { label: "Promote Your Business", href: "/local-business" },
 ];

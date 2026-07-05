@@ -1,5 +1,67 @@
 import Link from "next/link";
 
+const guideLinks = [
+  {
+    href: "/crystal-mining",
+    label: "Crystal Mining Guide",
+  },
+  {
+    href: "/crystal-mines",
+    label: "Crystal Mines & Quartz Digging",
+  },
+  {
+    href: "/things-to-do",
+    label: "Things To Do",
+  },
+  {
+    href: "/events",
+    label: "Events",
+  },
+  {
+    href: "/this-weekend",
+    label: "This Weekend",
+  },
+  {
+    href: "/lake-ouachita",
+    label: "Lake Ouachita",
+  },
+  {
+    href: "/brady-mountain-lake-ouachita",
+    label: "Brady Mountain Lake Ouachita",
+  },
+  {
+    href: "/hickory-nut-mountain-mount-ida",
+    label: "Hickory Nut Mountain Vista",
+  },
+  {
+    href: "/history",
+    label: "Mount Ida History",
+  },
+];
+
+const businessLinks = [
+  {
+    href: "/local-business",
+    label: "All Local Businesses",
+  },
+  {
+    href: "/restaurants",
+    label: "Restaurants",
+  },
+  {
+    href: "/cabins",
+    label: "Cabins & Places to Stay",
+  },
+  {
+    href: "/shopping",
+    label: "Shopping & Local Finds",
+  },
+  {
+    href: "/services",
+    label: "Local Services",
+  },
+];
+
 const sisterSites = [
   {
     href: "https://glenwoodarkansas.org",
@@ -29,79 +91,38 @@ export default function Header() {
 
         <nav className="flex items-center gap-6 text-sm">
           <div className="relative group">
-            <button className="hover:opacity-70">Plan Your Trip ▾</button>
+            <button type="button" className="hover:opacity-70">
+              Guides ▾
+            </button>
 
-            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[250px] py-2">
-              <Link
-                href="/crystal-mining"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Crystal Mining Guide
-              </Link>
+            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[260px] py-2">
+              {guideLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-4 py-2 hover:bg-black/5"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
-              <Link
-                href="/crystal-mines"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Crystal Mines & Quartz Digging
-              </Link>
+          <div className="relative group">
+            <button type="button" className="hover:opacity-70">
+              Local Businesses ▾
+            </button>
 
-              <Link
-                href="/things-to-do"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Things To Do
-              </Link>
-
-              <Link href="/events" className="block px-4 py-2 hover:bg-black/5">
-                Events
-              </Link>
-
-              <Link
-                href="/this-weekend"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                This Weekend
-              </Link>
-
-              <Link
-                href="/lake-ouachita"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Lake Ouachita
-              </Link>
-
-              <Link
-                href="/brady-mountain-lake-ouachita"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Brady Mountain Lake Ouachita
-              </Link>
-
-              <Link
-                href="/hickory-nut-mountain-mount-ida"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Hickory Nut Mountain Vista
-              </Link>
-
-              <Link
-                href="/restaurants"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Restaurants
-              </Link>
-
-              <Link href="/cabins" className="block px-4 py-2 hover:bg-black/5">
-                Cabins & Places to Stay
-              </Link>
-
-              <Link
-                href="/history"
-                className="block px-4 py-2 hover:bg-black/5"
-              >
-                Mount Ida History
-              </Link>
+            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[245px] py-2">
+              {businessLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-4 py-2 hover:bg-black/5"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -109,12 +130,10 @@ export default function Header() {
             Events
           </Link>
 
-          <Link href="/local-business" className="hover:opacity-70">
-            Local Businesses
-          </Link>
-
           <div className="relative group">
-            <button className="hover:opacity-70">Sister Sites ▾</button>
+            <button type="button" className="hover:opacity-70">
+              Sister Sites ▾
+            </button>
 
             <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[190px] py-2">
               {sisterSites.map((site) => (

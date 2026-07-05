@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import SiteSearch from "@/components/SiteSearch";
 import Footer from "@/components/Footer";
+import AnalyticsClickTracker from "@/components/AnalyticsClickTracker";
 import "./globals.css";
 
 const siteUrl = "https://mountidaarkansas.org";
@@ -158,6 +159,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <AnalyticsClickTracker />
         <Analytics />
       </body>
     </html>

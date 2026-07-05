@@ -8,6 +8,7 @@ export type Restaurant = {
   website?: string;
   directions: string;
   featured?: boolean;
+  placementType?: "paid" | "editorial";
 };
 
 export const restaurants: Restaurant[] = [
@@ -22,6 +23,7 @@ export const restaurants: Restaurant[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Mount+Ida+Cafe+717+Hwy+270+E+Mount+Ida+AR+71957",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "Shangri-La Resort Restaurant",
@@ -35,6 +37,7 @@ export const restaurants: Restaurant[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Shangri-La+Resort+987+Shangri-La+Dr+Mount+Ida+AR+71957",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "Harbor Lodge Restaurant",
@@ -48,6 +51,7 @@ export const restaurants: Restaurant[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Mountain+Harbor+Resort+994+Mountain+Harbor+Rd+Mount+Ida+AR+71957",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "El Diamante Mexican Restaurant",

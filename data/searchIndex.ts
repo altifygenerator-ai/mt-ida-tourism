@@ -143,9 +143,27 @@ const staticPages: SearchItem[] = [
     href: "/local-business",
     category: "Local Business",
     description:
-      "Find local businesses, resorts, restaurants, shops, museums, marinas, galleries, and visitor-friendly stops around Mount Ida.",
+      "Find local businesses, resorts, restaurants, shops, services, museums, marinas, galleries, and visitor-friendly stops around Mount Ida.",
     keywords:
-      "local businesses mount ida shops gallery museum restaurants marina resorts visitors listings promote business",
+      "local businesses mount ida shops services gallery museum restaurants marina resorts visitors listings promote business",
+  },
+  {
+    title: "Mount Ida Shopping",
+    href: "/shopping",
+    category: "Shopping",
+    description:
+      "Find Mount Ida shopping, art galleries, gifts, local finds, supplies, and visitor-friendly shops near Lake Ouachita.",
+    keywords:
+      "mount ida shopping shops art gallery gifts local finds supplies lake ouachita visitor stops",
+  },
+  {
+    title: "Mount Ida Services",
+    href: "/services",
+    category: "Services",
+    description:
+      "Find Mount Ida local services for visitors, cabin guests, property owners, lake travelers, and people spending time near Lake Ouachita.",
+    keywords:
+      "mount ida services local services cabin guests property owners lake travelers lake ouachita visitor services",
   },
   {
     title: "Submit a Mount Ida Event",

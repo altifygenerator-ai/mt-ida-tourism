@@ -1,17 +1,96 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { cabins } from "@/data/cabins";
+import { cabins, type Cabin } from "@/data/cabins";
+import { businessClickTracking, getFeaturedLabel } from "@/lib/tracking";
 
-export const metadata = {
-  title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Stays",
+const siteUrl = "https://mountidaarkansas.org";
+const pagePath = "/cabins";
+
+export const metadata: Metadata = {
+  title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Places to Stay",
   description:
-    "Find cabins, resorts, inns, cottages, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+    "Find cabins, resorts, inns, cottages, campgrounds, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+  keywords: [
+    "Mount Ida cabins",
+    "Lake Ouachita cabins",
+    "cabins near Mount Ida Arkansas",
+    "places to stay in Mount Ida Arkansas",
+    "Mount Ida lodging",
+    "Lake Ouachita resorts",
+    "cabins near crystal mines Mount Ida",
+  ],
   alternates: {
-    canonical: "/cabins",
+    canonical: pagePath,
+  },
+  openGraph: {
+    title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Places to Stay",
+    description:
+      "Browse cabins, lake resorts, inns, cottages, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+    url: `${siteUrl}${pagePath}`,
+    images: ["/images/mt-ida-cabins.webp"],
   },
 };
 
 const featuredCabins = cabins.filter((stay) => stay.featured);
 const standardCabins = cabins.filter((stay) => !stay.featured);
+
+function ActionLinks({ stay, placement }: { stay: Cabin; placement: string }) {
+  const placementType = stay.placementType ?? "editorial";
+
+  return (
+    <div className="flex flex-wrap gap-3">
+      {stay.phone ? (
+        <a
+          href={`tel:${stay.phone.replace(/[^\d]/g, "")}`}
+          className="bg-black text-white px-4 py-2 rounded-md text-sm"
+          {...businessClickTracking({
+            action: "call",
+            business: stay.name,
+            page: pagePath,
+            placement,
+            placementType,
+          })}
+        >
+          Call
+        </a>
+      ) : null}
+
+      {stay.website ? (
+        <a
+          href={stay.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border px-4 py-2 rounded-md text-sm"
+          {...businessClickTracking({
+            action: "website",
+            business: stay.name,
+            page: pagePath,
+            placement,
+            placementType,
+          })}
+        >
+          Website
+        </a>
+      ) : null}
+
+      <a
+        href={stay.directions}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border px-4 py-2 rounded-md text-sm"
+        {...businessClickTracking({
+          action: "directions",
+          business: stay.name,
+          page: pagePath,
+          placement,
+          placementType,
+        })}
+      >
+        Directions
+      </a>
+    </div>
+  );
+}
 
 export default function CabinsPage() {
   const mainStay = featuredCabins[0];
@@ -44,6 +123,7 @@ export default function CabinsPage() {
         }}
       />
 
+      <p className="eyebrow">Cabins, resorts, and lake stays</p>
       <h1 className="text-4xl md:text-5xl font-semibold mb-6">
         Cabins and Places to Stay in Mount Ida, Arkansas
       </h1>
@@ -69,15 +149,16 @@ export default function CabinsPage() {
           </h2>
 
           <p className="text-[color:var(--color-muted)] leading-relaxed">
-            These featured stays are useful starting points for visitors
-            planning a Mount Ida trip around Lake Ouachita, crystal mines,
-            boating, fishing, cabins, and the Ouachita Mountains.
+            These top placements help visitors start with practical lodging
+            options near Lake Ouachita, crystal mines, Brady Mountain, fishing,
+            cabins, and the Ouachita Mountains. If a listing is not a paid
+            placement, it is marked as our pick.
           </p>
         </div>
 
         <div className="space-y-8">
-          {mainStay && (
-            <div className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg">
+          {mainStay ? (
+            <div className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg featured-listing-card">
               <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
                 <div
                   className="min-h-[420px] bg-cover bg-center"
@@ -87,13 +168,11 @@ export default function CabinsPage() {
                 />
 
                 <div className="flex flex-col justify-center p-8 lg:p-10">
-                  <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[color:var(--color-accent)]">
-                    Premium Featured Stay
+                  <p className="listing-badge mb-3">
+                    {getFeaturedLabel(mainStay.name, mainStay.placementType ?? "editorial")}
                   </p>
 
-                  <h2 className="mb-4 text-4xl font-semibold">
-                    {mainStay.name}
-                  </h2>
+                  <h2 className="mb-4 text-4xl font-semibold">{mainStay.name}</h2>
 
                   <p className="mb-5 text-sm text-[color:var(--color-muted)]">
                     {mainStay.type}
@@ -105,49 +184,20 @@ export default function CabinsPage() {
 
                   <div className="mb-8 space-y-2 text-sm text-[color:var(--color-muted)]">
                     <p>📍 {mainStay.address}</p>
-                    {mainStay.phone && <p>📞 {mainStay.phone}</p>}
+                    {mainStay.phone ? <p>📞 {mainStay.phone}</p> : null}
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
-                    {mainStay.phone && (
-                      <a
-                        href={`tel:${mainStay.phone.replace(/[^\d]/g, "")}`}
-                        className="bg-black text-white px-6 py-3 rounded-md"
-                      >
-                        Call Now
-                      </a>
-                    )}
-
-                    {mainStay.website && (
-                      <a
-                        href={mainStay.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border px-6 py-3 rounded-md"
-                      >
-                        View Website
-                      </a>
-                    )}
-
-                    <a
-                      href={mainStay.directions}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border px-6 py-3 rounded-md"
-                    >
-                      Get Directions
-                    </a>
-                  </div>
+                  <ActionLinks stay={mainStay} placement="featured-primary-stay" />
                 </div>
               </div>
             </div>
-          )}
+          ) : null}
 
           <div className="grid gap-6 lg:grid-cols-2">
             {sideStays.map((stay) => (
               <div
                 key={stay.name}
-                className="overflow-hidden rounded-2xl border bg-[color:var(--bg-card)]"
+                className="overflow-hidden rounded-2xl border bg-[color:var(--bg-card)] featured-listing-card"
               >
                 <div
                   className="h-64 bg-cover bg-center"
@@ -157,8 +207,8 @@ export default function CabinsPage() {
                 />
 
                 <div className="p-6">
-                  <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[color:var(--color-accent)]">
-                    Featured Stay
+                  <p className="listing-badge mb-3">
+                    {getFeaturedLabel(stay.name, stay.placementType ?? "editorial")}
                   </p>
 
                   <h3 className="text-2xl font-semibold">{stay.name}</h3>
@@ -175,41 +225,14 @@ export default function CabinsPage() {
                     📍 {stay.address}
                   </p>
 
-                  {stay.phone && (
+                  {stay.phone ? (
                     <p className="mt-2 text-sm text-[color:var(--color-muted)]">
                       📞 {stay.phone}
                     </p>
-                  )}
+                  ) : null}
 
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {stay.phone && (
-                      <a
-                        href={`tel:${stay.phone.replace(/[^\d]/g, "")}`}
-                        className="bg-black text-white px-4 py-2 rounded-md text-sm"
-                      >
-                        Call
-                      </a>
-                    )}
-
-                    {stay.website && (
-                      <a
-                        href={stay.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border px-4 py-2 rounded-md text-sm"
-                      >
-                        Website
-                      </a>
-                    )}
-
-                    <a
-                      href={stay.directions}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border px-4 py-2 rounded-md text-sm"
-                    >
-                      Directions
-                    </a>
+                  <div className="mt-5">
+                    <ActionLinks stay={stay} placement="featured-secondary-stay" />
                   </div>
                 </div>
               </div>
@@ -234,10 +257,7 @@ export default function CabinsPage() {
 
         <div className="space-y-6">
           {standardCabins.map((stay, index) => (
-            <div
-              key={stay.name}
-              className="p-6 rounded-xl bg-[color:var(--bg-card)] border"
-            >
+            <div key={stay.name} className="p-6 rounded-xl bg-[color:var(--bg-card)] border">
               <h2 className="text-2xl font-semibold">
                 {index + 1}. {stay.name}
               </h2>
@@ -250,21 +270,19 @@ export default function CabinsPage() {
                 {stay.description}
               </p>
 
-              <p className="mt-4 text-sm text-[color:var(--color-muted)]">
-                📍 {stay.address}
-              </p>
+              <p className="mt-4 text-sm text-[color:var(--color-muted)]">📍 {stay.address}</p>
 
               <div className="mt-4 flex flex-wrap gap-3">
-                {stay.phone && (
+                {stay.phone ? (
                   <a
                     href={`tel:${stay.phone.replace(/[^\d]/g, "")}`}
                     className="bg-black text-white px-4 py-2 rounded-md text-sm"
                   >
                     Call {stay.phone}
                   </a>
-                )}
+                ) : null}
 
-                {stay.website && (
+                {stay.website ? (
                   <a
                     href={stay.website}
                     target="_blank"
@@ -273,7 +291,7 @@ export default function CabinsPage() {
                   >
                     View Website
                   </a>
-                )}
+                ) : null}
 
                 <a
                   href={stay.directions}
@@ -304,9 +322,7 @@ export default function CabinsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-6">
-          Mount Ida Cabin and Lodging FAQs
-        </h2>
+        <h2 className="text-3xl font-semibold mb-6">Mount Ida Cabin and Lodging FAQs</h2>
 
         <div className="space-y-4">
           {[
@@ -326,14 +342,9 @@ export default function CabinsPage() {
                 "Spring, summer, holidays, and lake weekends can book up faster. Booking earlier is usually better if you want a cabin or lake-area stay near Mount Ida.",
             },
           ].map((item) => (
-            <div
-              key={item.question}
-              className="rounded-xl border bg-[color:var(--bg-card)] p-6"
-            >
+            <div key={item.question} className="rounded-xl border bg-[color:var(--bg-card)] p-6">
               <h3 className="text-xl font-semibold">{item.question}</h3>
-              <p className="mt-3 text-[color:var(--color-muted)] leading-relaxed">
-                {item.answer}
-              </p>
+              <p className="mt-3 text-[color:var(--color-muted)] leading-relaxed">{item.answer}</p>
             </div>
           ))}
         </div>
@@ -349,15 +360,12 @@ export default function CabinsPage() {
             This Mount Ida lodging guide helps visitors find cabins, resorts,
             inns, cottages, and places to stay near Lake Ouachita, crystal
             mines, and the Ouachita Mountains. If you own a rental or lodging
-            property in the area, you can request a listing or ask about
-            featured placement.
+            property in the area, you can request a free basic listing or ask
+            about featured placement.
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="bg-black text-white px-6 py-3 rounded-md"
-            >
+            <Link href="/contact" className="bg-black text-white px-6 py-3 rounded-md">
               Get Listed
             </Link>
 

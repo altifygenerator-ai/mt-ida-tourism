@@ -8,6 +8,7 @@ export type Cabin = {
   website?: string;
   directions: string;
   featured?: boolean;
+  placementType?: "paid" | "editorial";
 };
 
 export const cabins: Cabin[] = [
@@ -23,6 +24,7 @@ export const cabins: Cabin[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Mountain+Harbor+Resort+994+Mountain+Harbor+Rd+Mount+Ida+AR+71957",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "Shangri-La Resort",
@@ -36,6 +38,7 @@ export const cabins: Cabin[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Shangri-La+Resort+987+Shangri-La+Dr+Mount+Ida+AR+71957",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "Joplin Inn",
@@ -49,6 +52,7 @@ export const cabins: Cabin[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Joplin+Inn+Mount+Ida+AR",
     featured: true,
+    placementType: "editorial",
   },
   {
     name: "Royal Oak Inn",

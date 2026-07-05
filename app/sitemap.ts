@@ -105,9 +105,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${siteUrl}/local-business`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
+      changeFrequency: "weekly",
+      priority: 0.86,
     },
+    {
+      url: `${siteUrl}/shopping`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.82,
+    },
+
+    {
+      url: `${siteUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.78,
+    },
+
 
     {
       url: `${siteUrl}/history`,
