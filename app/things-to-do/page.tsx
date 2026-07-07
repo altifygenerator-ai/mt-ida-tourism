@@ -15,9 +15,9 @@ export const metadata = {
 const tripStyles = [
   {
     title: "Crystal Digging Trip",
-    text: "Start with one of the Mount Ida area quartz mines, then add rock shops, local food, and a cabin or lake stay.",
-    href: "/crystal-mines",
-    label: "Explore Crystal Mines",
+    text: "Start with the best crystal mines guide, then add rock shops, local food, and a cabin or lake stay.",
+    href: "/best-crystal-mines-mount-ida",
+    label: "Compare Crystal Mines",
   },
   {
     title: "Lake Ouachita Day",
@@ -26,10 +26,10 @@ const tripStyles = [
     label: "Visit Lake Ouachita",
   },
   {
-    title: "Cabin Weekend",
+    title: "Weekend Guide",
     text: "Use Mount Ida as a slower mountain base with cabins, local restaurants, scenic drives, and outdoor stops nearby.",
-    href: "/cabins",
-    label: "Find Cabins & Stays",
+    href: "/mount-ida-weekend-guide",
+    label: "Plan a Weekend",
   },
 ];
 
@@ -100,10 +100,10 @@ export default function ThingsToDoPage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/crystal-mines"
+                href="/best-crystal-mines-mount-ida"
                 className="rounded-full bg-white px-6 py-3 font-medium text-black shadow transition hover:opacity-90"
               >
-                Crystal Mines
+                Best Crystal Mines
               </Link>
 
               <Link
@@ -114,10 +114,10 @@ export default function ThingsToDoPage() {
               </Link>
 
               <Link
-                href="/cabins"
+                href="/mount-ida-weekend-guide"
                 className="rounded-full border border-white/70 px-6 py-3 font-medium text-white transition hover:bg-white hover:text-black"
               >
-                Cabins & Stays
+                Weekend Guide
               </Link>
 
               <Link
@@ -166,24 +166,24 @@ export default function ThingsToDoPage() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/crystal-mines" className="btn">
-              Crystal Mines
+            <Link href="/best-crystal-mines-mount-ida" className="btn">
+              Best Crystal Mines
             </Link>
 
             <Link href="/lake-ouachita" className="btn">
               Lake Ouachita
             </Link>
 
-            <Link href="/cabins" className="btn">
-              Cabins & Stays
+            <Link href="/lake-ouachita-cabins" className="btn">
+              Lake Cabins
             </Link>
 
             <Link href="/restaurants" className="btn">
               Restaurants
             </Link>
 
-            <Link href="/things-to-do-with-kids" className="btn">
-              Things To Do With Kids
+            <Link href="/best-crystal-mines-for-kids-mount-ida" className="btn">
+              Crystal Mines for Kids
             </Link>
           </div>
         </div>
@@ -495,8 +495,8 @@ export default function ThingsToDoPage() {
       <CTASection
         title="Start With the Local Highlights"
         text="Crystal mines and Lake Ouachita are two of the biggest reasons people visit Mount Ida, but the area also has quiet trails, local shops, museums, cabins, restaurants, and plenty of scenic mountain country."
-        buttonText="Explore Crystal Mines"
-        buttonHref="/crystal-mines"
+        buttonText="Compare Crystal Mines"
+        buttonHref="/best-crystal-mines-mount-ida"
       />
     </main>
   );

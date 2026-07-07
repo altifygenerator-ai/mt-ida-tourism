@@ -341,9 +341,9 @@ export default function BradyMountainLakeOuachitaPage() {
             </h2>
 
             <p className="mt-4 leading-7 text-[color:var(--color-muted)]">
-              These are practical planning anchors, not paid featured listings.
-              Use them to check current details before you build your Lake
-              Ouachita day around Brady Mountain.
+              Use these as starting points before you build your Lake Ouachita
+              day around Brady Mountain. Details can change by season, so it is
+              still worth checking directly before you drive out.
             </p>
           </div>
 

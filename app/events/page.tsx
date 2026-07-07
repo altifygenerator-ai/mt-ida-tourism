@@ -4,6 +4,8 @@ import EventCard from "@/components/EventCard";
 import JsonLd from "@/components/JsonLd";
 import { getApprovedEvents, getEventDescription, hasSupabaseEnv } from "@/lib/supabase/events";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Mount Ida Events | Local Calendar & Weekend Happenings",
   description:

@@ -128,7 +128,7 @@ export default function CabinsPage() {
         Cabins and Places to Stay in Mount Ida, Arkansas
       </h1>
 
-      <p className="text-lg text-[color:var(--color-muted)] mb-12 max-w-3xl leading-relaxed">
+      <p className="text-lg text-[color:var(--color-muted)] mb-6 max-w-3xl leading-relaxed">
         Mount Ida is a strong base for cabin stays near{" "}
         <Link href="/lake-ouachita" className="underline hover:opacity-70">
           Lake Ouachita
@@ -142,6 +142,18 @@ export default function CabinsPage() {
         wooded stays close to the area’s main attractions.
       </p>
 
+      <div className="mb-12 flex flex-wrap gap-3 text-sm font-bold">
+        <Link href="/lake-ouachita-cabins" className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[color:var(--color-accent)]">
+          Lake Ouachita Cabins
+        </Link>
+        <Link href="/cabins-near-crystal-mines-mount-ida" className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[color:var(--color-accent)]">
+          Cabins Near Crystal Mines
+        </Link>
+        <Link href="/mount-ida-weekend-guide" className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[color:var(--color-accent)]">
+          Weekend Guide
+        </Link>
+      </div>
+
       <section className="mb-16">
         <div className="mb-8 max-w-3xl">
           <h2 className="text-3xl font-semibold mb-4">
@@ -149,10 +161,10 @@ export default function CabinsPage() {
           </h2>
 
           <p className="text-[color:var(--color-muted)] leading-relaxed">
-            These top placements help visitors start with practical lodging
-            options near Lake Ouachita, crystal mines, Brady Mountain, fishing,
-            cabins, and the Ouachita Mountains. If a listing is not a paid
-            placement, it is marked as our pick.
+            Start here for practical places to stay near Lake Ouachita, crystal
+            mines, Brady Mountain, fishing, cabins, and the Ouachita Mountains.
+            These are useful lodging stops for visitors trying to make a real
+            Mount Ida plan.
           </p>
         </div>
 

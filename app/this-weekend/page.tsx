@@ -4,6 +4,8 @@ import EventCard from "@/components/EventCard";
 import JsonLd from "@/components/JsonLd";
 import { getApprovedEvents, getEventDescription, getWeekendRange, hasSupabaseEnv } from "@/lib/supabase/events";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "This Weekend in Mount Ida | Events, Lake Days & Local Ideas",
   description:

@@ -175,11 +175,11 @@ export const businesses: Business[] = [
     href: "/restaurants",
   },
   {
-    name: "Mount Ida Area Services",
+    name: "Mount Ida Visitor Services",
     category: "Local Services • Visitor Help",
     directoryCategory: "services",
     description:
-      "A placeholder category for useful Mount Ida area services as the guide grows, including local help for visitors, property owners, lake travelers, and cabin guests.",
+      "Useful Mount Ida area service listings for visitors, cabin guests, lake travelers, property owners, and people spending time near Lake Ouachita and the crystal mines.",
     image: "/images/mt-ida-downtown.jpg",
     href: "/services",
   },

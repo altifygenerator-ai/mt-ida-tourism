@@ -2,51 +2,53 @@ import Link from "next/link";
 
 const footerGroups = [
   {
-    title: "Explore",
+    title: "Crystal Guides",
     links: [
-      { href: "/", label: "Home" },
-      { href: "/things-to-do", label: "Things To Do" },
       { href: "/crystal-mining", label: "Crystal Mining Guide" },
-      { href: "/crystal-mines", label: "Crystal Mines" },
-      { href: "/lake-ouachita", label: "Lake Ouachita" },
-      {
-        href: "/brady-mountain-lake-ouachita",
-        label: "Brady Mountain",
-      },
-      {
-        href: "/hickory-nut-mountain-mount-ida",
-        label: "Hickory Nut Mountain",
-      },
-      { href: "/history", label: "Mount Ida History" },
+      { href: "/best-crystal-mines-mount-ida", label: "Best Crystal Mines" },
+      { href: "/best-crystal-mines-for-kids-mount-ida", label: "Crystal Mines for Kids" },
+      { href: "/crystal-vista-recreation-area", label: "Crystal Vista" },
+      { href: "/cabins-near-crystal-mines-mount-ida", label: "Cabins Near Crystal Mines" },
     ],
   },
   {
-    title: "Events",
+    title: "Lake Ouachita",
     links: [
-      { href: "/events", label: "Events" },
-      { href: "/this-weekend", label: "This Weekend" },
-      { href: "/submit-event", label: "Submit an Event" },
+      { href: "/lake-ouachita", label: "Lake Ouachita Guide" },
+      { href: "/lake-ouachita-cabins", label: "Lake Ouachita Cabins" },
+      { href: "/lake-ouachita-marinas-boat-rentals", label: "Marinas & Boat Rentals" },
+      { href: "/brady-mountain-lake-ouachita", label: "Brady Mountain" },
+      { href: "/hickory-nut-mountain-mount-ida", label: "Hickory Nut Mountain" },
+    ],
+  },
+  {
+    title: "Plan",
+    links: [
+      { href: "/things-to-do", label: "Things To Do" },
+      { href: "/things-to-do-with-kids", label: "Things To Do With Kids" },
+      { href: "/mount-ida-weekend-guide", label: "Weekend Guide" },
+      { href: "/hot-springs-to-mount-ida-day-trip", label: "Hot Springs Day Trip" },
+      { href: "/glenwood-to-mount-ida-day-trip", label: "Glenwood Day Trip" },
     ],
   },
   {
     title: "Food & Local",
     links: [
       { href: "/restaurants", label: "Restaurants" },
+      { href: "/cabins", label: "Cabins & Places to Stay" },
       { href: "/shopping", label: "Shopping & Local Finds" },
       { href: "/services", label: "Local Services" },
       { href: "/local-business", label: "Local Businesses" },
     ],
   },
   {
-    title: "Stay",
-    links: [{ href: "/cabins", label: "Cabins & Places to Stay" }],
-  },
-  {
-    title: "Business",
+    title: "Events & Business",
     links: [
+      { href: "/events", label: "Events" },
+      { href: "/this-weekend", label: "This Weekend" },
+      { href: "/submit-event", label: "Submit an Event" },
       { href: "/contact", label: "Get Listed" },
       { href: "/contact", label: "Promote Your Business" },
-      { href: "/submit-event", label: "Submit an Event" },
     ],
   },
 ];
@@ -92,18 +94,18 @@ export default function Footer() {
             <h3>Mount Ida Arkansas</h3>
             <p>
               A local guide to crystal mines, Lake Ouachita, cabins, restaurants,
-              events, scenic stops, and small businesses around Mount Ida,
+              weekend trips, scenic stops, and small businesses around Mount Ida,
               Arkansas.
             </p>
           </div>
 
           <div className="footer-brand-actions">
-            <Link href="/contact" className="footer-button footer-button-light">
-              Get Listed
+            <Link href="/mount-ida-weekend-guide" className="footer-button footer-button-light">
+              Plan a Weekend
             </Link>
 
-            <Link href="/events" className="footer-button footer-button-outline">
-              View Events
+            <Link href="/contact" className="footer-button footer-button-outline">
+              Get Listed
             </Link>
           </div>
         </div>

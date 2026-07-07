@@ -7,6 +7,7 @@ export const attractions: Attraction[] = [
     description:
       "A well-known Mount Ida crystal mining stop with posted mine trips, tailings digging, family-friendly options, and a good setup for first-time quartz hunters.",
     image: "/images/wegner-quartz.jpg",
+    href: "/best-crystal-mines-mount-ida",
   },
   {
     title: "Avant Mining / Fisher Mountain",
@@ -14,6 +15,7 @@ export const attractions: Attraction[] = [
     description:
       "A serious quartz crystal destination near Mount Ida with public digging at Fisher Mountain and private pocket dig options for collectors.",
     image: "/images/avant-fisher-mountain.jpg",
+    href: "/best-crystal-mines-mount-ida",
   },
   {
     title: "Twin Creek Crystal Mine",
@@ -21,6 +23,7 @@ export const attractions: Attraction[] = [
     description:
       "A hands-on Mount Ida area crystal digging stop with more of a working-mine feel. Visitors should call ahead to confirm current hours, fees, and access.",
     image: "/images/twin-creek-crystal.jpg",
+    href: "/best-crystal-mines-mount-ida",
   },
   {
     title: "Sweet Surrender Crystal Mine",
@@ -28,6 +31,7 @@ export const attractions: Attraction[] = [
     description:
       "A primitive crystal digging area near Story for rugged, come-prepared visitors who want a less polished mining experience and know to call before going.",
     image: "/images/sweet-surrender.jpg",
+    href: "/best-crystal-mines-mount-ida",
   },
   {
     title: "Crystal Vista Recreation Area",
@@ -35,6 +39,7 @@ export const attractions: Attraction[] = [
     description:
       "A Ouachita National Forest rockhounding and hiking stop on Gardner Mountain where visitors can surface collect quartz from a former commercial mine area.",
     image: "/images/crystal-vista.jpg",
+    href: "/crystal-vista-recreation-area",
   },
   {
     title: "Avatar Crystal Mine",
@@ -42,6 +47,7 @@ export const attractions: Attraction[] = [
     description:
       "A smaller primitive crystal mine near Mount Ida that online listings describe as seasonal and weather-dependent. Best for visitors who check current updates first.",
     image: "/images/avatar-crystal-mine.jpg",
+    href: "/best-crystal-mines-mount-ida",
   },
   {
     title: "Lake Ouachita",
@@ -49,6 +55,7 @@ export const attractions: Attraction[] = [
     description:
       "A clear mountain lake known for boating, fishing, swimming, kayaking, scuba diving, islands, and quiet shoreline views.",
     image: "/images/lake-ouachita.webp",
+    href: "/lake-ouachita",
   },
   {
     title: "Hickory Nut Mountain Vista",
@@ -72,6 +79,7 @@ export const attractions: Attraction[] = [
     description:
       "The forest surrounding Mount Ida offers scenic drives, trails, camping, wildlife, and peaceful mountain country.",
     image: "/images/ouachita-national-forest.jpg",
+    href: "/mount-ida-weekend-guide",
   },
   {
     title: "Heritage House Museum",
@@ -86,5 +94,6 @@ export const attractions: Attraction[] = [
     description:
       "A small local stop for handmade art, regional creativity, gifts, and a slower look at Mount Ida’s community side.",
     image: "/images/ouachita-artists-gallery.jpg",
+    href: "/shopping",
   },
 ];

@@ -5,6 +5,7 @@ import CrystalMineStops from "@/components/CrystalMineStops";
 import CrystalTripTips from "@/components/CrystalTripTips";
 import CrystalWeekendSection from "@/components/CrystalWeekendSection";
 import JsonLd from "@/components/JsonLd";
+import Link from "next/link";
 import { crystalMiningGuide } from "@/data/crystalMining";
 
 export const metadata: Metadata = {
@@ -46,6 +47,18 @@ export default function CrystalMiningPage() {
         }}
       />
       <CrystalMiningHero />
+
+      <section className="section py-12">
+        <div className="container">
+          <div className="seo-guide-link-strip">
+            <Link href="/best-crystal-mines-mount-ida">Best crystal mines near Mount Ida</Link>
+            <Link href="/best-crystal-mines-for-kids-mount-ida">Crystal mines for kids</Link>
+            <Link href="/crystal-vista-recreation-area">Crystal Vista Recreation Area</Link>
+            <Link href="/cabins-near-crystal-mines-mount-ida">Cabins near crystal mines</Link>
+          </div>
+        </div>
+      </section>
+
       <CrystalMiningGuide />
       <CrystalMineStops />
       <CrystalTripTips />

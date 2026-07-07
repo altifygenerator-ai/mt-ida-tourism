@@ -118,9 +118,14 @@ const suggestedStops = [
     href: "/hickory-nut-mountain-mount-ida",
   },
   {
-    title: "Cabins Near Lake Ouachita",
-    text: "Find cabins, resorts, and quiet stays near Mount Ida and Lake Ouachita.",
-    href: "/cabins",
+    title: "Lake Ouachita Cabins",
+    text: "Find cabins, resorts, and quiet stays near Mount Ida, Mountain Harbor, Shangri-La, Brady Mountain, and the lake.",
+    href: "/lake-ouachita-cabins",
+  },
+  {
+    title: "Marinas & Boat Rentals",
+    text: "Plan marina stops, boat rentals, swim areas, and lake-day details before you drive out.",
+    href: "/lake-ouachita-marinas-boat-rentals",
   },
   {
     title: "Mount Ida Restaurants",
@@ -563,8 +568,8 @@ export default function LakeOuachitaPage() {
       <CTASection
         title="Stay Close to the Lake"
         text="Find cabins, resorts, local restaurants, crystal mines, and other Mount Ida stops near Lake Ouachita."
-        buttonText="Explore Cabins"
-        buttonHref="/cabins"
+        buttonText="Explore Lake Ouachita Cabins"
+        buttonHref="/lake-ouachita-cabins"
       />
     </main>
   );

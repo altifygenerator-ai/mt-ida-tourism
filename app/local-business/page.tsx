@@ -128,8 +128,9 @@ export default function LocalBusinessPage() {
             <p className="eyebrow">Top Guide Placements</p>
             <h2>Featured local picks</h2>
             <p>
-              These top cards are marked clearly. If a business is not a paid
-              featured partner, it is labeled as our pick.
+              Start with these useful local stops for lake days, crystal digging,
+              food, cabins, visitor supplies, and small-town exploring around
+              Mount Ida.
             </p>
           </div>
 

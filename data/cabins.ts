@@ -66,24 +66,16 @@ export const cabins: Cabin[] = [
       "https://www.google.com/maps/search/?api=1&query=Royal+Oak+Inn+Mount+Ida+AR",
   },
   {
-    name: "Lake Ouachita Cabin Stays",
-    type: "Cabins Near Lake Ouachita",
+    name: "Lake Ouachita State Park Cabins",
+    type: "State Park Cabins • Camper Cabins • Lake Ouachita",
     description:
-      "Cabin rentals around Lake Ouachita work well for boating, fishing, kayaking, swimming, family trips, summer weekends, and quiet stays near Mount Ida.",
-    address: "Mount Ida / Lake Ouachita Area",
+      "Lake Ouachita State Park offers full-service cabins and camper cabins on the eastern side of the lake. It is a practical option for visitors who want state park access, a swim beach, trails, marina services, and Lake Ouachita activities in the same trip.",
+    phone: "501-767-9366",
+    address: "5451 Mountain Pine Rd, Mountain Pine, AR 71956",
     image: "/images/lake-ouachita.webp",
+    website: "https://www.arkansas.com/state-parks/explore/parks/lake-ouachita-state-park",
     directions:
-      "https://www.google.com/maps/search/?api=1&query=Lake+Ouachita+cabins+Mount+Ida+AR",
-  },
-  {
-    name: "Ouachita Mountain Cabin Stays",
-    type: "Mountain Cabins • Wooded Stays",
-    description:
-      "Wooded cabin stays around Mount Ida are useful for visitors planning crystal mine trips, scenic drives, hiking, fishing, and quiet Ouachita Mountain getaways.",
-    address: "Mount Ida, AR",
-    image: "/images/mt-ida-mountains.jpg",
-    directions:
-      "https://www.google.com/maps/search/?api=1&query=Ouachita+Mountain+cabins+Mount+Ida+AR",
+      "https://www.google.com/maps/search/?api=1&query=Lake+Ouachita+State+Park+5451+Mountain+Pine+Rd+Mountain+Pine+AR+71956",
   },
   {
     name: "Safe Harbor Brady Mountain",

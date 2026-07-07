@@ -2,34 +2,34 @@ import Link from "next/link";
 
 const updates = [
   {
-    label: "Lake Ouachita guide",
-    title: "Brady Mountain Lake Ouachita",
-    text: "A new practical guide to Brady Mountain, with notes on camping, swim beach access, Safe Harbor Brady Mountain, boat ramps, food, and what to check before planning a lake day.",
-    href: "/brady-mountain-lake-ouachita",
-  },
-  {
-    label: "Scenic overlook guide",
-    title: "Hickory Nut Mountain Vista",
-    text: "A simple local guide to the Hickory Nut Mountain overlook near Lake Ouachita, with notes on the view, forest-road access, scenic driving, and when it fits a Mount Ida trip.",
-    href: "/hickory-nut-mountain-mount-ida",
-  },
-  {
-    label: "Seasonal guide",
-    title: "Fourth of July Around Mount Ida",
-    text: "A July 4 guide with the verified Mountain Harbor holiday celebration, Lake Ouachita trip tips, cabins, crystal mines, and simple holiday planning ideas.",
-    href: "/mount-ida-fourth-of-july",
-  },
-  {
-    label: "Family guide",
-    title: "Things To Do With Kids",
-    text: "A family-friendly guide helps visitors plan Mount Ida trips around crystal digging, Lake Ouachita, cabins, food stops, local history, and simple outdoor time.",
-    href: "/things-to-do-with-kids",
+    label: "Weekend planning",
+    title: "Mount Ida Weekend Guide",
+    text: "A new weekend guide helps visitors plan a slower Mount Ida trip around crystal digging, Lake Ouachita, cabins, local food, scenic drives, and small-town stops.",
+    href: "/mount-ida-weekend-guide",
   },
   {
     label: "Crystal guide",
-    title: "Crystal Mining in Mount Ida",
-    text: "A practical guide to quartz digging, what to bring, lesser-known stops, and how to build a Mount Ida weekend around crystal hunting.",
-    href: "/crystal-mining",
+    title: "Best Crystal Mines Near Mount Ida",
+    text: "A cleaner guide for choosing between visitor-friendly mines, more serious quartz stops, Crystal Vista, and check-ahead crystal digging options around Mount Ida.",
+    href: "/best-crystal-mines-mount-ida",
+  },
+  {
+    label: "Family guide",
+    title: "Crystal Mines for Kids",
+    text: "A practical family guide for parents and grandparents planning a Mount Ida crystal digging day with kids, including what to bring and how to keep the day manageable.",
+    href: "/best-crystal-mines-for-kids-mount-ida",
+  },
+  {
+    label: "Lake stays",
+    title: "Lake Ouachita Cabins",
+    text: "A lodging guide for visitors comparing Lake Ouachita cabins, Mount Ida stays, marina access, crystal mine trips, and quiet Ouachita Mountain weekends.",
+    href: "/lake-ouachita-cabins",
+  },
+  {
+    label: "Day trip guide",
+    title: "Hot Springs to Mount Ida",
+    text: "A simple day-trip guide for Hot Springs visitors who want to add quartz digging, Lake Ouachita, and a quieter mountain-town stop to their Arkansas trip.",
+    href: "/hot-springs-to-mount-ida-day-trip",
   },
 ];
 
@@ -49,9 +49,9 @@ export default function RecentUpdates() {
               </h2>
 
               <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--color-muted)]">
-                New local guides are being added around Lake Ouachita, crystal
-                digging, family trips, scenic overlooks, campgrounds, marinas,
-                local food, and outdoor stops near Mount Ida.
+                New local guides are being added around crystal mines, Lake
+                Ouachita, cabin stays, family trips, marinas, food, scenic drives,
+                and nearby Arkansas routes into Mount Ida.
               </p>
             </div>
 
@@ -83,7 +83,7 @@ export default function RecentUpdates() {
                 </p>
 
                 <span className="mt-5 inline-block text-sm font-bold text-[color:var(--color-accent)]">
-                  View update →
+                  View guide →
                 </span>
               </Link>
             ))}

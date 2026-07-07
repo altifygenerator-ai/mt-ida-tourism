@@ -50,9 +50,9 @@ export default function ShoppingPage() {
             <span>Own a shop?</span>
             <h2>Get included in the guide.</h2>
             <p>
-              We are building this section as the Mount Ida guide grows. Basic
-              listings are available for local shops and featured placement can
-              move a business higher on the page.
+              We are building this section around shops visitors can actually use.
+              Local shops can request a basic listing or ask about higher
+              visibility on the guide.
             </p>
             <Link href="/contact" className="btn">Request a Listing</Link>
           </div>

@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import CategoryCard from "@/components/CategoryCard";
 import CTASection from "@/components/CTASection";
 import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
-import MountIdaFourthOfJulyFeature from "@/components/MountIdaFourthOfJulyFeature";
 import RecentUpdates from "@/components/RecentUpdates";
 import JsonLd from "@/components/JsonLd";
 import { homeCategories } from "@/data/categories";
@@ -35,7 +34,6 @@ export default function HomePage() {
 
       <RecentUpdates />
 
-      <MountIdaFourthOfJulyFeature />
 
       <section className="section mount-ida-intro-section">
         <div className="container intro-grid">
@@ -91,19 +89,19 @@ export default function HomePage() {
             <strong>Lake Ouachita</strong>
           </Link>
 
-          <Link href="/cabins" className="quick-link-card">
+          <Link href="/mount-ida-weekend-guide" className="quick-link-card">
             <span>04</span>
-            <strong>Cabins & Stays</strong>
+            <strong>Weekend Guide</strong>
+          </Link>
+
+          <Link href="/lake-ouachita-cabins" className="quick-link-card">
+            <span>05</span>
+            <strong>Lake Cabins</strong>
           </Link>
 
           <Link href="/restaurants" className="quick-link-card">
-            <span>05</span>
-            <strong>Restaurants</strong>
-          </Link>
-
-          <Link href="/events" className="quick-link-card">
             <span>06</span>
-            <strong>Events</strong>
+            <strong>Restaurants</strong>
           </Link>
         </div>
       </section>
@@ -116,10 +114,10 @@ export default function HomePage() {
             <p className="eyebrow">Featured local picks</p>
             <h2>Places to start around Mount Ida</h2>
             <p>
-              These top guide cards highlight useful visitor stops around Lake
-              Ouachita, crystal mining, food, lodging, local shopping, and
-              outdoor recreation. If a placement is not paid, it is marked as
-              our pick.
+              Start with these useful local stops for lake days, crystal digging,
+              food, cabins, local shopping, and quiet outdoor time around Mount
+              Ida. They are the kind of places visitors usually need first when
+              they are trying to make a real plan.
             </p>
           </div>
 
@@ -314,8 +312,8 @@ export default function HomePage() {
                 Mix crystal digging, lake time, scenic drives, local history,
                 museums, shops, and mountain views into one easy visit.
               </p>
-              <Link href="/things-to-do" className="text-link">
-                Things To Do →
+              <Link href="/mount-ida-weekend-guide" className="text-link">
+                Weekend Guide →
               </Link>
             </div>
 

@@ -1,15 +1,15 @@
 import type { NavItem } from "@/types";
 
 export const navigation: NavItem[] = [
-  { label: "Things To Do", href: "/things-to-do" },
-  { label: "Crystal Mines", href: "/crystal-mines" },
+  { label: "Crystal Mining", href: "/crystal-mining" },
+  { label: "Best Crystal Mines", href: "/best-crystal-mines-mount-ida" },
   { label: "Lake Ouachita", href: "/lake-ouachita" },
-  { label: "Brady Mountain", href: "/brady-mountain-lake-ouachita" },
-  { label: "Hickory Nut Mountain", href: "/hickory-nut-mountain-mount-ida" },
+  { label: "Lake Cabins", href: "/lake-ouachita-cabins" },
+  { label: "Weekend Guide", href: "/mount-ida-weekend-guide" },
+  { label: "Things To Do", href: "/things-to-do" },
   { label: "Cabins", href: "/cabins" },
   { label: "Restaurants", href: "/restaurants" },
   { label: "Shopping", href: "/shopping" },
-  { label: "Services", href: "/services" },
-  { label: "History", href: "/history" },
-  { label: "Promote Your Business", href: "/local-business" },
+  { label: "Events", href: "/events" },
+  { label: "Promote Your Business", href: "/contact" },
 ];

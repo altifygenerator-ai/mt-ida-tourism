@@ -50,8 +50,8 @@ export default function ServicesPage() {
             <span>Service business?</span>
             <h2>Be found by people in the area.</h2>
             <p>
-              Basic listings are available for useful local services. Featured
-              placement can move a business higher as the section grows.
+              Useful local service businesses can request a basic listing, and
+              local partners can ask about higher visibility as the guide grows.
             </p>
             <Link href="/contact" className="btn">Request a Listing</Link>
           </div>

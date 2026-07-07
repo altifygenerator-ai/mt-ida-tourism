@@ -360,6 +360,13 @@ export default function CrystalMinesPage() {
                 Places to Stay
               </Link>
             </div>
+
+            <div className="seo-guide-link-strip mt-8">
+              <Link href="/best-crystal-mines-mount-ida">Best crystal mines</Link>
+              <Link href="/best-crystal-mines-for-kids-mount-ida">Crystal mines for kids</Link>
+              <Link href="/crystal-vista-recreation-area">Crystal Vista</Link>
+              <Link href="/cabins-near-crystal-mines-mount-ida">Cabins near crystal mines</Link>
+            </div>
           </div>
         </div>
       </section>

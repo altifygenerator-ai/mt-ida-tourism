@@ -2,6 +2,7 @@ import { attractions } from "@/data/attractions";
 import { businesses } from "@/data/businesses";
 import { cabins } from "@/data/cabins";
 import { restaurants } from "@/data/restaurants";
+import { seoGuideList } from "@/data/seoGuides";
 
 export type SearchItem = {
   title: string;
@@ -121,15 +122,6 @@ const staticPages: SearchItem[] = [
       "this weekend mount ida weekend events lake days crystal digging food scenic drives things to do today tomorrow",
   },
   {
-    title: "Mount Ida Fourth of July",
-    href: "/mount-ida-fourth-of-july",
-    category: "Seasonal Guide",
-    description:
-      "Plan a Fourth of July trip around Mount Ida, Mountain Harbor, Lake Ouachita fireworks, cabins, crystal mines, and local food.",
-    keywords:
-      "fourth of july mount ida fireworks lake ouachita mountain harbor holiday independence day july 4 cabins crystal mines",
-  },
-  {
     title: "Mount Ida History",
     href: "/history",
     category: "History",
@@ -194,6 +186,17 @@ const staticPages: SearchItem[] = [
   },
 ];
 
+
+const guideItems: SearchItem[] = seoGuideList.map((guide) => ({
+  title: guide.title,
+  href: `/${guide.slug}`,
+  category: guide.eyebrow,
+  description: guide.metaDescription,
+  keywords: `${guide.title} ${guide.mainPhrase} ${guide.metaDescription} ${guide.relatedLinks
+    .map((link) => link.label)
+    .join(" ")} mount ida lake ouachita crystal mining cabins day trip weekend guide`,
+}));
+
 const attractionItems: SearchItem[] = attractions.map((item) => ({
   title: item.title,
   href: item.href ?? "/things-to-do",
@@ -228,6 +231,7 @@ const businessItems: SearchItem[] = businesses.map((business) => ({
 
 export const searchIndex: SearchItem[] = [
   ...staticPages,
+  ...guideItems,
   ...attractionItems,
   ...cabinItems,
   ...restaurantItems,

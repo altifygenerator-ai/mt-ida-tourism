@@ -6,24 +6,48 @@ const guideLinks = [
     label: "Crystal Mining Guide",
   },
   {
-    href: "/crystal-mines",
-    label: "Crystal Mines & Quartz Digging",
+    href: "/best-crystal-mines-mount-ida",
+    label: "Best Crystal Mines",
+  },
+  {
+    href: "/best-crystal-mines-for-kids-mount-ida",
+    label: "Crystal Mines for Kids",
+  },
+  {
+    href: "/crystal-vista-recreation-area",
+    label: "Crystal Vista Recreation Area",
   },
   {
     href: "/things-to-do",
     label: "Things To Do",
   },
   {
-    href: "/events",
-    label: "Events",
+    href: "/things-to-do-with-kids",
+    label: "Things To Do With Kids",
   },
   {
-    href: "/this-weekend",
-    label: "This Weekend",
+    href: "/mount-ida-weekend-guide",
+    label: "Weekend Guide",
+  },
+  {
+    href: "/hot-springs-to-mount-ida-day-trip",
+    label: "Hot Springs Day Trip",
+  },
+  {
+    href: "/glenwood-to-mount-ida-day-trip",
+    label: "Glenwood Day Trip",
   },
   {
     href: "/lake-ouachita",
     label: "Lake Ouachita",
+  },
+  {
+    href: "/lake-ouachita-cabins",
+    label: "Lake Ouachita Cabins",
+  },
+  {
+    href: "/lake-ouachita-marinas-boat-rentals",
+    label: "Marinas & Boat Rentals",
   },
   {
     href: "/brady-mountain-lake-ouachita",
@@ -51,6 +75,10 @@ const businessLinks = [
   {
     href: "/cabins",
     label: "Cabins & Places to Stay",
+  },
+  {
+    href: "/cabins-near-crystal-mines-mount-ida",
+    label: "Cabins Near Crystal Mines",
   },
   {
     href: "/shopping",
@@ -95,7 +123,7 @@ export default function Header() {
               Guides ▾
             </button>
 
-            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[260px] py-2">
+            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[285px] py-2 max-h-[78vh] overflow-y-auto">
               {guideLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -113,7 +141,7 @@ export default function Header() {
               Local Businesses ▾
             </button>
 
-            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[245px] py-2">
+            <div className="header-dropdown absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-white text-black rounded-md shadow-lg border min-w-[260px] py-2">
               {businessLinks.map((link) => (
                 <Link
                   key={link.href}

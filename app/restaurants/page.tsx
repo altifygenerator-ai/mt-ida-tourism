@@ -152,10 +152,9 @@ export default function RestaurantsPage() {
           </h2>
 
           <p className="text-[color:var(--color-muted)] leading-relaxed">
-            These top placements are useful starting points for visitors planning
+            These local food stops are useful starting points for visitors planning
             a Mount Ida trip around Lake Ouachita, crystal mines, cabins, local
-            shops, and the Ouachita Mountains. If a listing is not a paid
-            placement, it is marked as our pick.
+            shops, and the Ouachita Mountains.
           </p>
         </div>
 

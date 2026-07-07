@@ -5,6 +5,8 @@ import Link from "next/link";
 import type { EventRecord } from "@/lib/supabase/events";
 import { formatEventDate, formatEventTime, makeEventSlug } from "@/lib/supabase/events";
 
+export const dynamic = "force-dynamic";
+
 type AdminStatus = "pending" | "approved" | "rejected" | "draft" | "all";
 
 type EditableEvent = EventRecord & {

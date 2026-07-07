@@ -9,6 +9,8 @@ import {
   getEventDescription,
 } from "@/lib/supabase/events";
 
+export const dynamic = "force-dynamic";
+
 type EventPageProps = {
   params: Promise<{ slug: string }>;
 };
