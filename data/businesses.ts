@@ -19,6 +19,7 @@ export type Business = {
   directions?: string;
   featured?: boolean;
   placementType?: "paid" | "editorial";
+  lastVerified?: string;
 };
 
 export const businesses: Business[] = [
@@ -34,9 +35,10 @@ export const businesses: Business[] = [
     website: "https://mountainharborresort.com/",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Mountain+Harbor+Resort+994+Mountain+Harbor+Rd+Mount+Ida+AR+71957",
-    href: "/cabins",
+    href: "/mountain-harbor-resort-lake-ouachita",
     featured: true,
     placementType: "editorial",
+    lastVerified: "2026-07-23",
   },
   {
     name: "Shangri-La Resort",
@@ -50,9 +52,10 @@ export const businesses: Business[] = [
     website: "https://www.shangrilaresortar.net/",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Shangri-La+Resort+987+Shangri-La+Dr+Mount+Ida+AR+71957",
-    href: "/cabins",
+    href: "/shangri-la-resort-lake-ouachita",
     featured: true,
     placementType: "editorial",
+    lastVerified: "2026-07-23",
   },
   {
     name: "Wegner Quartz Crystal Mines",
@@ -64,9 +67,62 @@ export const businesses: Business[] = [
     website: "https://www.wegnercrystalmines.com/",
     directions:
       "https://www.google.com/maps/search/?api=1&query=Wegner+Quartz+Crystal+Mines+Mount+Ida+AR",
-    href: "/crystal-mines",
+    href: "/wegner-quartz-crystal-mines",
     featured: true,
     placementType: "editorial",
+    lastVerified: "2026-07-23",
+  },
+  {
+    name: "Avant Mining / Fisher Mountain",
+    category: "Quartz Mining • Public Dig • Collector Stop",
+    directoryCategory: "attractions",
+    description:
+      "A Fisher Mountain quartz operation for visitors planning a public dig or a more collector-focused crystal trip. Review the current reservation, waiver, check-in, and access requirements before going.",
+    image: "/images/avant-fisher-mountain.jpg",
+    website: "https://avantfishermtn.com/",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Avant+Mining+Fisher+Mountain+Mount+Ida+AR",
+    href: "/avant-mining-fisher-mountain",
+    lastVerified: "2026-07-23",
+  },
+  {
+    name: "Twin Creek Crystal Mine",
+    category: "Quartz Digging • Working Mine Experience",
+    directoryCategory: "attractions",
+    description:
+      "A hands-on Mount Ida-area crystal digging option for visitors comfortable with a more physical outdoor mine day. Confirm current contact instructions, access, facilities, and operating status before driving out.",
+    image: "/images/twin-creek-crystal.jpg",
+    website: "https://www.crystalsofarkansas.com/twin-creek-crystal-mine",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Twin+Creek+Crystal+Mine+Mount+Ida+AR",
+    href: "/twin-creek-crystal-mine",
+    lastVerified: "2026-07-23",
+  },
+  {
+    name: "Sweet Surrender Crystal Mine",
+    category: "Primitive Crystal Dig • Call-Ahead Stop",
+    directoryCategory: "attractions",
+    description:
+      "A primitive quartz digging area near Story for prepared visitors who understand that facilities and services may be limited. Verify current operation, directions, access, and visitor requirements before going.",
+    image: "/images/sweet-surrender.jpg",
+    website: "https://www.arkansas.com/experiences/discover/attraction-listings/sweet-surrender-crystal-mine",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Sweet+Surrender+Crystal+Mine+Story+AR",
+    href: "/sweet-surrender-crystal-mine",
+    lastVerified: "2026-07-23",
+  },
+  {
+    name: "Crystal Vista Recreation Area",
+    category: "Public Land • Hiking • Surface Quartz Collecting",
+    directoryCategory: "outdoor",
+    description:
+      "A Forest Service recreation area on Gardner Mountain for hiking and surface quartz collecting. It is public land rather than a staffed commercial mine, so visitors should check alerts, roads, rules, and water needs first.",
+    image: "/images/crystal-vista.jpg",
+    website: "https://www.fs.usda.gov/r08/ouachita/recreation/trails/crystal-vista-trail",
+    directions:
+      "https://www.google.com/maps/search/?api=1&query=Crystal+Vista+Recreation+Area+Mount+Ida+AR",
+    href: "/crystal-vista-recreation-area",
+    lastVerified: "2026-07-23",
   },
   {
     name: "Mount Ida Cafe",

@@ -3,7 +3,7 @@ export const crystalMiningGuide = {
     eyebrow: "Mount Ida crystal guide",
     title: "Crystal Mining in Mount Ida, Arkansas",
     subtitle:
-      "A practical guide to quartz digging around Mount Ida, with mine details, costs, hours, what to bring, and a simple way to choose the right stop before you drive out.",
+      "A practical guide to quartz digging around Mount Ida, with current-source links, what to bring, road and weather planning, and a simple way to choose the right stop before you drive out.",
     image: "/images/crystal-hero.jpg",
     primaryCta: {
       label: "Where to Dig",

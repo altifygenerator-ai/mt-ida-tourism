@@ -11,7 +11,7 @@ import { crystalMiningGuide } from "@/data/crystalMining";
 export const metadata: Metadata = {
   title: "Crystal Mining in Mount Ida, Arkansas | Quartz Digging Guide",
   description:
-    "A practical Mount Ida crystal mining guide with quartz mine details, hours, costs, phone numbers, what to bring, family advice, Crystal Vista, and weekend trip ideas.",
+    "A practical Mount Ida crystal mining guide with what to bring, weather and road planning, family advice, current mine links, Crystal Vista, food, lodging, and weekend ideas.",
   alternates: {
     canonical: "/crystal-mining",
   },
@@ -23,7 +23,7 @@ export default function CrystalMiningPage() {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "TravelGuide",
+          "@type": "Article",
           name: "Crystal Mining in Mount Ida, Arkansas",
           description:
             "A practical guide to quartz digging, crystal mines, Crystal Vista, what to bring, and planning a Mount Ida crystal mining trip.",
@@ -55,6 +55,10 @@ export default function CrystalMiningPage() {
             <Link href="/best-crystal-mines-for-kids-mount-ida">Crystal mines for kids</Link>
             <Link href="/crystal-vista-recreation-area">Crystal Vista Recreation Area</Link>
             <Link href="/cabins-near-crystal-mines-mount-ida">Cabins near crystal mines</Link>
+            <Link href="/wegner-quartz-crystal-mines">Wegner visitor guide</Link>
+            <Link href="/avant-mining-fisher-mountain">Fisher Mountain visitor guide</Link>
+            <Link href="/twin-creek-crystal-mine">Twin Creek visitor guide</Link>
+            <Link href="/sweet-surrender-crystal-mine">Sweet Surrender visitor guide</Link>
           </div>
         </div>
       </section>

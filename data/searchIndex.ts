@@ -45,9 +45,9 @@ const staticPages: SearchItem[] = [
     href: "/crystal-mines",
     category: "Crystal Guide",
     description:
-      "A directory of quartz crystal mines, rock shops, public digging areas, hours, phone numbers, and check-before-you-go notes near Mount Ida.",
+      "A factual directory of currently operating quartz crystal mines, public digging areas, official links, and check-before-you-go notes near Mount Ida.",
     keywords:
-      "crystal mines quartz mines wegner avatar twin creek fisher mountain crystal vista rock shops digging public forest quartz hunting",
+      "crystal mines quartz mines wegner avant twin creek fisher mountain sweet surrender crystal vista rock shops digging public forest quartz hunting",
   },
   {
     title: "Lake Ouachita Near Mount Ida",

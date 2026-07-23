@@ -6,7 +6,7 @@ import { crystalMiningGuide } from "@/data/crystalMining";
 export const metadata = {
   title: "Crystal Mines Near Mount Ida, Arkansas | Quartz Digging Stops",
   description:
-    "Find crystal mines, quartz digging stops, hours, prices, phone numbers, rockhounding tips, and outdoor crystal hunting areas near Mount Ida, Arkansas.",
+    "Find currently operating crystal mines, quartz digging options, official links, visitor notes, and public rockhounding areas near Mount Ida, Arkansas.",
   keywords: [
     "Mount Ida crystal mines",
     "crystal mining Mount Ida Arkansas",
@@ -29,8 +29,16 @@ const allStops = [
   ...crystalMiningGuide.lesserKnownStops,
 ];
 
+const mineGuideLinks: Record<string, string> = {
+  "Wegner Quartz Crystal Mines": "/wegner-quartz-crystal-mines",
+  "Avant Mining / Fisher Mountain": "/avant-mining-fisher-mountain",
+  "Sweet Surrender Crystal Mine": "/sweet-surrender-crystal-mine",
+  "Twin Creek Crystal Mine": "/twin-creek-crystal-mine",
+  "Crystal Vista Recreation Area": "/crystal-vista-recreation-area",
+};
+
 const quickTips = [
-  "Call the mine directly before driving out. Hours, prices, road conditions, and digging access can change.",
+  "Check the mine directly before driving out. Operating status, fees, road conditions, reservations, and digging access can change.",
   "Bring shoes and clothes that can get dirty, plus gloves, water, sunscreen, and something to carry crystals in.",
   "Ask each mine what tools are allowed before bringing your own. Some sell or rent tools, and some do not allow power tools.",
   "Bring cash. Rural cell service and card payment can be unreliable around some mine roads.",
@@ -82,9 +90,9 @@ export default function CrystalMinesPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed !text-white/85">
-            A cleaner directory of quartz digging stops, phone numbers, general
-            hours, costs, and what to know before you go crystal hunting around
-            Mount Ida, Arkansas.
+            A factual directory of quartz digging stops, official sources, trip fit,
+            and what to confirm before crystal hunting around Mount Ida,
+            Arkansas.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -122,8 +130,8 @@ export default function CrystalMinesPage() {
               <p className="text-lg leading-relaxed text-[color:var(--color-muted)]">
                 This page is the quick directory version of the Mount Ida crystal
                 guide. It gives visitors the basics: what each stop is, who it
-                fits, general hours, known costs, and what to confirm before the
-                drive.
+                fits, the official source to check, and what to confirm before
+                the drive.
               </p>
 
               <p className="leading-relaxed text-[color:var(--color-muted)]">
@@ -240,9 +248,7 @@ export default function CrystalMinesPage() {
 
                   <div className="mt-3 space-y-1 text-sm font-bold text-[color:var(--color-text)]">
                     <div>{mine.location}</div>
-                    {mine.address && <div>{mine.address}</div>}
-                    {mine.phone && <div>Phone: {mine.phone}</div>}
-                    {mine.email && <div>Email: {mine.email}</div>}
+                      <div>Check the official source for current directions and access.</div>
                   </div>
 
                   <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
@@ -251,13 +257,10 @@ export default function CrystalMinesPage() {
 
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
                     <div className="rounded-2xl border border-black/10 bg-[color:var(--color-bg)] p-4">
-                      <h4 className="mb-2 text-lg">Hours</h4>
+                      <h4 className="mb-2 text-lg">Trip fit</h4>
                       <ul className="space-y-2">
-                        {mine.hours.slice(0, 3).map((item) => (
-                          <li
-                            key={item}
-                            className="text-sm leading-6 text-[color:var(--color-muted)]"
-                          >
+                        {mine.bestFor.slice(0, 4).map((item) => (
+                          <li key={item} className="text-sm leading-6 text-[color:var(--color-muted)]">
                             {item}
                           </li>
                         ))}
@@ -265,29 +268,20 @@ export default function CrystalMinesPage() {
                     </div>
 
                     <div className="rounded-2xl border border-black/10 bg-[color:var(--color-bg)] p-4">
-                      <h4 className="mb-2 text-lg">Cost</h4>
-                      <ul className="space-y-2">
-                        {mine.costs.slice(0, 3).map((item) => (
-                          <li
-                            key={item}
-                            className="text-sm leading-6 text-[color:var(--color-muted)]"
-                          >
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                      <h4 className="mb-2 text-lg">Confirm before going</h4>
+                      <p className="text-sm leading-6 text-[color:var(--color-muted)]">
+                        Check operating status, reservations or waivers, directions,
+                        road conditions, facilities, fees, and allowed tools directly.
+                      </p>
                     </div>
                   </div>
 
                   <div className="mt-5 flex flex-wrap gap-3">
-                    {mine.phone && (
-                      <a
-                        href={`tel:${mine.phone.split("/")[0].replace(/[^0-9]/g, "")}`}
-                        className="btn"
-                      >
-                        Call {mine.phone.split("/")[0].trim()}
-                      </a>
-                    )}
+                    {mineGuideLinks[mine.name] ? (
+                      <Link href={mineGuideLinks[mine.name]} className="btn">
+                        Visitor guide
+                      </Link>
+                    ) : null}
 
                     {mine.website && (
                       <a
@@ -366,6 +360,10 @@ export default function CrystalMinesPage() {
               <Link href="/best-crystal-mines-for-kids-mount-ida">Crystal mines for kids</Link>
               <Link href="/crystal-vista-recreation-area">Crystal Vista</Link>
               <Link href="/cabins-near-crystal-mines-mount-ida">Cabins near crystal mines</Link>
+              <Link href="/wegner-quartz-crystal-mines">Wegner guide</Link>
+              <Link href="/avant-mining-fisher-mountain">Fisher Mountain guide</Link>
+              <Link href="/twin-creek-crystal-mine">Twin Creek guide</Link>
+              <Link href="/sweet-surrender-crystal-mine">Sweet Surrender guide</Link>
             </div>
           </div>
         </div>

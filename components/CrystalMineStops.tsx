@@ -19,14 +19,19 @@ function DetailList({ title, items }: { title: string; items: string[] }) {
   );
 }
 
-function MineLinks({ mine }: { mine: { phone?: string; website?: string } }) {
+const mineGuideLinks: Record<string, string> = {
+  "Wegner Quartz Crystal Mines": "/wegner-quartz-crystal-mines",
+  "Avant Mining / Fisher Mountain": "/avant-mining-fisher-mountain",
+  "Sweet Surrender Crystal Mine": "/sweet-surrender-crystal-mine",
+  "Twin Creek Crystal Mine": "/twin-creek-crystal-mine",
+  "Crystal Vista Recreation Area": "/crystal-vista-recreation-area",
+};
+
+function MineLinks({ mine }: { mine: { name?: string; website?: string } }) {
+  const guideHref = mine.name ? mineGuideLinks[mine.name] : undefined;
   return (
     <div className="flex flex-wrap gap-3">
-      {mine.phone && (
-        <a href={`tel:${mine.phone.split("/")[0].replace(/[^0-9]/g, "")}`} className="btn">
-          Call {mine.phone.split("/")[0].trim()}
-        </a>
-      )}
+      {guideHref ? <Link href={guideHref} className="btn">Visitor guide</Link> : null}
 
       {mine.website && (
         <a
@@ -89,9 +94,7 @@ export default function CrystalMineStops() {
 
                 <div className="mb-5 space-y-1 text-sm font-bold text-[color:var(--color-text)]">
                   <div>{mine.location}</div>
-                  {mine.address && <div>{mine.address}</div>}
-                  {mine.phone && <div>Phone: {mine.phone}</div>}
-                  {mine.email && <div>Email: {mine.email}</div>}
+                  <div>Confirm current directions and check-in details directly.</div>
                 </div>
 
                 <p className="mb-4 text-base leading-8 text-[color:var(--color-muted)]">
@@ -102,7 +105,7 @@ export default function CrystalMineStops() {
                   {mine.description}
                 </p>
 
-                <MineLinks mine={mine} />
+                <MineLinks mine={{ name: mine.name, website: mine.website }} />
 
                 <div className="mt-7 mb-7">
                   <h4 className="mb-3 text-xl">Good for</h4>
@@ -120,8 +123,6 @@ export default function CrystalMineStops() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
-                  <DetailList title="Hours" items={mine.hours} />
-                  <DetailList title="Cost" items={mine.costs} />
                   <DetailList title="How digging works" items={mine.howToDig} />
                   <DetailList title="What to bring" items={mine.bring} />
                 </div>
@@ -180,8 +181,7 @@ export default function CrystalMineStops() {
 
                 <div className="mb-4 space-y-1 text-sm font-bold text-[color:var(--color-text)]">
                   <div>{stop.location}</div>
-                  {stop.phone && <div>Phone: {stop.phone}</div>}
-                  {stop.email && <div>Email: {stop.email}</div>}
+                  <div>Confirm current directions and access before going.</div>
                 </div>
 
                 <p className="mb-4 text-sm leading-7 text-[color:var(--color-muted)]">
@@ -192,7 +192,7 @@ export default function CrystalMineStops() {
                   {stop.description}
                 </p>
 
-                <MineLinks mine={stop} />
+                <MineLinks mine={{ name: stop.name, website: stop.website }} />
 
                 <div className="mt-6 mb-5">
                   <h4 className="mb-3 text-lg">Good for</h4>
@@ -210,8 +210,7 @@ export default function CrystalMineStops() {
                 </div>
 
                 <div className="space-y-4">
-                  <DetailList title="Hours" items={stop.hours} />
-                  <DetailList title="Cost" items={stop.costs} />
+                  <DetailList title="How digging works" items={stop.howToDig} />
                   <DetailList title="Bring" items={stop.bring} />
                 </div>
 

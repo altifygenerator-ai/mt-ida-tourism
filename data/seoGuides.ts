@@ -1,3 +1,5 @@
+import { expandedSeoGuides } from "@/data/expandedSeoGuides";
+
 export type GuideLink = { href: string; label: string };
 export type GuideFact = { label: string; value: string };
 export type GuideCard = { title: string; text: string };
@@ -8,6 +10,21 @@ export type GuideSection = {
   cards?: readonly GuideCard[];
 };
 export type GuideFaq = { question: string; answer: string };
+export type GuideSource = { title: string; href: string; text: string };
+export type GuideTable = {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  columns: readonly string[];
+  rows: readonly (readonly string[])[];
+};
+export type GuideChecklist = { title: string; items: readonly string[] };
+export type GuideCta = {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  links: readonly GuideLink[];
+};
 
 export type SeoGuide = {
   slug: string;
@@ -23,9 +40,20 @@ export type SeoGuide = {
   sections: readonly GuideSection[];
   relatedLinks: readonly GuideLink[];
   faqs: readonly GuideFaq[];
+  heroActions?: readonly GuideLink[];
+  sidebarTitle?: string;
+  sidebarText?: string;
+  sidebarLinks?: readonly GuideLink[];
+  seasonalNote?: string;
+  checklist?: GuideChecklist;
+  comparisonTable?: GuideTable;
+  sourceLinks?: readonly GuideSource[];
+  cta?: GuideCta;
+  schemaType?: "Article" | "TouristAttraction" | "Park" | "LodgingBusiness";
 };
 
 export const seoGuides = {
+  ...expandedSeoGuides,
   "mount-ida-weekend-guide": {
     "slug": "mount-ida-weekend-guide",
     "title": "Mount Ida Weekend Guide: Crystals, Lake Ouachita, and Cabins",

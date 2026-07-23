@@ -3,7 +3,9 @@ import type { NavItem } from "@/types";
 export const navigation: NavItem[] = [
   { label: "Crystal Mining", href: "/crystal-mining" },
   { label: "Best Crystal Mines", href: "/best-crystal-mines-mount-ida" },
+  { label: "Crystal Mine Directory", href: "/crystal-mines" },
   { label: "Lake Ouachita", href: "/lake-ouachita" },
+  { label: "Lake Fishing", href: "/lake-ouachita-fishing-near-mount-ida" },
   { label: "Lake Cabins", href: "/lake-ouachita-cabins" },
   { label: "Weekend Guide", href: "/mount-ida-weekend-guide" },
   { label: "Things To Do", href: "/things-to-do" },
