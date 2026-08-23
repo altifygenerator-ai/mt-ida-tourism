@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/mount-ida-weekend-guide`,
+    url: `https://www.mountidaarkansas.org/mount-ida-weekend-guide`,
     images: [guide.heroImage],
   },
 };

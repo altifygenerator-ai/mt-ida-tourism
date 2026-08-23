@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import AnalyticsClickTracker from "@/components/AnalyticsClickTracker";
 import "./globals.css";
 
-const siteUrl = "https://mountidaarkansas.org";
+const siteUrl = "https://www.mountidaarkansas.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -148,7 +148,7 @@ export default function RootLayout({
                 description:
                   "An independent local guide to Mount Ida, Arkansas, Lake Ouachita, crystal mining, cabins, restaurants, events, and local businesses.",
                 sameAs: [
-                  "https://glenwoodarkansas.org",
+                  "https://www.glenwoodarkansas.org",
                   "https://amityarkansas.org",
                   "https://hotspringsarkansas.org",
                   "https://murfreesboroarkansas.org",

@@ -4,7 +4,7 @@ const updates = [
   {
     label: "Weekend planning",
     title: "Mount Ida Weekend Guide",
-    text: "A new weekend guide helps visitors plan a slower Mount Ida trip around crystal digging, Lake Ouachita, cabins, local food, scenic drives, and small-town stops.",
+    text: "This weekend guide helps visitors plan a slower Mount Ida trip around crystal digging, Lake Ouachita, cabins, local food, scenic drives, and small-town stops.",
     href: "/mount-ida-weekend-guide",
   },
   {
@@ -45,7 +45,7 @@ export default function RecentUpdates() {
               </p>
 
               <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-                New and updated Mount Ida guides.
+                Recently checked Mount Ida guides.
               </h2>
 
               <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--color-muted)]">

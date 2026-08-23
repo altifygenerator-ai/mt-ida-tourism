@@ -4,7 +4,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import type { SeoGuide } from "@/data/seoGuides";
 
-const siteUrl = "https://mountidaarkansas.org";
+const siteUrl = "https://www.mountidaarkansas.org";
 
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");

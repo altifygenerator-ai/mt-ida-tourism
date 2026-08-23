@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/cabins-near-crystal-mines-mount-ida`,
+    url: `https://www.mountidaarkansas.org/cabins-near-crystal-mines-mount-ida`,
     images: [guide.heroImage],
   },
 };

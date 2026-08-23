@@ -63,7 +63,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           eventStatus: "https://schema.org/EventScheduled",
           image: event.image_url ? [event.image_url] : undefined,
-          url: `https://mountidaarkansas.org/events/${event.slug}`,
+          url: `https://www.mountidaarkansas.org/events/${event.slug}`,
           location: event.location_name
             ? {
                 "@type": "Place",
@@ -74,7 +74,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
           organizer: {
             "@type": "Organization",
             name: "Mount Ida Arkansas Tourism",
-            url: "https://mountidaarkansas.org",
+            url: "https://www.mountidaarkansas.org",
           },
         }}
       />

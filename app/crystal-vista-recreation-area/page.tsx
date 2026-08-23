@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/crystal-vista-recreation-area`,
+    url: `https://www.mountidaarkansas.org/crystal-vista-recreation-area`,
     images: [guide.heroImage],
   },
 };

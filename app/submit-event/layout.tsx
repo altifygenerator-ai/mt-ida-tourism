@@ -22,7 +22,7 @@ export default function SubmitEventLayout({
           name: "Submit a Mount Ida Event",
           description:
             "A page for submitting local events, markets, music, community happenings, and visitor-friendly activities for the Mount Ida events calendar.",
-          url: "https://mountidaarkansas.org/submit-event",
+          url: "https://www.mountidaarkansas.org/submit-event",
         }}
       />
       {children}

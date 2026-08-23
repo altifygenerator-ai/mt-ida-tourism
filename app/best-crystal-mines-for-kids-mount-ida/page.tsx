@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/best-crystal-mines-for-kids-mount-ida`,
+    url: `https://www.mountidaarkansas.org/best-crystal-mines-for-kids-mount-ida`,
     images: [guide.heroImage],
   },
 };

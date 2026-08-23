@@ -30,7 +30,7 @@ export default async function ThisWeekendPage() {
           name: "This Weekend in Mount Ida",
           description:
             "Weekend events and visitor-friendly ideas around Mount Ida, Lake Ouachita, crystal mines, restaurants, and scenic outdoor stops.",
-          url: "https://mountidaarkansas.org/this-weekend",
+          url: "https://www.mountidaarkansas.org/this-weekend",
           mainEntity: {
             "@type": "ItemList",
             name: "This weekend around Mount Ida",
@@ -46,7 +46,7 @@ export default async function ThisWeekendPage() {
                 eventAttendanceMode:
                   "https://schema.org/OfflineEventAttendanceMode",
                 eventStatus: "https://schema.org/EventScheduled",
-                url: `https://mountidaarkansas.org/events/${event.slug}`,
+                url: `https://www.mountidaarkansas.org/events/${event.slug}`,
               },
             })),
           },

@@ -3,7 +3,7 @@ import SeoGuidePage from "@/components/SeoGuidePage";
 import { seoGuides } from "@/data/seoGuides";
 
 const guide = seoGuides["lake-ouachita-fishing-near-mount-ida"];
-const pageUrl = `https://mountidaarkansas.org/${guide.slug}`;
+const pageUrl = `https://www.mountidaarkansas.org/${guide.slug}`;
 
 export const metadata: Metadata = {
   title: guide.metaTitle,

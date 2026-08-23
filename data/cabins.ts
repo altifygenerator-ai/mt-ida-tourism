@@ -60,10 +60,10 @@ export const cabins: Cabin[] = [
     description:
       "A local Mount Ida inn for visitors wanting a simple place to stay close to restaurants, crystal mines, Lake Ouachita, Highway 270, and the Ouachita Mountains.",
     phone: "870-867-2169",
-    address: "Mount Ida, AR 71957",
+    address: "936 Hwy 270 E, Mount Ida, AR 71957",
     image: "/images/mt-ida-cabins.webp",
     directions:
-      "https://www.google.com/maps/search/?api=1&query=Royal+Oak+Inn+Mount+Ida+AR",
+      "https://www.google.com/maps/search/?api=1&query=Royal+Oak+Inn+936+Hwy+270+E+Mount+Ida+AR+71957",
   },
   {
     name: "Lake Ouachita State Park Cabins",

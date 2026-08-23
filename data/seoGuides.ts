@@ -1008,7 +1008,7 @@ export const seoGuides = {
         "label": "Hickory Nut Mountain Vista"
       },
       {
-        "href": "https://glenwoodarkansas.org/caddo-river",
+        "href": "https://www.glenwoodarkansas.org/caddo-river",
         "label": "Caddo River Guide"
       }
     ],

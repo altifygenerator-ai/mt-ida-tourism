@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { businesses, businessesByCategory, featuredBusinesses } from "@/data/businesses";
 
-const siteUrl = "https://mountidaarkansas.org";
+const siteUrl = "https://www.mountidaarkansas.org";
 
 export const metadata: Metadata = {
   title: "Mount Ida Local Businesses | Shops, Services, Attractions & Visitor Stops",

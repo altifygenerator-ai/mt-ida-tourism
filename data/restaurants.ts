@@ -17,11 +17,11 @@ export const restaurants: Restaurant[] = [
     type: "Cafe • Breakfast • American Food • Local Favorite",
     description:
       "A classic Mount Ida cafe for breakfast, lunch, comfort food, and casual local meals before heading to Lake Ouachita, crystal mines, or the Ouachita Mountains.",
-    phone: "870-867-2312",
-    address: "717 Hwy 270 E, Mount Ida, AR 71957",
+    phone: "870-867-2283",
+    address: "978 US-270, Mount Ida, AR 71957",
     image: "/images/mt-ida-restaurants.jpg",
     directions:
-      "https://www.google.com/maps/search/?api=1&query=Mount+Ida+Cafe+717+Hwy+270+E+Mount+Ida+AR+71957",
+      "https://www.google.com/maps/search/?api=1&query=Mount+Ida+Cafe+978+US-270+Mount+Ida+AR+71957",
     featured: true,
     placementType: "editorial",
   },

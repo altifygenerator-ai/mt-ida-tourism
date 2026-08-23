@@ -48,7 +48,7 @@ function normalizeAiDraft(
     raw_description: cleanMultiline(record.raw_description) || cleanMultiline(record.description),
     description: cleanMultiline(record.description),
     ai_summary: cleanMultiline(record.ai_summary),
-    city: cleanString(record.city) || defaults.city || defaultCityForSite(defaults.site),
+    city: cleanString(record.city) || defaults.city || null,
     location_name:
       cleanString(record.location_name) || cleanString(record.venue_name) || defaults.venue || null,
     address: cleanString(record.address),
@@ -81,7 +81,8 @@ export async function extractEventsFromTextWithAI(
 
   const today = new Date().toISOString().slice(0, 10);
   const clippedText = text.slice(0, 18000);
-  const defaultCity = source.city || defaultCityForSite(source.site);
+  const sourceCity = source.city || null;
+  const guideCity = defaultCityForSite(source.site);
   const guideName = guideNameForSite(source.site);
 
   const response = await openai.responses.create({
@@ -96,11 +97,12 @@ export async function extractEventsFromTextWithAI(
         content: `Today's date is ${today}.
 Source name: ${source.name}
 Source URL: ${source.url}
-Default city: ${defaultCity}
+Guide city: ${guideCity}
+Source city hint: ${sourceCity || "none"}
 Default category: ${source.category_hint || ""}
 Default venue: ${source.venue_hint || ""}
 
-Extract up to 12 upcoming events from this page text. Return this JSON shape:
+Extract up to 12 upcoming events from this page text. Only include events whose city, venue, address, or source context clearly places them in the guide area. Do not assign the guide city just because the source is being reviewed for this guide. If location cannot be confirmed as relevant, skip the event. Return this JSON shape:
 {
   "events": [
     {
@@ -108,7 +110,7 @@ Extract up to 12 upcoming events from this page text. Return this JSON shape:
       "raw_description": "",
       "description": "",
       "ai_summary": "",
-      "city": "${defaultCity}",
+      "city": "",
       "location_name": "",
       "address": "",
       "start_date": "YYYY-MM-DD",
@@ -145,7 +147,7 @@ ${clippedText}`,
       normalizeAiDraft(event, {
         site: source.site,
         sourceUrl: source.url,
-        city: defaultCity,
+        city: sourceCity,
         category: source.category_hint || null,
         venue: source.venue_hint || null,
       })

@@ -4,7 +4,7 @@ import BusinessCard from "@/components/BusinessCard";
 import JsonLd from "@/components/JsonLd";
 import { businessesByCategory } from "@/data/businesses";
 
-const siteUrl = "https://mountidaarkansas.org";
+const siteUrl = "https://www.mountidaarkansas.org";
 const shoppingBusinesses = businessesByCategory.shopping;
 
 export const metadata: Metadata = {

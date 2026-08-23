@@ -22,7 +22,7 @@ export default function ContactLayout({
           name: "Promote Your Mount Ida Business",
           description:
             "Contact the Mount Ida Arkansas guide about business listings, featured placement, visitor visibility, and local guide updates.",
-          url: "https://mountidaarkansas.org/contact",
+          url: "https://www.mountidaarkansas.org/contact",
         }}
       />
       {children}

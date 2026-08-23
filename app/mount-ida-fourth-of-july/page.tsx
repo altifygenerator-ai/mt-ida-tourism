@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "Fourth of July in Mount Ida, Arkansas 2026 | Lake Ouachita Fireworks & Holiday Guide",
+    "Fourth of July in Mount Ida, Arkansas | Lake Ouachita Holiday Guide",
   description:
-    "Plan Fourth of July around Mount Ida, Arkansas with verified Mountain Harbor Resort holiday events, Lake Ouachita fireworks, crystal mines, cabins, local food, and simple trip ideas.",
+    "Plan a Fourth of July trip around Mount Ida, Arkansas with Lake Ouachita, crystal mines, cabins, local food, and an archive of the verified 2026 Mountain Harbor holiday event.",
   keywords: [
     "Fourth of July Mount Ida Arkansas",
     "Mount Ida Arkansas fireworks 2026",
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
 const verifiedEvents = [
   {
     name: "Mountain Harbor Fourth of July Celebration",
-    label: "Verified Holiday Event",
+    label: "2026 Event Archive",
     date: "Saturday, July 4, 2026",
     time: "Daytime parade and evening fireworks",
     location: "Mountain Harbor Resort & Spa, 994 Mountain Harbor Road, Mount Ida, AR 71957",
     description:
-      "Mountain Harbor Resort lists a July 4, 2026 Patriotic 4-Wheeler Parade, and its holiday page describes a Fourth of July celebration with a patriotic parade and fireworks over Lake Ouachita set to patriotic music.",
+      "Mountain Harbor Resort listed a July 4, 2026 Patriotic 4-Wheeler Parade and a Fourth of July celebration with fireworks over Lake Ouachita. This listing is kept as a verified 2026 archive while future holiday details are confirmed from current host sources.",
     details: [
-      "Patriotic 4-Wheeler Parade listed for July 4, 2026",
-      "Fireworks over Lake Ouachita are part of Harbor's Fourth of July tradition",
+      "The 2026 Patriotic 4-Wheeler Parade was listed for July 4",
+      "Fireworks over Lake Ouachita were part of the verified 2026 celebration details",
       "Guests can view from land or from the lake",
       "Fireworks are prohibited on Harbor property outside the official show",
     ],
@@ -105,12 +105,12 @@ const faqs = [
   {
     question: "Are there Fourth of July fireworks near Mount Ida?",
     answer:
-      "Mountain Harbor Resort describes a Fourth of July celebration with fireworks over Lake Ouachita, and its event listings include a July 4, 2026 Patriotic 4-Wheeler Parade.",
+      "The verified 2026 Mountain Harbor listing included a Patriotic 4-Wheeler Parade and a Fourth of July celebration with fireworks over Lake Ouachita. That date has passed; check current event and host pages for future plans.",
   },
   {
     question: "Where is the verified Mount Ida July 4 event?",
     answer:
-      "The verified listing found for the Mount Ida area is at Mountain Harbor Resort & Spa on Lake Ouachita, located at 994 Mountain Harbor Road, Mount Ida, Arkansas.",
+      "The archived 2026 Mount Ida-area listing was at Mountain Harbor Resort & Spa on Lake Ouachita, 994 Mountain Harbor Road, Mount Ida, Arkansas. Check current sources before planning a future holiday visit.",
   },
   {
     question: "Should visitors check before going?",
@@ -208,7 +208,7 @@ export default function MountIdaFourthOfJulyPage() {
               startDate: "2026-07-04",
               eventAttendanceMode:
                 "https://schema.org/OfflineEventAttendanceMode",
-              eventStatus: "https://schema.org/EventScheduled",
+              eventStatus: "https://schema.org/EventCompleted",
               location: {
                 "@type": "Place",
                 name: "Mountain Harbor Resort & Spa",
@@ -261,9 +261,9 @@ export default function MountIdaFourthOfJulyPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 !text-white/82">
-              Plan Independence Day around Mountain Harbor&apos;s verified holiday
-              celebration, Lake Ouachita, quartz crystal stops, cabins, local
-              restaurants, and a simple Mount Ida summer weekend.
+              Use this guide for Mount Ida holiday trip ideas and the archived 2026
+              Mountain Harbor celebration. The 2026 holiday has passed, so check
+              current Events and host pages before making plans around a future date.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -271,7 +271,7 @@ export default function MountIdaFourthOfJulyPage() {
                 href="#verified-events"
                 className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90"
               >
-                See Verified Event
+                See 2026 Event Archive
               </a>
 
               <a
@@ -293,11 +293,11 @@ export default function MountIdaFourthOfJulyPage() {
                 July 4
               </strong>
               <p className="mt-2 font-bold text-[color:var(--color-text)]">
-                Saturday holiday date
+                2026 holiday date
               </p>
               <p className="mt-3">
-                Independence Day falls on Saturday in 2026, making it a strong
-                weekend for lake stays, cabins, and Mount Ida trips.
+                Independence Day fell on Saturday in 2026. That date is kept here
+                as part of the archived holiday reference.
               </p>
             </div>
 
@@ -306,11 +306,11 @@ export default function MountIdaFourthOfJulyPage() {
                 1
               </strong>
               <p className="mt-2 font-bold text-[color:var(--color-text)]">
-                verified listing added
+                archived listing
               </p>
               <p className="mt-3">
-                Only confirmed Mount Ida-area July 4 information was added. More
-                can be included after hosts publish details.
+                The verified 2026 Mount Ida-area listing is kept here for reference.
+                Use current event and host pages for future holiday dates.
               </p>
             </div>
 
@@ -334,17 +334,17 @@ export default function MountIdaFourthOfJulyPage() {
         <div className="container">
           <div className="mb-8 max-w-3xl">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-              Verified Event
+              2026 Event Archive
             </p>
 
             <h2 className="text-4xl font-semibold leading-tight md:text-5xl">
-              Confirmed Fourth of July event information near Mount Ida.
+              Archived Fourth of July event information near Mount Ida.
             </h2>
 
             <p className="mt-4 text-lg leading-8">
-              This page only includes event information that could be verified
-              from official or host sources. If more local July 4 events are
-              announced, they can be added after the details are confirmed.
+              The event below was verified for 2026 and is now kept as an archive.
+              For future Fourth of July plans, check the current Events page and
+              the event host before relying on a date, time, or fireworks schedule.
             </p>
           </div>
 

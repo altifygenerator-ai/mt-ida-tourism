@@ -38,7 +38,7 @@ export const businesses: Business[] = [
     href: "/mountain-harbor-resort-lake-ouachita",
     featured: true,
     placementType: "editorial",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Shangri-La Resort",
@@ -55,7 +55,7 @@ export const businesses: Business[] = [
     href: "/shangri-la-resort-lake-ouachita",
     featured: true,
     placementType: "editorial",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Wegner Quartz Crystal Mines",
@@ -70,7 +70,7 @@ export const businesses: Business[] = [
     href: "/wegner-quartz-crystal-mines",
     featured: true,
     placementType: "editorial",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Avant Mining / Fisher Mountain",
@@ -83,7 +83,7 @@ export const businesses: Business[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Avant+Mining+Fisher+Mountain+Mount+Ida+AR",
     href: "/avant-mining-fisher-mountain",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Twin Creek Crystal Mine",
@@ -96,7 +96,7 @@ export const businesses: Business[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Twin+Creek+Crystal+Mine+Mount+Ida+AR",
     href: "/twin-creek-crystal-mine",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Sweet Surrender Crystal Mine",
@@ -109,7 +109,7 @@ export const businesses: Business[] = [
     directions:
       "https://www.google.com/maps/search/?api=1&query=Sweet+Surrender+Crystal+Mine+Story+AR",
     href: "/sweet-surrender-crystal-mine",
-    lastVerified: "2026-07-23",
+    lastVerified: "2026-08-21",
   },
   {
     name: "Crystal Vista Recreation Area",
@@ -131,10 +131,10 @@ export const businesses: Business[] = [
     description:
       "A classic Mount Ida cafe for breakfast, lunch, comfort food, and casual local meals before heading to Lake Ouachita, crystal mines, or the Ouachita Mountains.",
     image: "/images/mt-ida-restaurants.jpg",
-    phone: "870-867-2312",
-    address: "717 Hwy 270 E, Mount Ida, AR 71957",
+    phone: "870-867-2283",
+    address: "978 US-270, Mount Ida, AR 71957",
     directions:
-      "https://www.google.com/maps/search/?api=1&query=Mount+Ida+Cafe+717+Hwy+270+E+Mount+Ida+AR+71957",
+      "https://www.google.com/maps/search/?api=1&query=Mount+Ida+Cafe+978+US-270+Mount+Ida+AR+71957",
     href: "/restaurants",
     featured: true,
     placementType: "editorial",

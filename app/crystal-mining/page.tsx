@@ -27,7 +27,7 @@ export default function CrystalMiningPage() {
           name: "Crystal Mining in Mount Ida, Arkansas",
           description:
             "A practical guide to quartz digging, crystal mines, Crystal Vista, what to bring, and planning a Mount Ida crystal mining trip.",
-          url: "https://mountidaarkansas.org/crystal-mining",
+          url: "https://www.mountidaarkansas.org/crystal-mining",
           mainEntity: {
             "@type": "ItemList",
             name: "Mount Ida crystal mining stops",

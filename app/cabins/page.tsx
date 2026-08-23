@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cabins, type Cabin } from "@/data/cabins";
 import { businessClickTracking, getFeaturedLabel } from "@/lib/tracking";
 
-const siteUrl = "https://mountidaarkansas.org";
+const siteUrl = "https://www.mountidaarkansas.org";
 const pagePath = "/cabins";
 
 export const metadata: Metadata = {

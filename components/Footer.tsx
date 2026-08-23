@@ -54,7 +54,7 @@ const footerGroups = [
 ];
 
 const sisterSites = [
-  { href: "https://glenwoodarkansas.org", label: "Glenwood Arkansas" },
+  { href: "https://www.glenwoodarkansas.org", label: "Glenwood Arkansas" },
   { href: "https://amityarkansas.org", label: "Amity Arkansas" },
   { href: "https://hotspringsarkansas.org", label: "Hot Springs Arkansas" },
   { href: "https://murfreesboroarkansas.org", label: "Murfreesboro Arkansas" },
@@ -158,7 +158,7 @@ export default function Footer() {
         <p>
           Website by{" "}
           <a
-            href="https://hometownwebservicesar.com"
+            href="https://www.hometownwebservicesar.com"
             target="_blank"
             rel="noopener noreferrer"
           >

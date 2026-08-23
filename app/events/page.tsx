@@ -30,7 +30,7 @@ export default async function EventsPage() {
           name: "Mount Ida Events",
           description:
             "Upcoming Mount Ida, Arkansas events, local happenings, seasonal activities, community events, and visitor-friendly things to do around Lake Ouachita.",
-          url: "https://mountidaarkansas.org/events",
+          url: "https://www.mountidaarkansas.org/events",
           mainEntity: {
             "@type": "ItemList",
             name: "Upcoming Mount Ida events",
@@ -46,7 +46,7 @@ export default async function EventsPage() {
                 eventAttendanceMode:
                   "https://schema.org/OfflineEventAttendanceMode",
                 eventStatus: "https://schema.org/EventScheduled",
-                url: `https://mountidaarkansas.org/events/${event.slug}`,
+                url: `https://www.mountidaarkansas.org/events/${event.slug}`,
                 location: event.location_name
                   ? {
                       "@type": "Place",

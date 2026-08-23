@@ -34,7 +34,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           name: "Search the Mount Ida Guide",
           description:
             "Search the Mount Ida Arkansas guide for crystal mines, Lake Ouachita, cabins, restaurants, events, and visitor planning pages.",
-          url: "https://mountidaarkansas.org/search",
+          url: "https://www.mountidaarkansas.org/search",
         }}
       />
 

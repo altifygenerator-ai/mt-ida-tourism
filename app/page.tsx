@@ -19,7 +19,7 @@ export default function HomePage() {
           name: "Mount Ida Arkansas Tourism Guide",
           description:
             "A local guide to Mount Ida, Arkansas, crystal mining, Lake Ouachita, cabins, restaurants, events, history, and Ouachita Mountain attractions.",
-          url: "https://mountidaarkansas.org/",
+          url: "https://www.mountidaarkansas.org/",
           about: [
             "Mount Ida Arkansas",
             "Crystal mining",
@@ -352,7 +352,7 @@ export default function HomePage() {
           </a>
 
           <a
-            href="https://glenwoodarkansas.org"
+            href="https://www.glenwoodarkansas.org"
             target="_blank"
             rel="noopener noreferrer"
             className="nearby-town-card outline"

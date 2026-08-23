@@ -52,7 +52,7 @@ export default function ThingsToDoPage() {
           name: "Things To Do in Mount Ida, Arkansas",
           description:
             "A visitor guide to crystal mines, Lake Ouachita, Brady Mountain, Hickory Nut Mountain, cabins, restaurants, history, and outdoor things to do around Mount Ida.",
-          url: "https://mountidaarkansas.org/things-to-do",
+          url: "https://www.mountidaarkansas.org/things-to-do",
           mainEntity: {
             "@type": "ItemList",
             name: "Mount Ida attractions and things to do",
@@ -64,8 +64,8 @@ export default function ThingsToDoPage() {
                 name: item.title,
                 description: item.description,
                 url: item.href
-                  ? `https://mountidaarkansas.org${item.href}`
-                  : "https://mountidaarkansas.org/things-to-do",
+                  ? `https://www.mountidaarkansas.org${item.href}`
+                  : "https://www.mountidaarkansas.org/things-to-do",
               },
             })),
           },

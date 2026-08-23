@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/lake-ouachita-cabins`,
+    url: `https://www.mountidaarkansas.org/lake-ouachita-cabins`,
     images: [guide.heroImage],
   },
 };

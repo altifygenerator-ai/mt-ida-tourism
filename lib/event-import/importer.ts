@@ -25,7 +25,7 @@ async function fetchSourceText(source: EventSource) {
   const response = await fetch(source.url, {
     headers: {
       "User-Agent":
-        "MountIdaArkansas.org event importer (+https://mountidaarkansas.org)",
+        "MountIdaArkansas.org event importer (+https://www.mountidaarkansas.org)",
       Accept: "text/html,application/rss+xml,application/xml,text/calendar,*/*",
     },
     next: { revalidate: 0 },
@@ -161,7 +161,7 @@ export async function saveImportedEventDraft(
     raw_description: draft.raw_description || draft.description || null,
     description: draft.description || draft.raw_description || null,
     ai_summary: draft.ai_summary || null,
-    city: draft.city || source?.city || defaultCityForSite(site),
+    city: draft.city || source?.city || (source ? null : defaultCityForSite(site)),
     location_name: draft.location_name || source?.venue_hint || null,
     address: draft.address || null,
     start_date: startDate,

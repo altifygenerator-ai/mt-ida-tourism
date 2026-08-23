@@ -41,7 +41,7 @@ export const crystalMiningGuide = {
       name: "Wegner Quartz Crystal Mines",
       label: "Best first stop",
       location: "South of Mount Ida off Highway 27 and Owley Road",
-      address: "82 Wegner Crystal Ranch Road, Mount Ida, AR 71957",
+      address: "82 Wegner Ranch Road, Mount Ida, AR 71957",
       phone: "870-867-2309",
       email: "wegner@ipa.net",
       website: "https://www.wegnercrystalmines.com/",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: guide.metaTitle,
     description: guide.metaDescription,
-    url: `https://mountidaarkansas.org/hot-springs-to-mount-ida-day-trip`,
+    url: `https://www.mountidaarkansas.org/hot-springs-to-mount-ida-day-trip`,
     images: [guide.heroImage],
   },
 };

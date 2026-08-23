@@ -29,7 +29,7 @@ export default function HomeCrystalGuideFeature() {
 
               <p className="mt-5 max-w-2xl text-lg leading-8 !text-white/75">
                 Mount Ida is known as the Quartz Capital of the World, but not
-                every crystal digging stop is the same. The new guide breaks
+                every crystal digging stop is the same. The guide breaks
                 down where to go, what to bring, which mine fits your trip, and
                 how to turn crystal digging into a full Mount Ida weekend.
               </p>

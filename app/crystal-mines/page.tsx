@@ -61,7 +61,7 @@ export default function CrystalMinesPage() {
               "@type": "ListItem",
               position: index + 1,
               name: mine.name,
-              url: `https://mountidaarkansas.org/crystal-mines#${mine.name
+              url: `https://www.mountidaarkansas.org/crystal-mines#${mine.name
                 .toLowerCase()
                 .replace(/[^a-z0-9]+/g, "-")}`,
             })),

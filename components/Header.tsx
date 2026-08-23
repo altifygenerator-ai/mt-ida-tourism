@@ -92,7 +92,7 @@ const businessLinks = [
 
 const sisterSites = [
   {
-    href: "https://glenwoodarkansas.org",
+    href: "https://www.glenwoodarkansas.org",
     label: "Visit Glenwood",
   },
   {
