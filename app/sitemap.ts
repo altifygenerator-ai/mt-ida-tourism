@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { seoGuideList } from "@/data/seoGuides";
 
 const siteUrl = "https://www.mountidaarkansas.org";
-const contentUpdated = new Date("2026-08-21");
+const contentUpdated = new Date("2026-09-20T00:00:00-05:00");
 
 const coreRoutes: MetadataRoute.Sitemap = [
   {
@@ -76,6 +76,12 @@ const coreRoutes: MetadataRoute.Sitemap = [
     lastModified: contentUpdated,
     changeFrequency: "daily",
     priority: 0.9,
+  },
+  {
+    url: `${siteUrl}/mount-ida-fourth-of-july`,
+    lastModified: contentUpdated,
+    changeFrequency: "yearly",
+    priority: 0.58,
   },
   {
     url: `${siteUrl}/submit-event`,

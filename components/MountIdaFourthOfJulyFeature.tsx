@@ -16,7 +16,7 @@ export default function MountIdaFourthOfJulyFeature() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
 
               <div className="absolute left-5 top-5 rounded-full bg-black/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur">
-                Seasonal Guide
+                2026 Holiday Archive
               </div>
             </div>
 
@@ -26,24 +26,24 @@ export default function MountIdaFourthOfJulyFeature() {
               </p>
 
               <h2 className="max-w-2xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-                Fireworks over Lake Ouachita, lake days, and quiet mountain
-                weekend plans.
+                Look back at the 2026 Lake Ouachita celebration and plan ahead
+                with current local information.
               </h2>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 !text-white/75">
-                Planning July 4 around Mount Ida? Start with the verified
-                Mountain Harbor holiday celebration, then build the rest of the
-                weekend around Lake Ouachita, crystal mines, cabins, local food,
-                and simple Ouachita Mountain stops.
+                The 2026 Fourth of July weekend has passed. The Mount Ida holiday
+                guide now keeps the verified Mountain Harbor celebration as an
+                archive while pointing future visitors toward current events,
+                Lake Ouachita planning, cabins, crystal mines, and local food.
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-2xl border border-white/15 bg-white/10 p-4">
                   <strong className="block text-2xl leading-none text-white">
-                    July 4
+                    2026
                   </strong>
                   <span className="mt-2 block text-sm font-bold !text-white/65">
-                    Holiday guide
+                    Event archive
                   </span>
                 </div>
 
@@ -52,16 +52,16 @@ export default function MountIdaFourthOfJulyFeature() {
                     Lake
                   </strong>
                   <span className="mt-2 block text-sm font-bold !text-white/65">
-                    Ouachita fireworks
+                    Ouachita history
                   </span>
                 </div>
 
                 <div className="rounded-2xl border border-white/15 bg-white/10 p-4">
                   <strong className="block text-2xl leading-none text-white">
-                    Local
+                    Current
                   </strong>
                   <span className="mt-2 block text-sm font-bold !text-white/65">
-                    Event updates
+                    Events & planning
                   </span>
                 </div>
               </div>
@@ -71,14 +71,14 @@ export default function MountIdaFourthOfJulyFeature() {
                   href="/mount-ida-fourth-of-july"
                   className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-white/90"
                 >
-                  View July 4 Guide
+                  View 2026 Archive
                 </Link>
 
                 <Link
                   href="/events"
                   className="rounded-full border border-white/35 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
                 >
-                  View Events
+                  View Current Events
                 </Link>
 
                 <Link

@@ -55,9 +55,9 @@ const footerGroups = [
 
 const sisterSites = [
   { href: "https://www.glenwoodarkansas.org", label: "Glenwood Arkansas" },
-  { href: "https://amityarkansas.org", label: "Amity Arkansas" },
-  { href: "https://hotspringsarkansas.org", label: "Hot Springs Arkansas" },
-  { href: "https://murfreesboroarkansas.org", label: "Murfreesboro Arkansas" },
+  { href: "https://www.amityarkansas.org", label: "Amity Arkansas" },
+  { href: "https://www.hotspringsarkansas.org", label: "Hot Springs Arkansas" },
+  { href: "https://www.murfreesboroarkansas.org", label: "Murfreesboro Arkansas" },
 ];
 
 function FooterGroup({
@@ -112,11 +112,7 @@ export default function Footer() {
 
         <div className="footer-link-grid">
           {footerGroups.map((group) => (
-            <FooterGroup
-              key={group.title}
-              title={group.title}
-              links={group.links}
-            />
+            <FooterGroup key={group.title} title={group.title} links={group.links} />
           ))}
         </div>
 
@@ -125,12 +121,7 @@ export default function Footer() {
 
           <div>
             {sisterSites.map((site) => (
-              <a
-                key={site.href}
-                href={site.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a key={site.href} href={site.href} target="_blank" rel="noopener noreferrer">
                 {site.label}
               </a>
             ))}
