@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "River View Cabins on the Ouachita River | Mount Ida Arkansas Guide",
   description:
-    "Discover River View Cabins near Mount Ida: 14 Ouachita River cabins with hot tubs, pool, horseback riding, kayak and canoe trips, hiking, river access, and fireplaces November through March.",
+    "Discover River View Cabins near Mount Ida: 14 Ouachita River cabins with hot tubs, pool, horseback riding, kayak and canoe trips, hiking, river access, and fireplaces November 1 through March 1.",
   alternates: { canonical: "/river-view-cabins" },
 };
 
@@ -15,7 +15,7 @@ const highlights = [
   "Horseback riding",
   "Kayak and canoe trips",
   "Quartz crystals along the property hiking trails",
-  "Built-in fireplaces available November through March",
+  "Built-in fireplaces available November 1 through March 1",
 ];
 
 export default function RiverViewCabinsPage() {
@@ -32,7 +32,7 @@ export default function RiverViewCabinsPage() {
               "Fourteen Ouachita River cabins with river views, hot tubs, pool, horseback riding, kayak and canoe trips, hiking trails, river access, and seasonal fireplaces.",
             telephone: "870-326-4630",
             email: "riverviewcabins.canoes@outlook.com",
-            url: "https://riverviewcabins.com/",
+            url: "https://www.riverviewcabins-canoes.com/",
             amenityFeature: highlights.map((name) => ({
               "@type": "LocationFeatureSpecification",
               name,
@@ -59,7 +59,7 @@ export default function RiverViewCabinsPage() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://riverviewcabins.com/"
+              href="https://www.riverviewcabins-canoes.com/"
               target="_blank"
               rel="sponsored noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-black text-stone-950 transition hover:-translate-y-0.5"
@@ -90,7 +90,7 @@ export default function RiverViewCabinsPage() {
                 Cooler-Weather Highlight
               </p>
               <p className="mt-3 text-5xl font-semibold text-stone-900">
-                Nov–Mar
+                Nov 1–Mar 1
               </p>
               <p className="mt-2 font-bold text-amber-900">Fireplace season</p>
             </div>
@@ -187,7 +187,7 @@ export default function RiverViewCabinsPage() {
               </h3>
               <p className="mt-3 leading-7 text-[color:var(--color-muted)]">
                 Cooler-weather stays get an extra cabin touch with fireplaces
-                available from November through March.
+                available from November 1 through March 1.
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function RiverViewCabinsPage() {
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <a
-                href="https://riverviewcabins.com/"
+                href="https://www.riverviewcabins-canoes.com/"
                 target="_blank"
                 rel="sponsored noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-black text-stone-950"
