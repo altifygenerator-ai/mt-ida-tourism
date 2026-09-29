@@ -95,19 +95,22 @@ export default function RiverViewCabinsPage() {
               href="https://www.riverviewcabins-canoes.com/"
               target="_blank"
               rel="sponsored noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline transition hover:-translate-y-0.5"\n              style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline transition hover:-translate-y-0.5"
+              style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
             >
               Visit Website ↗
             </a>
             <a
               href="tel:8703264630"
-              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"\n              style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
+              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"
+              style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
             >
               Call 870-326-4630
             </a>
             <Link
               href="/cabins"
-              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"\n              style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
+              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"
+              style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
             >
               More Cabins Near Mount Ida
             </Link>
@@ -312,13 +315,15 @@ export default function RiverViewCabinsPage() {
                 href="https://www.riverviewcabins-canoes.com/"
                 target="_blank"
                 rel="sponsored noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline"\n                style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline"
+                style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
               >
                 Visit Website ↗
               </a>
               <a
                 href="mailto:riverviewcabins.canoes@outlook.com"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm no-underline"\n                style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
+                className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm no-underline"
+                style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
               >
                 Email River View
               </a>
