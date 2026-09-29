@@ -3,6 +3,7 @@ import CategoryCard from "@/components/CategoryCard";
 import CTASection from "@/components/CTASection";
 import HomeCrystalGuideFeature from "@/components/HomeCrystalGuideFeature";
 import RecentUpdates from "@/components/RecentUpdates";
+import RiverViewCabinsHomeAd from "@/components/RiverViewCabinsHomeAd";
 import JsonLd from "@/components/JsonLd";
 import { homeCategories } from "@/data/categories";
 import { featuredBusinesses } from "@/data/businesses";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Hero />
 
       <RecentUpdates />
+      <RiverViewCabinsHomeAd />
 
 
       <section className="section mount-ida-intro-section">
