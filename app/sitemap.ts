@@ -170,6 +170,12 @@ const additionalRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "monthly",
     priority: 0.88,
   },
+  {
+    url: `${siteUrl}/river-view-cabins`,
+    lastModified: new Date("2026-09-29T00:30:00-05:00"),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
