@@ -63,6 +63,39 @@ export default function RecentUpdates() {
             </Link>
           </div>
 
+          <div className="mb-6 overflow-hidden rounded-[1.6rem] border border-amber-900/15 bg-gradient-to-r from-stone-950 via-stone-900 to-amber-950 p-6 text-white shadow-lg md:p-7">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-3xl">
+                <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-amber-300">
+                  Featured Cabin Partner
+                </p>
+                <h3 className="text-2xl font-semibold leading-tight text-white md:text-3xl">
+                  River View Cabins on the Ouachita River
+                </h3>
+                <p className="mt-3 text-sm leading-7 !text-white/85">
+                  14 riverfront cabins with river views, hot tubs, a pool, horseback riding, kayak and canoe trips, hiking trails with quartz crystals, direct river access, and built-in fireplaces available November through March.
+                </p>
+              </div>
+
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <Link
+                  href="/river-view-cabins"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold text-stone-950 transition hover:-translate-y-0.5"
+                >
+                  See Spotlight
+                </Link>
+                <a
+                  href="https://riverviewcabins.com/"
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
+                >
+                  Visit Website ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {updates.map((update) => (
               <Link
