@@ -107,7 +107,7 @@ export default function RiverViewCabinsPage() {
             </a>
             <Link
               href="/cabins"
-              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-black text-white transition hover:bg-white/20"
+              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"\n              style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
             >
               More Cabins Near Mount Ida
             </Link>
