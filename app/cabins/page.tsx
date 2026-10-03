@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FindAPlaceBookingCTA from "@/components/FindAPlaceBookingCTA";
 import Link from "next/link";
 import { cabins, type Cabin } from "@/data/cabins";
 import { businessClickTracking, getFeaturedLabel } from "@/lib/tracking";
@@ -361,6 +362,13 @@ export default function CabinsPage() {
           ))}
         </div>
       </section>
+
+      <FindAPlaceBookingCTA
+        heading="Looking for a stay near Lake Ouachita?"
+        text="Browse cabins, vacation rentals, and other stays on Find a Place Booking, with results focused on the Lake Ouachita area."
+        href="https://www.findaplacebooking.com/stays?where=Lake%20Ouachita"
+        buttonLabel="Find a Stay Near Lake Ouachita →"
+      />
 
       <section>
         <div className="rounded-3xl border bg-[color:var(--bg-card)] p-8 md:p-10">
