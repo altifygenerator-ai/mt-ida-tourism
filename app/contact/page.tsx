@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function ContactPage() {
+  const formStartedAt = useRef(Date.now());
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -26,6 +27,8 @@ export default function ContactPage() {
         body: JSON.stringify({
           ...form,
           source: "Mount Ida Tourism",
+          websiteUrl: String(new FormData(e.currentTarget).get("websiteUrl") || ""),
+          formStartedAt: formStartedAt.current,
         }),
       });
 
@@ -35,6 +38,7 @@ export default function ContactPage() {
       }
 
       setSubmitted(true);
+      formStartedAt.current = Date.now();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not send your request.");
     } finally {
@@ -132,6 +136,14 @@ export default function ContactPage() {
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="websiteUrl"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <input
                 required
                 placeholder="Name"
