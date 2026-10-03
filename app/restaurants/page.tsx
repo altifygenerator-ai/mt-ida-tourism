@@ -7,9 +7,9 @@ const siteUrl = "https://www.mountidaarkansas.org";
 const pagePath = "/restaurants";
 
 export const metadata: Metadata = {
-  title: "Restaurants in Mount Ida, Arkansas | Food Near Lake Ouachita",
+  title: "Restaurants in Mount Ida, Arkansas | Local Food Near Lake Ouachita",
   description:
-    "Find restaurants in Mount Ida, including cafes, lake dining, Mexican food, pizza, burgers, quick stops, and places to eat near Lake Ouachita and crystal mines.",
+    "Find restaurants in Mount Ida, Arkansas for cafes, breakfast, pizza, burgers, Mexican food, lake dining, coffee, and easy places to eat near Lake Ouachita and crystal mines.",
   keywords: [
     "Mount Ida restaurants",
     "restaurants in Mount Ida Arkansas",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     canonical: pagePath,
   },
   openGraph: {
-    title: "Restaurants in Mount Ida, Arkansas | Food Near Lake Ouachita",
+    title: "Restaurants in Mount Ida, Arkansas | Local Food Near Lake Ouachita",
     description:
-      "Find cafes, lake dining, Mexican food, pizza, burgers, coffee, quick stops, and local places to eat near Mount Ida and Lake Ouachita.",
+      "Find cafes, breakfast, pizza, burgers, Mexican food, coffee, lake dining, and local places to eat near Mount Ida and Lake Ouachita.",
     url: `${siteUrl}${pagePath}`,
     images: ["/images/mt-ida-restaurants.jpg"],
   },
