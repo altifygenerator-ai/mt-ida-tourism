@@ -9,9 +9,9 @@ import Link from "next/link";
 import { crystalMiningGuide } from "@/data/crystalMining";
 
 export const metadata: Metadata = {
-  title: "Crystal Mining in Mount Ida, Arkansas | Quartz Digging Guide",
+  title: "Crystal Mining in Mount Ida, Arkansas | Best Quartz Digging & Mine Guide",
   description:
-    "A practical Mount Ida crystal mining guide with what to bring, weather and road planning, family advice, current mine links, Crystal Vista, food, lodging, and weekend ideas.",
+    "Plan crystal mining in Mount Ida, Arkansas with quartz digging tips, what to bring, family advice, current mine links, Crystal Vista, cabins, food, and weekend planning.",
   alternates: {
     canonical: "/crystal-mining",
   },
