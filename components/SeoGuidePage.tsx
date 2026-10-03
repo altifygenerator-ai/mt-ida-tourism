@@ -1,7 +1,8 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import JsonLd from "@/components/JsonLd";\nimport FindAPlaceBookingCTA from "@/components/FindAPlaceBookingCTA";
+import JsonLd from "@/components/JsonLd";
+import FindAPlaceBookingCTA from "@/components/FindAPlaceBookingCTA";
 import type { SeoGuide } from "@/data/seoGuides";
 
 const siteUrl = "https://www.mountidaarkansas.org";
