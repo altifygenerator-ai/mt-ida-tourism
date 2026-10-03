@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { businessClickTracking } from "@/lib/tracking";
 
 export const metadata = {
   title: "River View Cabins & Canoes on the Ouachita River | Mount Ida Arkansas Guide",
@@ -95,6 +96,13 @@ export default function RiverViewCabinsPage() {
               href="https://www.riverviewcabins-canoes.com/"
               target="_blank"
               rel="sponsored noopener noreferrer"
+              {...businessClickTracking({
+                action: "website",
+                business: "River View Cabins & Canoes",
+                page: "/river-view-cabins",
+                placement: "spotlight_hero",
+                placementType: "paid",
+              })}
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline transition hover:-translate-y-0.5"
               style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
             >
@@ -102,6 +110,13 @@ export default function RiverViewCabinsPage() {
             </a>
             <a
               href="tel:8703264630"
+              {...businessClickTracking({
+                action: "call",
+                business: "River View Cabins & Canoes",
+                page: "/river-view-cabins",
+                placement: "spotlight_hero",
+                placementType: "paid",
+              })}
               className="inline-flex items-center justify-center rounded-full border border-white/35 bg-black/20 px-6 py-3 text-sm no-underline transition hover:bg-black/30"
               style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
             >
@@ -315,6 +330,13 @@ export default function RiverViewCabinsPage() {
                 href="https://www.riverviewcabins-canoes.com/"
                 target="_blank"
                 rel="sponsored noopener noreferrer"
+                {...businessClickTracking({
+                  action: "website",
+                  business: "River View Cabins & Canoes",
+                  page: "/river-view-cabins",
+                  placement: "spotlight_footer",
+                  placementType: "paid",
+                })}
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm no-underline"
                 style={{ color: "#1c1917", fontFamily: "inherit", fontWeight: 800 }}
               >
@@ -322,6 +344,13 @@ export default function RiverViewCabinsPage() {
               </a>
               <a
                 href="mailto:riverviewcabins.canoes@outlook.com"
+                {...businessClickTracking({
+                  action: "email",
+                  business: "River View Cabins & Canoes",
+                  page: "/river-view-cabins",
+                  placement: "spotlight_footer",
+                  placementType: "paid",
+                })}
                 className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm no-underline"
                 style={{ color: "#ffffff", fontFamily: "inherit", fontWeight: 800 }}
               >
