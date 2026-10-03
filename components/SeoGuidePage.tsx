@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import JsonLd from "@/components/JsonLd";
+import JsonLd from "@/components/JsonLd";\nimport FindAPlaceBookingCTA from "@/components/FindAPlaceBookingCTA";
 import type { SeoGuide } from "@/data/seoGuides";
 
 const siteUrl = "https://www.mountidaarkansas.org";
@@ -298,6 +298,15 @@ export default function SeoGuidePage({ guide }: { guide: SeoGuide }) {
           </div>
         </div>
       </section>
+
+      {guide.slug.includes("cabin") ? (
+        <FindAPlaceBookingCTA
+          heading="Looking for a stay near Lake Ouachita?"
+          text="Browse cabins, vacation rentals, and other stays on Find a Place Booking, with results focused on the Lake Ouachita area."
+          href="https://www.findaplacebooking.com/stays?where=Lake%20Ouachita"
+          buttonLabel="Find a Stay Near Lake Ouachita →"
+        />
+      ) : null}
 
       {guide.cta ? (
         <section className="seo-guide-cta section pt-0">
