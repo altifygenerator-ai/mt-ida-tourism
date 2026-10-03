@@ -1,10 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 const website = "https://www.riverviewcabins-canoes.com/";
 const heroImage =
   "https://irp.cdn-website.com/3c00cf11/dms3rep/multi/opt/river%2Bview%2B%282%29-576h.webp";
 
 export default function RiverViewCabinsHomeAd() {
+  function trackRiverView(action: "website_image" | "website_button" | "spotlight") {
+    track("business_click", {
+      business: "River View Cabins & Canoes",
+      city: "Mount Ida",
+      page: typeof window !== "undefined" ? window.location.pathname : "/",
+      placement: "river_view_home_ad",
+      placementType: "paid",
+      action,
+    });
+  }
+
   return (
     <section className="py-8 md:py-10">
       <div className="container">
@@ -14,6 +28,7 @@ export default function RiverViewCabinsHomeAd() {
               href={website}
               target="_blank"
               rel="sponsored noopener noreferrer"
+              onClick={() => trackRiverView("website_image")}
               className="relative block min-h-[220px] overflow-hidden bg-stone-200 md:min-h-full"
               aria-label="Visit River View Cabins & Canoes website"
             >
@@ -51,6 +66,7 @@ export default function RiverViewCabinsHomeAd() {
               <div className="flex shrink-0 flex-wrap gap-3">
                 <Link
                   href="/river-view-cabins"
+                  onClick={() => trackRiverView("spotlight")}
                   className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm no-underline transition hover:-translate-y-0.5"
                   style={{
                     backgroundColor: "var(--color-accent, #315947)",
@@ -66,6 +82,7 @@ export default function RiverViewCabinsHomeAd() {
                   href={website}
                   target="_blank"
                   rel="sponsored noopener noreferrer"
+                  onClick={() => trackRiverView("website_button")}
                   className="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm no-underline transition hover:-translate-y-0.5"
                   style={{
                     borderColor: "var(--color-accent, #315947)",
