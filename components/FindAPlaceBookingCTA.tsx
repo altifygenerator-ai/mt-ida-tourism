@@ -1,3 +1,7 @@
+"use client";
+
+import { track } from "@vercel/analytics";
+
 type FindAPlaceBookingCTAProps = {
   heading: string;
   text: string;
@@ -75,6 +79,13 @@ export default function FindAPlaceBookingCTA({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                track("find_a_place_click", {
+                  page: window.location.pathname,
+                  destination: href,
+                  label: buttonLabel,
+                })
+              }
               className="inline-flex shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-extrabold no-underline shadow-md transition hover:opacity-90"
               style={{
                 color: "#173f31",
