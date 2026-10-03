@@ -8,9 +8,9 @@ const siteUrl = "https://www.mountidaarkansas.org";
 const pagePath = "/cabins";
 
 export const metadata: Metadata = {
-  title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Places to Stay",
+  title: "Mount Ida Cabins & Lake Ouachita Stays | Cabins Near Crystal Mines",
   description:
-    "Find cabins, resorts, inns, cottages, campgrounds, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+    "Find Mount Ida cabins, Lake Ouachita stays, resorts, cottages, campgrounds, and lodging near crystal mines, Brady Mountain, and the Ouachita Mountains.",
   keywords: [
     "Mount Ida cabins",
     "Lake Ouachita cabins",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     canonical: pagePath,
   },
   openGraph: {
-    title: "Cabins in Mount Ida, Arkansas | Lake Ouachita Cabins & Places to Stay",
+    title: "Mount Ida Cabins & Lake Ouachita Stays | Cabins Near Crystal Mines",
     description:
-      "Browse cabins, lake resorts, inns, cottages, and places to stay near Mount Ida, Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
+      "Browse Mount Ida cabins, lake resorts, cottages, and places to stay near Lake Ouachita, crystal mines, Brady Mountain, and the Ouachita Mountains.",
     url: `${siteUrl}${pagePath}`,
     images: ["/images/mt-ida-cabins.webp"],
   },
