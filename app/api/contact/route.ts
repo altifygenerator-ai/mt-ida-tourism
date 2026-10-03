@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { checkFormSubmission } from "@/lib/formSecurity";
 
 export const runtime = "nodejs";
 
@@ -12,6 +13,19 @@ function cleanText(value: unknown) {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
+    const security = checkFormSubmission(req, body as Record<string, unknown>);
+
+    if (!security.ok) {
+      if (security.silent) {
+      return NextResponse.json({ success: true });
+      }
+
+      return NextResponse.json(
+        { error: security.error },
+        { status: security.status },
+      );
+    }
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
