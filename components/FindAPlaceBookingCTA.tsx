@@ -91,7 +91,9 @@ export default function FindAPlaceBookingCTA({
                 color: "#173f31",
                 fontFamily: "inherit",
                 lineHeight: 1.25,
-                whiteSpace: "nowrap",
+                maxWidth: "100%",
+                whiteSpace: "normal",
+                textAlign: "center",
               }}
             >
               {buttonLabel}
