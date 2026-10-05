@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import styles from "./Header.module.css";
 import { FormEvent, useMemo, useRef, useState } from "react";
 import { getSearchResults } from "@/data/searchIndex";
 
@@ -19,7 +20,7 @@ export default function SiteSearch() {
   }
 
   return (
-    <div className="site-search-row" role="search">
+    <div className={`site-search-row ${styles.searchRow}`} role="search">
       <div className="container site-search-inner">
         <form
           ref={formRef}

@@ -1,3 +1,4 @@
+import styles from "@/components/VisitorLinks.module.css";
 import Hero from "@/components/Hero";
 import CategoryCard from "@/components/CategoryCard";
 import CTASection from "@/components/CTASection";
@@ -32,6 +33,40 @@ export default function HomePage() {
         }}
       />
       <Hero />
+
+      <section className="quick-links-section" aria-label="Plan your Mount Ida trip">
+        <nav className={`container quick-links-wrap ${styles.paths}`} aria-label="Mount Ida planning guides">
+          <Link href="/crystal-mining" className="quick-link-card primary">
+            <span>01</span>
+            <strong>Crystal Mining Guide</strong>
+          </Link>
+
+          <Link href="/crystal-mines" className="quick-link-card">
+            <span>02</span>
+            <strong>Crystal Mines</strong>
+          </Link>
+
+          <Link href="/lake-ouachita" className="quick-link-card">
+            <span>03</span>
+            <strong>Lake Ouachita</strong>
+          </Link>
+
+          <Link href="/mount-ida-weekend-guide" className="quick-link-card">
+            <span>04</span>
+            <strong>Weekend Guide</strong>
+          </Link>
+
+          <Link href="/lake-ouachita-cabins" className="quick-link-card">
+            <span>05</span>
+            <strong>Lake Cabins</strong>
+          </Link>
+
+          <Link href="/restaurants" className="quick-link-card">
+            <span>06</span>
+            <strong>Restaurants</strong>
+          </Link>
+        </nav>
+      </section>
 
       <RecentUpdates />
       <RiverViewCabinsHomeAd />
@@ -74,39 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="quick-links-section">
-        <div className="container quick-links-wrap">
-          <Link href="/crystal-mining" className="quick-link-card primary">
-            <span>01</span>
-            <strong>Crystal Mining Guide</strong>
-          </Link>
 
-          <Link href="/crystal-mines" className="quick-link-card">
-            <span>02</span>
-            <strong>Crystal Mines</strong>
-          </Link>
-
-          <Link href="/lake-ouachita" className="quick-link-card">
-            <span>03</span>
-            <strong>Lake Ouachita</strong>
-          </Link>
-
-          <Link href="/mount-ida-weekend-guide" className="quick-link-card">
-            <span>04</span>
-            <strong>Weekend Guide</strong>
-          </Link>
-
-          <Link href="/lake-ouachita-cabins" className="quick-link-card">
-            <span>05</span>
-            <strong>Lake Cabins</strong>
-          </Link>
-
-          <Link href="/restaurants" className="quick-link-card">
-            <span>06</span>
-            <strong>Restaurants</strong>
-          </Link>
-        </div>
-      </section>
 
       <HomeCrystalGuideFeature />
 

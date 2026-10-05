@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef, useState } from "react";
+import styles from "./Header.module.css";
 import Link from "next/link";
 
 const guideLinks = [
@@ -35,14 +39,16 @@ const sisterSites = [
 ];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   return (
     <header className="sticky top-0 z-50 bg-[color:var(--color-bg)]/80 backdrop-blur border-b border-black/5">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-semibold text-lg tracking-wide">
+      <div className={`max-w-6xl mx-auto px-6 py-4 flex items-center justify-between ${styles.inner}`}>
+        <Link href="/" className={`font-semibold text-lg tracking-wide ${styles.brand}`}>
           🌿 Mount Ida Arkansas
         </Link>
 
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className={`flex items-center gap-6 text-sm ${styles.desktop}`}>
           <div className="relative group">
             <button type="button" className="hover:opacity-70">
               Guides ▾
@@ -102,7 +108,23 @@ export default function Header() {
             Promote Your Business
           </Link>
         </nav>
+        <button ref={menuButton} type="button" className={styles.mobileButton} aria-label="Toggle navigation menu" aria-expanded={open} aria-controls="mount-ida-mobile-navigation" onClick={() => setOpen(value => !value)}>
+          {open ? "Close" : "Menu"}
+        </button>
       </div>
+      {open && (
+        <nav id="mount-ida-mobile-navigation" aria-label="Mount Ida navigation" className={styles.mobileMenu} onKeyDown={event => { if (event.key === "Escape") { setOpen(false); menuButton.current?.focus(); } }}>
+          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+          <h2>Visitor guides</h2>
+          {guideLinks.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
+          <h2>Local businesses</h2>
+          {businessLinks.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
+          <Link href="/events" onClick={() => setOpen(false)}>Events</Link>
+          <h2>Nearby Arkansas guides</h2>
+          {sisterSites.map(link => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>)}
+          <Link href="/contact" onClick={() => setOpen(false)}>Promote Your Business</Link>
+        </nav>
+      )}
     </header>
   );
 }

@@ -1,3 +1,4 @@
+import styles from "./VisitorLinks.module.css";
 import Link from "next/link";
 import { crystalMiningGuide } from "@/data/crystalMining";
 
@@ -45,7 +46,7 @@ export default function CrystalWeekendSection() {
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
             <div>
               <h2 className="mb-4 text-4xl leading-tight text-white">
-                Planning a crystal digging trip to Mount Ida?
+                Finished digging? Plan the rest of your trip.
               </h2>
 
               <div className="text-base leading-8 !text-white/75">
@@ -55,7 +56,7 @@ export default function CrystalWeekendSection() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3 lg:justify-end">
+            <nav aria-label="After crystal digging" className={`flex flex-wrap gap-3 lg:justify-end ${styles.paths}`}>
               {links.map((link) => (
                 <Link
                   key={link.href}
@@ -65,7 +66,7 @@ export default function CrystalWeekendSection() {
                   {link.label}
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
         </div>
       </div>

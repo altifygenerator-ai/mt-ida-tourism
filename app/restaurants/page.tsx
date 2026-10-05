@@ -1,3 +1,4 @@
+import styles from "@/components/VisitorLinks.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { restaurants, type Restaurant } from "@/data/restaurants";
@@ -7,9 +8,8 @@ const siteUrl = "https://www.mountidaarkansas.org";
 const pagePath = "/restaurants";
 
 export const metadata: Metadata = {
-  title: "Restaurants in Mount Ida, Arkansas | Local Food Near Lake Ouachita",
-  description:
-    "Find restaurants in Mount Ida, Arkansas for cafes, breakfast, pizza, burgers, Mexican food, lake dining, coffee, and easy places to eat near Lake Ouachita and crystal mines.",
+  title: { absolute: "Restaurants in Mount Ida, AR | Cafes & Lake Ouachita Food" },
+  description: "Find Mount Ida cafes, breakfast, pizza, Mexican food and lake-area dining. Use local phone numbers, websites and directions to plan a meal after digging.",
   keywords: [
     "Mount Ida restaurants",
     "restaurants in Mount Ida Arkansas",
@@ -22,9 +22,8 @@ export const metadata: Metadata = {
     canonical: pagePath,
   },
   openGraph: {
-    title: "Restaurants in Mount Ida, Arkansas | Local Food Near Lake Ouachita",
-    description:
-      "Find cafes, breakfast, pizza, burgers, Mexican food, coffee, lake dining, and local places to eat near Mount Ida and Lake Ouachita.",
+    title: "Restaurants in Mount Ida, AR | Cafes & Lake Ouachita Food",
+    description: "Find Mount Ida cafes, breakfast, pizza, Mexican food and lake-area dining. Use local phone numbers, websites and directions to plan a meal after digging.",
     url: `${siteUrl}${pagePath}`,
     images: ["/images/mt-ida-restaurants.jpg"],
   },
@@ -32,6 +31,10 @@ export const metadata: Metadata = {
 
 const featuredRestaurants = restaurants.filter((place) => place.featured);
 const standardRestaurants = restaurants.filter((place) => !place.featured);
+
+function foodId(name: string) {
+  return `food-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`;
+}
 
 function ActionLinks({ place, placement }: { place: Restaurant; placement: string }) {
   const placementType = place.placementType ?? "editorial";
@@ -145,6 +148,13 @@ export default function RestaurantsPage() {
         , scenic drives, and the Ouachita Mountains.
       </p>
 
+      <nav aria-label="Find a meal in Mount Ida" className={`seo-guide-link-strip mb-12 ${styles.paths}`}>
+        <Link href="#food-mount-ida-cafe">Breakfast · Mount Ida Cafe</Link>
+        <Link href="#food-shangri-la-resort-restaurant">Lake dining · Shangri-La</Link>
+        <Link href="#food-el-diamante-mexican-restaurant">Mexican · El Diamante</Link>
+        <Link href="#food-shack-attack-pizza">Pizza · Shack Attack</Link>
+      </nav>
+
       <section className="mb-16">
         <div className="mb-8 max-w-3xl">
           <h2 className="text-3xl font-semibold mb-4">
@@ -160,7 +170,7 @@ export default function RestaurantsPage() {
 
         <div className="space-y-8">
           {mainRestaurant ? (
-            <div className="overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg featured-listing-card">
+            <div id={foodId(mainRestaurant.name)} className={`overflow-hidden rounded-3xl border bg-[color:var(--bg-card)] shadow-lg featured-listing-card ${styles.jumpTarget}`}>
               <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
                 <div
                   className="min-h-[420px] bg-cover bg-center"
@@ -201,6 +211,8 @@ export default function RestaurantsPage() {
             {sideRestaurants.map((place) => (
               <div
                 key={place.name}
+                  id={foodId(place.name)}
+                  style={{ scrollMarginTop: 210 }}
                 className="overflow-hidden rounded-2xl border bg-[color:var(--bg-card)] featured-listing-card"
               >
                 <div
@@ -259,7 +271,7 @@ export default function RestaurantsPage() {
 
         <div className="space-y-6">
           {standardRestaurants.map((place, index) => (
-            <div key={place.name} className="p-6 rounded-xl bg-[color:var(--bg-card)] border">
+            <div key={place.name} id={foodId(place.name)} className={`p-6 rounded-xl bg-[color:var(--bg-card)] border ${styles.jumpTarget}`}>
               <h2 className="text-2xl font-semibold">
                 {index + 1}. {place.name}
               </h2>
@@ -348,6 +360,16 @@ export default function RestaurantsPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mb-16">
+        <h2 className="text-3xl font-semibold mb-6">Where next after your meal?</h2>
+        <nav aria-label="Keep planning after eating" className={`seo-guide-link-strip ${styles.paths}`}>
+          <Link href="/crystal-mining">Plan a crystal dig</Link>
+          <Link href="/lake-ouachita">Explore Lake Ouachita</Link>
+          <Link href="/cabins">Find a cabin</Link>
+          <Link href="/mount-ida-weekend-guide">Plan a weekend</Link>
+        </nav>
       </section>
 
       <section>

@@ -1,3 +1,4 @@
+import styles from "./Hero.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +12,7 @@ const heroData = {
 
 export default function Hero() {
   return (
-    <section className="relative h-[78vh] min-h-[600px] overflow-hidden">
+    <section className={`relative h-[78vh] min-h-[600px] overflow-hidden ${styles.hero}`}>
       <Image
         src={heroData.image}
         alt={heroData.title}
@@ -24,14 +25,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(63,92,74,0.5),transparent_35%)]" />
 
-      <div className="absolute inset-0 flex items-end">
+      <div className={`absolute inset-0 flex items-end ${styles.content}`}>
         <div className="w-full px-6 pb-12 md:px-10 md:pb-16">
           <div className="max-w-4xl rounded-[2rem] border border-white/10 bg-black/62 p-8 text-white shadow-2xl backdrop-blur-md md:p-12">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
               {heroData.eyebrow}
             </p>
 
-            <h1 className="max-w-3xl text-5xl font-semibold leading-[0.95] drop-shadow-xl md:text-7xl">
+            <h1 className={`max-w-3xl text-5xl font-semibold leading-[0.95] drop-shadow-xl md:text-7xl ${styles.title}`}>
               {heroData.title}
             </h1>
 

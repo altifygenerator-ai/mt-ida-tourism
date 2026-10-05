@@ -1,0 +1,11 @@
+.paths a {
+  min-height: 44px;
+  max-width: 100%;
+}
+.paths a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+.jumpTarget {
+  scroll-margin-top: 210px;
+}
