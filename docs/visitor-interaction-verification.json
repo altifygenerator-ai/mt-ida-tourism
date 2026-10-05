@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Chooser keyboard focus and 44px tap target",
+    "height": 94.390625,
+    "outline": "solid",
+    "outlineWidth": "2px"
+  },
+  {
+    "name": "Mobile menu keyboard open, routing and close",
+    "passed": true
+  },
+  {
+    "name": "Meal jump clears sticky header",
+    "top": 210
+  }
+]

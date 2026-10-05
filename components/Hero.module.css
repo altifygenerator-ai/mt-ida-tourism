@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  .hero {
+    height: auto;
+    min-height: 600px;
+  }
+  .content {
+    position: relative;
+    padding-top: 40px;
+  }
+  .title {
+    font-size: clamp(2.3rem, 9vw, 3rem);
+    line-height: 1.05;
+  }
+}

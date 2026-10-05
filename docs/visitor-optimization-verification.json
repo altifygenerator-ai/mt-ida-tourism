@@ -1,0 +1,27 @@
+{
+  "source": "e148c2944ac7ba94e0f4d2f7340119b860ebb605",
+  "viewportWidths": [
+    360,
+    390,
+    768,
+    1280,
+    1440
+  ],
+  "checkedRoutes": [
+    "/",
+    "/cabins",
+    "/crystal-mining",
+    "/events",
+    "/lake-ouachita",
+    "/mount-ida-weekend-guide",
+    "/restaurants",
+    "/river-view-cabins"
+  ],
+  "responsiveChecks": 40,
+  "internalDestinations": 34,
+  "runtimeErrors": 0,
+  "missingJumpTargets": 0,
+  "overflowChecksFailed": 0,
+  "localQAUsesEmptyEventFixtures": true,
+  "liveSubmissionsTested": false
+}

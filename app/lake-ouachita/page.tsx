@@ -1,11 +1,11 @@
+import styles from "@/components/VisitorLinks.module.css";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Lake Ouachita Near Mount Ida, Arkansas | Boating, Fishing & Cabins",
-  description:
-    "Plan a Lake Ouachita trip near Mount Ida with boating, fishing, swimming, kayaking, marinas, cabins, resorts, Brady Mountain, and mountain views.",
+  title: { absolute: "Lake Ouachita Near Mount Ida | Boating, Fishing & Stays" },
+  description: "Plan Lake Ouachita boating, fishing, swimming and cabin trips from Mount Ida. Find marina and access guides, local food and crystal-mining ideas nearby.",
   keywords: [
     "Lake Ouachita Mount Ida",
     "Lake Ouachita Arkansas",
@@ -256,6 +256,14 @@ export default function LakeOuachitaPage() {
         </div>
       </section>
 
+      <section className="quick-links-section" aria-label="Plan your Lake Ouachita day">
+        <nav className={`container seo-guide-link-strip ${styles.paths}`} aria-label="Lake Ouachita planning guides">
+          {quickLinks.map((link) => (
+            <Link key={link.href} href={link.href}>{link.label}</Link>
+          ))}
+        </nav>
+      </section>
+
       {/* INTRO */}
       <section className="section">
         <div className="container">
@@ -306,13 +314,7 @@ export default function LakeOuachitaPage() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            {quickLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="btn">
-                {link.label}
-              </Link>
-            ))}
-          </div>
+
         </div>
       </section>
 
