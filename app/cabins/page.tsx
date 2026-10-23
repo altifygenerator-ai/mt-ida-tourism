@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FindAPlaceBookingCTA from "@/components/FindAPlaceBookingCTA";
+import WeeklyFindAPlaceStays from "@/components/WeeklyFindAPlaceStays";
 import Link from "next/link";
 import { cabins, type Cabin } from "@/data/cabins";
 import { businessClickTracking, getFeaturedLabel } from "@/lib/tracking";
@@ -362,6 +363,8 @@ export default function CabinsPage() {
           ))}
         </div>
       </section>
+
+      <WeeklyFindAPlaceStays />
 
       <FindAPlaceBookingCTA
         heading="Exploring more places to stay in Arkansas?"
