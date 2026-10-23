@@ -364,10 +364,10 @@ export default function CabinsPage() {
       </section>
 
       <FindAPlaceBookingCTA
-        heading="Looking for a stay near Lake Ouachita?"
-        text="Browse cabins, vacation rentals, and other stays on Find a Place Booking, with results focused on the Lake Ouachita area."
-        href="https://www.findaplacebooking.com/stays?where=Lake%20Ouachita"
-        buttonLabel="Find a Stay Near Lake Ouachita →"
+        heading="Exploring more places to stay in Arkansas?"
+        text="Find A Place Booking lists independent cabins, cottages and camping around the state. Check each listing's location and available dates; Mount Ida-area inventory is still growing."
+        href="https://www.findaplacebooking.com/stays"
+        buttonLabel="Browse Arkansas Stays →"
       />
 
       <section>
