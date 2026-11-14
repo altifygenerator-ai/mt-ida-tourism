@@ -5,7 +5,9 @@ import type {
   ImportRunSummary,
   ImportSourceResult,
 } from "./types";
-import { extractEventsFromTextWithAI, parsePastedEventWithAI } from "./ai";
+import { extractEventsFromTextWithAI, parsePastedEventWithAI, rewriteVerifiedEvent } from "./ai";
+import { assessImportedEvent, areSameEventTitle, isPublicSourceUrl } from "./event-policy";
+import { ensureTrustedEventSources } from "./seed-sources";
 import {
   htmlToReadableText,
   parseIcsEvents,
@@ -22,7 +24,10 @@ import {
 } from "./utils";
 
 async function fetchSourceText(source: EventSource) {
+  if (!isPublicSourceUrl(source.url)) throw new Error("Source URL must be public HTTPS");
   const response = await fetch(source.url, {
+    signal: AbortSignal.timeout(18000),
+    redirect: "error",
     headers: {
       "User-Agent":
         "MountIdaArkansas.org event importer (+https://www.mountidaarkansas.org)",
@@ -35,7 +40,11 @@ async function fetchSourceText(source: EventSource) {
     throw new Error(`Fetch failed with ${response.status}`);
   }
 
-  return response.text();
+  const size = Number(response.headers.get("content-length") || 0);
+  if (size > 2000000) throw new Error("Event source exceeds 2 MB");
+  const text = await response.text();
+  if (text.length > 2000000) throw new Error("Event source exceeds 2 MB");
+  return text;
 }
 
 async function parseSource(source: EventSource) {
@@ -71,23 +80,23 @@ async function hasDuplicate(
     .eq("source_hash", sourceHash)
     .maybeSingle();
 
-  if (hashError) {
-    console.error("Source hash duplicate check error:", hashError);
-  }
+  if (hashError) throw new Error("Cannot verify event hash duplicate: " + hashError.message);
 
   if (hashMatch) return true;
 
   if (draft.source_url) {
     const { data: urlMatch, error: urlError } = await supabaseAdmin
       .from("events")
-      .select("id")
+      .select("id,title,location_name")
       .eq("site", site)
       .eq("source_url", draft.source_url)
       .eq("start_date", draft.start_date)
-      .maybeSingle();
+      .limit(100);
 
-    if (urlError) console.error("Source URL duplicate check error:", urlError);
-    if (urlMatch) return true;
+    if (urlError) throw new Error("Cannot verify event URL duplicate: " + urlError.message);
+    if ((urlMatch || []).some((event) => areSameEventTitle(event.title || "", draft.title) &&
+      (!event.location_name || !draft.location_name ||
+        normalizeTitleForCompare(event.location_name) === normalizeTitleForCompare(draft.location_name)))) return true;
   }
 
   const { data: sameDayEvents, error: sameDayError } = await supabaseAdmin
@@ -95,11 +104,10 @@ async function hasDuplicate(
     .select("id,title,location_name")
     .eq("site", site)
     .eq("start_date", draft.start_date)
-    .limit(100);
+    .limit(500);
 
   if (sameDayError) {
-    console.error("Same-day duplicate check error:", sameDayError);
-    return false;
+    throw new Error("Cannot verify same-day duplicates: " + sameDayError.message);
   }
 
   const normalizedTitle = normalizeTitleForCompare(draft.title);
@@ -109,12 +117,13 @@ async function hasDuplicate(
     const eventTitle = normalizeTitleForCompare(event.title || "");
     const eventLocation = normalizeTitleForCompare(event.location_name || "");
 
-    if (eventTitle && eventTitle === normalizedTitle) return true;
+    if (eventTitle && eventTitle === normalizedTitle &&
+      (!eventLocation || !normalizedLocation || eventLocation === normalizedLocation)) return true;
 
     return Boolean(
       eventTitle &&
         normalizedTitle &&
-        eventTitle.includes(normalizedTitle) &&
+        areSameEventTitle(event.title || "", draft.title) &&
         normalizedLocation &&
         eventLocation === normalizedLocation
     );
@@ -138,6 +147,8 @@ export async function saveImportedEventDraft(
 
   const source = options.source || null;
   const site = options.site || source?.site || activeSiteKey();
+  const assessment = assessImportedEvent(draft, source, site);
+  if (!assessment.accepted) return { inserted: false, skipped: true, reason: assessment.reason };
   const sourceHash = makeSourceHash(site, source?.id || null, {
     ...draft,
     title,
@@ -154,14 +165,22 @@ export async function saveImportedEventDraft(
     return { inserted: false, skipped: true, reason: "Duplicate" };
   }
 
+  // Rewrite only new verified events; recurring daily imports should not
+  // make repeated model calls for events that are already published.
+  const cleanedDescription = assessment.autoPublish
+    ? await rewriteVerifiedEvent({ ...draft, city: assessment.city })
+    : draft.description || draft.raw_description || null;
+  const safeSourceUrl = draft.source_url && isPublicSourceUrl(draft.source_url)
+    ? draft.source_url : source?.url || null;
+
   const eventRecord = {
     site,
     title,
     slug: makeImportSlug({ ...draft, title, start_date: startDate }),
     raw_description: draft.raw_description || draft.description || null,
-    description: draft.description || draft.raw_description || null,
+    description: cleanedDescription,
     ai_summary: draft.ai_summary || null,
-    city: draft.city || source?.city || (source ? null : defaultCityForSite(site)),
+    city: assessment.city || (source ? null : draft.city || defaultCityForSite(site)),
     location_name: draft.location_name || source?.venue_hint || null,
     address: draft.address || null,
     start_date: startDate,
@@ -171,15 +190,15 @@ export async function saveImportedEventDraft(
     category: draft.category || source?.category_hint || null,
     tags: Array.isArray(draft.tags) ? draft.tags : [],
     image_url: draft.image_url || null,
-    source_url: draft.source_url || source?.url || null,
-    status: "pending",
+    source_url: safeSourceUrl,
+    status: assessment.autoPublish ? "approved" : "pending",
     featured: false,
     source_type: options.sourceType || (source ? `import:${source.source_type}` : "import"),
     source_id: source?.id || null,
     external_id: draft.external_id || draft.source_url || null,
     source_hash: sourceHash,
-    confidence_score: draft.confidence_score || null,
-    needs_review: true,
+    confidence_score: draft.confidence_score ?? null,
+    needs_review: !assessment.autoPublish,
     imported_at: new Date().toISOString(),
   };
 
@@ -317,6 +336,7 @@ export async function importEventSource(source: EventSource): Promise<ImportSour
 
 export async function importEventSources(options: { sourceId?: string; site?: string } = {}) {
   const site = options.site || activeSiteKey();
+  await ensureTrustedEventSources(site);
 
   let query = supabaseAdmin
     .from("event_sources")

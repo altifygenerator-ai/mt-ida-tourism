@@ -3,7 +3,6 @@ import {
   cleanMultiline,
   cleanString,
   decodeIcsText,
-  defaultCityForSite,
   isFutureOrRecent,
   normalizeUrl,
   toDateAndTime,
@@ -106,7 +105,6 @@ function getImageUrl(image: unknown, baseUrl: string) {
 
 export function parseJsonLdEvents(html: string, source: EventSource): ImportedEventDraft[] {
   const drafts: ImportedEventDraft[] = [];
-  const defaultCity = source.city || defaultCityForSite(source.site);
 
   for (const raw of getJsonLdScriptBlocks(html)) {
     try {
@@ -132,7 +130,7 @@ export function parseJsonLdEvents(html: string, source: EventSource): ImportedEv
           title,
           raw_description: cleanMultiline(record.description),
           description: cleanMultiline(record.description),
-          city: defaultCity,
+          city: null,
           location_name: getLocationName(record.location, source.venue_hint),
           address: getAddress(record.location),
           start_date: start.date,
@@ -178,7 +176,6 @@ function readIcsProp(block: string, name: string) {
 export function parseIcsEvents(text: string, source: EventSource): ImportedEventDraft[] {
   const unfolded = unfoldIcs(text);
   const blocks = unfolded.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
-  const defaultCity = source.city || defaultCityForSite(source.site);
 
   const drafts: ImportedEventDraft[] = [];
 
@@ -199,7 +196,7 @@ export function parseIcsEvents(text: string, source: EventSource): ImportedEvent
       title,
       raw_description: description,
       description,
-      city: defaultCity,
+      city: null,
       location_name: source.venue_hint || location,
       address: location && location !== source.venue_hint ? location : null,
       start_date: start.date,
@@ -246,7 +243,6 @@ function guessDateFromText(text: string) {
 
 export function parseRssEvents(xml: string, source: EventSource): ImportedEventDraft[] {
   const drafts: ImportedEventDraft[] = [];
-  const defaultCity = source.city || defaultCityForSite(source.site);
   const itemBlocks = xml.match(/<(item|entry)[\s\S]*?<\/\1>/gi) || [];
 
   for (const block of itemBlocks) {
@@ -266,7 +262,7 @@ export function parseRssEvents(xml: string, source: EventSource): ImportedEventD
       title,
       raw_description: description,
       description,
-      city: defaultCity,
+      city: null,
       location_name: source.venue_hint || null,
       start_date: date,
       category: source.category_hint || null,
