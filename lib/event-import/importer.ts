@@ -7,6 +7,7 @@ import type {
 } from "./types";
 import { extractEventsFromTextWithAI, parsePastedEventWithAI, rewriteVerifiedEvent } from "./ai";
 import { assessImportedEvent, areSameEventTitle, isPublicSourceUrl } from "./event-policy";
+import { ensureTrustedEventSources } from "./seed-sources";
 import {
   htmlToReadableText,
   parseIcsEvents,
@@ -330,6 +331,7 @@ export async function importEventSource(source: EventSource): Promise<ImportSour
 
 export async function importEventSources(options: { sourceId?: string; site?: string } = {}) {
   const site = options.site || activeSiteKey();
+  await ensureTrustedEventSources(site);
 
   let query = supabaseAdmin
     .from("event_sources")
