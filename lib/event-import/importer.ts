@@ -149,9 +149,6 @@ export async function saveImportedEventDraft(
   const site = options.site || source?.site || activeSiteKey();
   const assessment = assessImportedEvent(draft, source, site);
   if (!assessment.accepted) return { inserted: false, skipped: true, reason: assessment.reason };
-  const cleanedDescription = assessment.autoPublish
-    ? await rewriteVerifiedEvent({ ...draft, city: assessment.city })
-    : draft.description || draft.raw_description || null;
   const sourceHash = makeSourceHash(site, source?.id || null, {
     ...draft,
     title,
@@ -167,6 +164,14 @@ export async function saveImportedEventDraft(
   if (duplicate) {
     return { inserted: false, skipped: true, reason: "Duplicate" };
   }
+
+  // Rewrite only new verified events; recurring daily imports should not
+  // make repeated model calls for events that are already published.
+  const cleanedDescription = assessment.autoPublish
+    ? await rewriteVerifiedEvent({ ...draft, city: assessment.city })
+    : draft.description || draft.raw_description || null;
+  const safeSourceUrl = draft.source_url && isPublicSourceUrl(draft.source_url)
+    ? draft.source_url : source?.url || null;
 
   const eventRecord = {
     site,
@@ -185,7 +190,7 @@ export async function saveImportedEventDraft(
     category: draft.category || source?.category_hint || null,
     tags: Array.isArray(draft.tags) ? draft.tags : [],
     image_url: draft.image_url || null,
-    source_url: draft.source_url || source?.url || null,
+    source_url: safeSourceUrl,
     status: assessment.autoPublish ? "approved" : "pending",
     featured: false,
     source_type: options.sourceType || (source ? `import:${source.source_type}` : "import"),
