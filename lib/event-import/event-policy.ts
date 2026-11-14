@@ -25,7 +25,7 @@ const KNOWN_CITIES = [
 const LOCAL_ORGANIZERS: Record<string, string[]> = {
   "hot-springs": ["hotsprings.org", "hotspringsarts.org", "hotspringschamber.com"],
   glenwood: ["glenwoodregionalchamber.com"],
-  "mount-ida": ["mountidachamber.com"],
+  "mount-ida": ["mountidachamber.com", "runarkansas.com"],
   murfreesboro: ["murfreesboroar.gov"],
   amity: ["ohacademy.org"],
 };
@@ -71,6 +71,8 @@ export function isPublicSourceUrl(rawUrl: string): boolean {
 
 function isKnownLocalOrganizer(source: EventSource, site: string): boolean {
   try {
+    if (site === "murfreesboro" && new URL(source.url).hostname.replace(/^www\./, "") === "arkansas.com" &&
+      new URL(source.url).pathname === "/state-parks/explore/parks/crater-of-diamonds-state-park") return true;
     const host = new URL(source.url).hostname.toLowerCase().replace(/^www\./, "");
     return (LOCAL_ORGANIZERS[site] || []).some((known) =>
       host === known || host.endsWith("." + known)
