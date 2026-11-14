@@ -81,7 +81,9 @@ export function assessImportedEvent(
   if (!venue && !address) return pending("Official source but missing event venue", locatedCity || statedCity);
   const outputCity = locatedCity || statedCity || regions.find((candidate) => includesCity(source.city || "", candidate)) || null;
   if (!outputCity) return pending("No confirmable local city", null);
-  const hasLocalEvidence = Boolean(locatedCity || (statedCity && venue && verifiedSource));
+  // A verified local organizer/venue calendar can establish its own city if a physical venue is named.
+  const sourceCity = regions.find((candidate) => includesCity(source.city || "", candidate)) || null;
+  const hasLocalEvidence = Boolean(locatedCity || (venue && verifiedSource && (statedCity || sourceCity)));
   if (!hasLocalEvidence) return pending("Venue has no local corroboration", outputCity);
   if (confidence < 0.82 || source.source_type === "rss") return pending("Confidence below autopublish threshold", outputCity);
   return { accepted: true, autoApprove: true, city: outputCity, confidence, reason: "Verified local official listing" };
