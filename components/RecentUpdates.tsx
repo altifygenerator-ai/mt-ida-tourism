@@ -1,35 +1,23 @@
 import Link from "next/link";
 
-const updates = [
+const featuredGuides = [
   {
-    label: "Weekend planning",
-    title: "Mount Ida Weekend Guide",
-    text: "This weekend guide helps visitors plan a slower Mount Ida trip around crystal digging, Lake Ouachita, cabins, local food, scenic drives, and small-town stops.",
-    href: "/mount-ida-weekend-guide",
-  },
-  {
-    label: "Crystal guide",
-    title: "Best Crystal Mines Near Mount Ida",
-    text: "A cleaner guide for choosing between visitor-friendly mines, more serious quartz stops, Crystal Vista, and check-ahead crystal digging options around Mount Ida.",
+    label: "Start digging",
+    title: "Choose a Crystal Mine",
+    text: "Compare visitor-friendly quartz mines and decide where to spend your time.",
     href: "/best-crystal-mines-mount-ida",
   },
   {
-    label: "Family guide",
-    title: "Crystal Mines for Kids",
-    text: "A practical family guide for parents and grandparents planning a Mount Ida crystal digging day with kids, including what to bring and how to keep the day manageable.",
-    href: "/best-crystal-mines-for-kids-mount-ida",
+    label: "Slow down",
+    title: "Mount Ida Weekend Guide",
+    text: "Build a relaxed weekend around the lake, crystal country and local food.",
+    href: "/mount-ida-weekend-guide",
   },
   {
-    label: "Lake stays",
+    label: "Stay a while",
     title: "Lake Ouachita Cabins",
-    text: "A lodging guide for visitors comparing Lake Ouachita cabins, Mount Ida stays, marina access, crystal mine trips, and quiet Ouachita Mountain weekends.",
+    text: "Find cabins, resorts and easy bases for exploring the lake and mountains.",
     href: "/lake-ouachita-cabins",
-  },
-  {
-    label: "Day trip guide",
-    title: "Hot Springs to Mount Ida",
-    text: "A simple day-trip guide for Hot Springs visitors who want to add quartz digging, Lake Ouachita, and a quieter mountain-town stop to their Arkansas trip.",
-    href: "/hot-springs-to-mount-ida-day-trip",
   },
 ];
 
@@ -37,58 +25,59 @@ export default function RecentUpdates() {
   return (
     <section className="section py-12">
       <div className="container">
-        <div className="rounded-[2rem] border border-black/10 bg-white/40 p-6 shadow-sm md:p-8">
-          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                Recent updates
-              </p>
-
-              <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-                Recently checked Mount Ida guides.
-              </h2>
-
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[color:var(--color-muted)]">
-                New local guides are being added around crystal mines, Lake
-                Ouachita, cabin stays, family trips, marinas, food, scenic drives,
-                and nearby Arkansas routes into Mount Ida.
-              </p>
-            </div>
-
-            <Link
-              href="/things-to-do"
-              className="text-sm font-bold text-[color:var(--color-accent)] underline"
-            >
-              Explore more guides
-            </Link>
+        <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-accent)]">
+              Plan your visit
+            </p>
+            <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
+              Start with what brought you here.
+            </h2>
+            <p className="mt-3 max-w-2xl leading-7 text-[color:var(--color-muted)]">
+              Crystals, lake mornings and quiet roads through the Ouachitas.
+            </p>
           </div>
-
-                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {updates.map((update) => (
-              <Link
-                key={update.title}
-                href={update.href}
-                className="group rounded-[1.4rem] border border-black/10 bg-[color:var(--color-bg)] p-5 transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                  {update.label}
-                </p>
-
-                <h3 className="mb-3 text-2xl font-semibold leading-tight">
-                  {update.title}
-                </h3>
-
-                <p className="text-sm leading-7 text-[color:var(--color-muted)]">
-                  {update.text}
-                </p>
-
-                <span className="mt-5 inline-block text-sm font-bold text-[color:var(--color-accent)]">
-                  View guide →
-                </span>
-              </Link>
-            ))}
-          </div>
+          <Link href="/things-to-do"
+            className="text-sm font-semibold text-[color:var(--color-accent)] underline underline-offset-4">
+            All visitor guides
+          </Link>
         </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {featuredGuides.map((guide) => (
+            <Link key={guide.href} href={guide.href}
+              className="group flex h-full flex-col rounded-[18px] border border-black/10 bg-[color:var(--bg-card)] p-5 transition hover:shadow-md">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-accent)]">
+                {guide.label}
+              </p>
+              <h3 className="mt-3 text-xl font-semibold leading-snug text-[color:var(--color-text)]">
+                {guide.title}
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-7 text-[color:var(--color-muted)]">
+                {guide.text}
+              </p>
+              <span className="mt-5 text-sm font-semibold text-[color:var(--color-accent)] group-hover:underline">
+                Read guide →
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <nav aria-label="More Mount Ida guides"
+          className="mt-6 flex flex-wrap gap-x-6 gap-y-3 border-t border-black/10 pt-5">
+          <Link href="/best-crystal-mines-for-kids-mount-ida" className="text-sm font-medium underline-offset-4 hover:underline">
+            Crystal mining with kids
+          </Link>
+          <Link href="/hot-springs-to-mount-ida-day-trip" className="text-sm font-medium underline-offset-4 hover:underline">
+            From Hot Springs
+          </Link>
+          <Link href="/restaurants" className="text-sm font-medium underline-offset-4 hover:underline">
+            Restaurants
+          </Link>
+          <Link href="/events" className="text-sm font-medium underline-offset-4 hover:underline">
+            Events
+          </Link>
+        </nav>
       </div>
     </section>
   );
