@@ -6,7 +6,7 @@ import { crystalMiningGuide } from "@/data/crystalMining";
 export const metadata = {
   title: "Crystal Mines Near Mount Ida, Arkansas | Quartz Digging Stops",
   description:
-    "Find currently operating crystal mines, quartz digging options, official links, visitor notes, and public rockhounding areas near Mount Ida, Arkansas.",
+    "Compare quartz digging at Wegner, Fisher Mountain, and other Mount Ida crystal mines. Find official mine links and see how public digging at Crystal Vista differs.",
   keywords: [
     "Mount Ida crystal mines",
     "crystal mining Mount Ida Arkansas",
