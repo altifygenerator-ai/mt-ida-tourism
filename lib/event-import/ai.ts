@@ -234,3 +234,49 @@ ${text.slice(0, 12000)}`,
     needs_review: true,
   };
 }
+
+
+/**
+ * Short factual rewrite for verified events; source links, dates and locations
+ * are stored separately and are never changed by AI copy editing.
+ */
+export async function rewriteVerifiedEvent(draft: ImportedEventDraft): Promise<string | null> {
+  const original = cleanMultiline(draft.description || draft.raw_description);
+  if (!original) return null;
+  const openai = getOpenAIClient();
+  if (!openai) return original;
+
+  try {
+    const result = await openai.responses.create({
+      model: "gpt-4.1-mini",
+      input: [
+        {
+          role: "system",
+          content:
+            "Rewrite this public tourism event notice in fresh, natural language. " +
+            "Return JSON with one field: description. Write 2-3 concise sentences, at most 85 words. " +
+            "Keep only verifiable supplied facts, do not invent performers, times, admissions, " +
+            "addresses, cancellations, recurrence, or prices. No promotional exaggeration. " +
+            "Do not reproduce the original wording closely. Never output a different city or date.",
+        },
+        {
+          role: "user",
+          content: JSON.stringify({
+            title: draft.title,
+            event_date: draft.start_date,
+            city: draft.city,
+            venue: draft.location_name,
+            source_description: original.slice(0, 2500),
+          }),
+        },
+      ],
+      text: { format: { type: "json_object" } },
+    });
+    const parsed = JSON.parse(result.output_text) as { description?: unknown };
+    const cleaned = cleanMultiline(parsed.description);
+    return cleaned?.slice(0, 700) || original;
+  } catch (error) {
+    console.error("Event rewrite failed; keeping source-backed description", error);
+    return original;
+  }
+}
