@@ -10,6 +10,14 @@ const sources = [
     "category": "Community",
     "notes": "Official area chamber calendar; only dated relevant events qualify"
   }
+  {
+    "site": "mount-ida",
+    "name": "LOViT Trail Marathon — organizer",
+    "url": "https://www.runarkansas.com/LoVitTrailMarathon.htm",
+    "city": "Mount Ida",
+    "category": "Outdoor & Trails",
+    "notes": "Primary organizer page for the annual LOViT trail marathon; verify future dates each year"
+  },
 ] as const;
 
 export async function ensureTrustedEventSources(site?: string) {
