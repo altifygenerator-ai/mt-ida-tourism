@@ -9,7 +9,7 @@ const sources = [
     "city": "Mount Ida",
     "category": "Community",
     "notes": "Official area chamber calendar; only dated relevant events qualify"
-  }
+  },
   {
     "site": "mount-ida",
     "name": "LOViT Trail Marathon — organizer",
