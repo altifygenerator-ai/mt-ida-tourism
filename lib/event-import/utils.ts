@@ -63,11 +63,38 @@ export function makeImportSlug(draft: ImportedEventDraft) {
   return `${base}-${hashText(`${draft.title}-${draft.start_date}-${draft.source_url || ""}`).slice(0, 6)}`;
 }
 
+function centralDateTime(timestamp: Date) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).formatToParts(timestamp);
+  const item = (type: string) => parts.find((part) => part.type === type)?.value || "";
+  return { date: item("year") + "-" + item("month") + "-" + item("day"),
+    time: item("hour") + ":" + item("minute") };
+}
+
 export function toDateAndTime(value?: string | null) {
   if (!value) return { date: null, time: null };
 
   const text = value.trim();
   if (!text) return { date: null, time: null };
+
+  // UTC timestamps and offset-aware ISO dates must be converted to Arkansas
+  // local time before deriving the event's calendar day.
+  const utcIcs = text.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})?Z$/);
+  if (utcIcs) {
+    const [, y, mo, d, h, mi, sec] = utcIcs;
+    return centralDateTime(new Date(Date.UTC(Number(y), Number(mo)-1,
+      Number(d), Number(h), Number(mi), Number(sec || "0"))));
+  }
+  if (/^\d{4}-\d{2}-\d{2}T/.test(text) &&
+      (/[zZ]$/.test(text) || /[+-]\d{2}:?\d{2}$/.test(text))) {
+    const instant = new Date(text);
+    if (!Number.isNaN(instant.getTime())) return centralDateTime(instant);
+  }
+
+
 
   const dateOnly = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (dateOnly) return { date: text, time: null };
