@@ -72,6 +72,11 @@ export default function ShoppingPage() {
               <a href="https://www.google.com/maps/search/?api=1&query=Blue+Moon+Crystals+Jewelry+Mount+Ida+AR" target="_blank" rel="noopener noreferrer">Directions</a>
             </article>
             <article className="rounded-2xl border p-5">
+              <h3>Big T’s General Store — Oden</h3>
+              <p>Groceries, hardware, outdoor supplies and casual food at 1090 Highway 88 West in nearby Oden. Call 870-490-2061 to check current hours.</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Big+Ts+General+Store+1090+Highway+88+West+Oden+AR" target="_blank" rel="noopener noreferrer">Directions</a>
+            </article>
+            <article className="rounded-2xl border p-5">
               <h3>Rose Petals and More</h3>
               <p>Flowers and locally made gift options · 138 S East St, Mount Ida</p>
               <a href="https://www.google.com/maps/search/?api=1&query=Rose+Petals+and+More+Mount+Ida+AR" target="_blank" rel="noopener noreferrer">Directions</a>
