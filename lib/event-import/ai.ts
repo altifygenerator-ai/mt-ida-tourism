@@ -102,7 +102,7 @@ Source city hint: ${sourceCity || "none"}
 Default category: ${source.category_hint || ""}
 Default venue: ${source.venue_hint || ""}
 
-Extract up to 12 upcoming events from this page text. Only include events whose city, venue, address, or source context clearly places them in the guide area. Do not assign the guide city just because the source is being reviewed for this guide. If location cannot be confirmed as relevant, skip the event. Return this JSON shape:
+Extract up to 12 upcoming events from this page text. Only include events with genuine local venue, city, or address evidence. Never assign a city only because it is the source or guide city. Do not invent a new year for dates shown in the past. Do not assign the guide city just because the source is being reviewed for this guide. If location cannot be confirmed as relevant, skip the event. Return this JSON shape:
 {
   "events": [
     {
@@ -147,7 +147,7 @@ ${clippedText}`,
       normalizeAiDraft(event, {
         site: source.site,
         sourceUrl: source.url,
-        city: sourceCity,
+        city: null,
         category: source.category_hint || null,
         venue: source.venue_hint || null,
       })
