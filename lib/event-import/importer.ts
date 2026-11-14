@@ -20,6 +20,8 @@ import {
   makeSourceHash,
   normalizeTitleForCompare,
 } from "./utils";
+import { assessImportedEvent } from "./rules";
+import { rewriteImportedEvent } from "./copy";
 
 async function fetchSourceText(source: EventSource) {
   const response = await fetch(source.url, {
@@ -77,17 +79,20 @@ async function hasDuplicate(
 
   if (hashMatch) return true;
 
+  // Listing-page URLs can describe multiple events on the same day.
+  // Only call it a duplicate when the title also agrees.
   if (draft.source_url) {
-    const { data: urlMatch, error: urlError } = await supabaseAdmin
+    const { data: urlMatches, error: urlError } = await supabaseAdmin
       .from("events")
-      .select("id")
+      .select("id,title")
       .eq("site", site)
       .eq("source_url", draft.source_url)
       .eq("start_date", draft.start_date)
-      .maybeSingle();
-
+      .limit(100);
     if (urlError) console.error("Source URL duplicate check error:", urlError);
-    if (urlMatch) return true;
+    if ((urlMatches || []).some((event) =>
+      normalizeTitleForCompare(event.title || "") === normalizeTitleForCompare(draft.title)
+    )) return true;
   }
 
   const { data: sameDayEvents, error: sameDayError } = await supabaseAdmin
@@ -138,6 +143,8 @@ export async function saveImportedEventDraft(
 
   const source = options.source || null;
   const site = options.site || source?.site || activeSiteKey();
+  const decision = assessImportedEvent({ ...draft, title, start_date: startDate }, source, site);
+  if (!decision.accepted) return { inserted: false, skipped: true, reason: decision.reason };
   const sourceHash = makeSourceHash(site, source?.id || null, {
     ...draft,
     title,
@@ -154,14 +161,16 @@ export async function saveImportedEventDraft(
     return { inserted: false, skipped: true, reason: "Duplicate" };
   }
 
+  const rewritten = decision.autoApprove ? await rewriteImportedEvent({ ...draft, title, start_date: startDate }, decision.city) : null;
+
   const eventRecord = {
     site,
     title,
     slug: makeImportSlug({ ...draft, title, start_date: startDate }),
     raw_description: draft.raw_description || draft.description || null,
-    description: draft.description || draft.raw_description || null,
-    ai_summary: draft.ai_summary || null,
-    city: draft.city || source?.city || (source ? null : defaultCityForSite(site)),
+    description: rewritten?.description || draft.description || draft.raw_description || null,
+    ai_summary: rewritten?.summary || draft.ai_summary || null,
+    city: decision.city || draft.city || source?.city || (source ? null : defaultCityForSite(site)),
     location_name: draft.location_name || source?.venue_hint || null,
     address: draft.address || null,
     start_date: startDate,
@@ -172,14 +181,14 @@ export async function saveImportedEventDraft(
     tags: Array.isArray(draft.tags) ? draft.tags : [],
     image_url: draft.image_url || null,
     source_url: draft.source_url || source?.url || null,
-    status: "pending",
+    status: decision.autoApprove ? "approved" : "pending",
     featured: false,
     source_type: options.sourceType || (source ? `import:${source.source_type}` : "import"),
     source_id: source?.id || null,
     external_id: draft.external_id || draft.source_url || null,
     source_hash: sourceHash,
-    confidence_score: draft.confidence_score || null,
-    needs_review: true,
+    confidence_score: decision.confidence || null,
+    needs_review: !decision.autoApprove,
     imported_at: new Date().toISOString(),
   };
 
