@@ -23,11 +23,11 @@ const KNOWN_CITIES = [
 ];
 
 const LOCAL_ORGANIZERS: Record<string, string[]> = {
-  "hot-springs": ["hotsprings.org"],
+  "hot-springs": ["hotsprings.org", "hotspringsarts.org", "hotspringschamber.com"],
   glenwood: ["glenwoodregionalchamber.com"],
   "mount-ida": ["mountidachamber.com"],
-  murfreesboro: [],
-  amity: [],
+  murfreesboro: ["murfreesboroar.gov"],
+  amity: ["ohacademy.org"],
 };
 
 function simplify(value: string) {
@@ -99,6 +99,9 @@ export function assessImportedEvent(
     accepted: false, autoPublish: false, city: null, reason,
   });
 
+  if (/\b(city council|board of directors|planning commission|zoning commission|staff meeting|job fair|deadline|holiday closure)\b/i.test(draft.title)) {
+    return reject("Not a visitor-facing event");
+  }
   if (!draft.title?.trim() || !isRealDate(draft.start_date)) {
     return reject("Missing title or valid event date");
   }
