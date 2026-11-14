@@ -62,6 +62,28 @@ export default function ShoppingPage() {
       <section className="section">
         <div className="container">
           <div className="section-heading">
+            <h2>More stops from the local chamber</h2>
+            <p>For crystal shoppers and local gifts, the Mount Ida Area Chamber lists these businesses. Confirm current hours and availability directly before visiting.</p>
+          </div>
+          <div className="grid grid-3">
+            <article className="rounded-2xl border p-5">
+              <h3>Blue Moon Crystals & Jewelry</h3>
+              <p>Crystal and jewelry shop · 6328 Hwy 270 E, Mount Ida</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Blue+Moon+Crystals+Jewelry+Mount+Ida+AR" target="_blank" rel="noopener noreferrer">Directions</a>
+            </article>
+            <article className="rounded-2xl border p-5">
+              <h3>Rose Petals and More</h3>
+              <p>Flowers and locally made gift options · 138 S East St, Mount Ida</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rose+Petals+and+More+Mount+Ida+AR" target="_blank" rel="noopener noreferrer">Directions</a>
+            </article>
+          </div>
+          <p className="mt-5"><a href="https://www.mountidachamber.com/member-directory-2/" target="_blank" rel="noopener noreferrer">See the Chamber's full business directory</a></p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading">
             <h2>Shopping Around Mount Ida</h2>
             <p>
               This section will keep growing with local shops, galleries, gifts,
