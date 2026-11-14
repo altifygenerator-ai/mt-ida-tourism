@@ -28,7 +28,10 @@ function trustedSource(url: string) {
   try {
     const parsed = new URL(url);
     const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
-    if (parsed.protocol !== "https:" || !TRUSTED_DOMAINS.has(host)) return false;
+    if (parsed.protocol !== "https:") return false;
+    if (host === "runsignup.com") return /^\/Race\/(?:Events\/)?AR\/MountIda\//i.test(parsed.pathname);
+    if (host === "gcl.events.mylibrary.digital") return true;
+    if (!TRUSTED_DOMAINS.has(host)) return false;
     if (host === "arkansas.com" && !parsed.pathname.startsWith("/state-parks/explore/parks/")) return false;
     return true;
   } catch { return false; }
@@ -68,6 +71,7 @@ export function assessImportedEvent(
   const location = [venue, address, city].filter(Boolean).join(" | ");
   if (OUTSIDE.test(location) || OTHER_STATES.test(location)) return reject("Location outside guide region");
   if (/\b(webinar|online only|virtual conference)\b/i.test(title + " " + venue)) return reject("Virtual-only event");
+  if (/\b(city council meeting|planning commission meeting|zoning board meeting|board of directors meeting|public hearing|municipal agenda)\b/i.test(title)) return reject("Not a visitor-facing event");
   if (/^(?:international conference|world congress|global summit)/i.test(title) && !address) return reject("Unverified conference listing");
   const regions = ALLOWED[site] || ALLOWED.glenwood;
   const override = VENUE_CITIES.find(([pattern]) => pattern.test(venue + " " + address));
