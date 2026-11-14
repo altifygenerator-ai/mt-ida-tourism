@@ -158,3 +158,21 @@ export function assessImportedEvent(
       "Awaiting stronger structured data or source verification",
   };
 }
+
+
+/** Compare event names without treating two different shows as duplicates. */
+export function areSameEventTitle(first: string, second: string) {
+  const a = simplify(first);
+  const b = simplify(second);
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const words = (value: string) =>
+    [...new Set(value.split(" ").filter((w) =>
+      w.length > 2 && !["the", "and", "for", "with", "2026", "2027", "2028"].includes(w)
+    ))];
+  const left = words(a);
+  const right = words(b);
+  if (Math.min(left.length, right.length) < 3) return false;
+  const overlap = left.filter((word) => right.includes(word)).length;
+  return overlap / Math.max(left.length, right.length) >= 0.86;
+}
