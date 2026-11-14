@@ -6,7 +6,7 @@ import type {
   ImportSourceResult,
 } from "./types";
 import { extractEventsFromTextWithAI, parsePastedEventWithAI, rewriteVerifiedEvent } from "./ai";
-import { assessImportedEvent, isPublicSourceUrl } from "./event-policy";
+import { assessImportedEvent, areSameEventTitle, isPublicSourceUrl } from "./event-policy";
 import {
   htmlToReadableText,
   parseIcsEvents,
@@ -86,14 +86,16 @@ async function hasDuplicate(
   if (draft.source_url) {
     const { data: urlMatch, error: urlError } = await supabaseAdmin
       .from("events")
-      .select("id")
+      .select("id,title,location_name")
       .eq("site", site)
       .eq("source_url", draft.source_url)
       .eq("start_date", draft.start_date)
-      .maybeSingle();
+      .limit(100);
 
     if (urlError) throw new Error("Cannot verify event URL duplicate: " + urlError.message);
-    if (urlMatch) return true;
+    if ((urlMatch || []).some((event) => areSameEventTitle(event.title || "", draft.title) &&
+      (!event.location_name || !draft.location_name ||
+        normalizeTitleForCompare(event.location_name) === normalizeTitleForCompare(draft.location_name)))) return true;
   }
 
   const { data: sameDayEvents, error: sameDayError } = await supabaseAdmin
@@ -114,12 +116,13 @@ async function hasDuplicate(
     const eventTitle = normalizeTitleForCompare(event.title || "");
     const eventLocation = normalizeTitleForCompare(event.location_name || "");
 
-    if (eventTitle && eventTitle === normalizedTitle) return true;
+    if (eventTitle && eventTitle === normalizedTitle &&
+      (!eventLocation || !normalizedLocation || eventLocation === normalizedLocation)) return true;
 
     return Boolean(
       eventTitle &&
         normalizedTitle &&
-        eventTitle.includes(normalizedTitle) &&
+        areSameEventTitle(event.title || "", draft.title) &&
         normalizedLocation &&
         eventLocation === normalizedLocation
     );
