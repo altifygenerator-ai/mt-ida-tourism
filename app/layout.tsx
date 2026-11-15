@@ -1,3 +1,4 @@
+import NstpReachTracker from "@/components/NstpReachTracker";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
@@ -161,6 +162,7 @@ export default function RootLayout({
         <Footer />
         <AnalyticsClickTracker />
         <Analytics />
+        <NstpReachTracker />
       </body>
     </html>
   );
