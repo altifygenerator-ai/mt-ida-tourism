@@ -3,7 +3,8 @@ import Link from "next/link";
 import BusinessCard from "@/components/BusinessCard";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
-import { businesses, businessesByCategory, featuredBusinesses } from "@/data/businesses";
+import { businesses } from "@/data/businesses";
+import { approvedCityListings, mergeApprovedListings } from "@/lib/nstp-business-sync";
 
 const siteUrl = "https://www.mountidaarkansas.org";
 
@@ -64,7 +65,11 @@ const categorySections = [
   },
 ];
 
-export default function LocalBusinessPage() {
+export const revalidate = 300;
+export default async function LocalBusinessPage() {
+  const currentBusinesses = mergeApprovedListings(businesses, await approvedCityListings("Mount Ida"));
+  const currentFeaturedBusinesses = currentBusinesses.filter(b => b.featured);
+
   return (
     <main>
       <JsonLd
@@ -78,7 +83,7 @@ export default function LocalBusinessPage() {
           mainEntity: {
             "@type": "ItemList",
             name: "Mount Ida local business listings",
-            itemListElement: businesses.map((business, index) => ({
+            itemListElement: currentBusinesses.map((business, index) => ({
               "@type": "ListItem",
               position: index + 1,
               item: {
@@ -135,7 +140,7 @@ export default function LocalBusinessPage() {
           </div>
 
           <div className="grid grid-3">
-            {featuredBusinesses.map((business) => (
+            {currentFeaturedBusinesses.map((business) => (
               <BusinessCard key={business.name} business={business} />
             ))}
           </div>
@@ -143,7 +148,7 @@ export default function LocalBusinessPage() {
       </section>
 
       {categorySections.map((section) => {
-        const items = businessesByCategory[section.key];
+        const items = currentBusinesses.filter(b => b.directoryCategory === section.key);
         if (!items.length) return null;
 
         return (
