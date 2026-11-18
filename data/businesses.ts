@@ -256,15 +256,6 @@ export const businesses: Business[] = [
     placementType: "editorial",
     lastVerified: "2026-11-17",
   },
-  {
-    name: "Mount Ida Visitor Services",
-    category: "Local Services • Visitor Help",
-    directoryCategory: "services",
-    description:
-      "Useful Mount Ida area service listings for visitors, cabin guests, lake travelers, property owners, and people spending time near Lake Ouachita and the crystal mines.",
-    image: "/images/mt-ida-downtown.jpg",
-    href: "/services",
-  },
 ];
 
 export const featuredBusinesses = businesses.filter((business) => business.featured);
