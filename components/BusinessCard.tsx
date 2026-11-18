@@ -13,7 +13,7 @@ export default function BusinessCard({ business }: { business: Business }) {
     businessClickTracking({
       action,
       business: business.name,
-      page: business.directoryCategory === "services" ? "/services" : undefined,
+      // Page defaults to the visitor’s current guide in AnalyticsClickTracker.
       placement: isFeatured ? "featured-business-card" : "directory-business-card",
       placementType,
     });
