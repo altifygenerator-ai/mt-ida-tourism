@@ -41,9 +41,9 @@ export default function ServicesPage() {
             <p className="eyebrow">Local services</p>
             <h1>Mount Ida services for visitors, cabins, and local needs.</h1>
             <p>
-              This section is being built out for local service businesses that
-              help visitors, cabin owners, property owners, lake travelers, and
-              people spending time around Mount Ida and Lake Ouachita.
+              Find local and regional services for property owners, cabin hosts,
+              lake travelers, and residents around Mount Ida and Lake Ouachita.
+              Check with each provider for current scheduling and coverage.
             </p>
           </div>
           <div className="directory-hero-card">
@@ -63,8 +63,9 @@ export default function ServicesPage() {
           <div className="section-heading">
             <h2>Services Around Mount Ida</h2>
             <p>
-              We are adding relevant service businesses as this part of the
-              guide grows.
+              Property cleanup, brush hogging, dirt work, hauling, and
+              cleaning or rental turnover help. Contact providers for a quote
+              and to confirm service-area availability.
             </p>
           </div>
 
