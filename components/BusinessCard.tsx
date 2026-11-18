@@ -10,14 +10,13 @@ export default function BusinessCard({ business }: { business: Business }) {
   const isFeatured = Boolean(business.featured);
   const placementType = business.placementType ?? "editorial";
   const tracked = (action: string) =>
-    isFeatured
-      ? businessClickTracking({
-          action,
-          business: business.name,
-          placement: "featured-business-card",
-          placementType,
-        })
-      : {};
+    businessClickTracking({
+      action,
+      business: business.name,
+      page: business.directoryCategory === "services" ? "/services" : undefined,
+      placement: isFeatured ? "featured-business-card" : "directory-business-card",
+      placementType,
+    });
 
   return (
     <article className={`card business-directory-card ${isFeatured ? "featured-business-card" : ""}`}>
