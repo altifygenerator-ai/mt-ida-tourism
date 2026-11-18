@@ -231,6 +231,32 @@ export const businesses: Business[] = [
     href: "/restaurants",
   },
   {
+    name: "Red Dirt Property Services LLC",
+    category: "Property Cleanup • Dirt Work • Brush Hogging • Hauling",
+    directoryCategory: "services",
+    description:
+      "Southwest Arkansas property work serving Mount Ida and Lake Ouachita-area owners, including junk removal, cabin and rental cleanouts, driveway and culvert work, brush hogging, tree cleanup, and hauling.",
+    image: "/images/local-services/red-dirt-property-services.svg",
+    phone: "870-828-2562",
+    address: "Serving Mount Ida & surrounding communities",
+    website: "https://www.reddirtpropertyservicesar.com/",
+    placementType: "editorial",
+    lastVerified: "2026-11-17",
+  },
+  {
+    name: "Lyn & Lili's Tidy House",
+    category: "Home Cleaning • Rental Turnovers • Organization",
+    directoryCategory: "services",
+    description:
+      "Home cleaning, deep cleaning, cabin and Airbnb turnovers, move-out cleaning, organizing, and senior household help based in the Amity and Glenwood area. Contact the team to confirm availability for Mount Ida or Lake Ouachita properties.",
+    image: "/images/local-services/lyn-lilis-tidy-house.svg",
+    phone: "870-260-4536",
+    address: "Based near Glenwood; Mount Ida availability by request",
+    website: "https://www.lynandlilistidyhouse.com/",
+    placementType: "editorial",
+    lastVerified: "2026-11-17",
+  },
+  {
     name: "Mount Ida Visitor Services",
     category: "Local Services • Visitor Help",
     directoryCategory: "services",
